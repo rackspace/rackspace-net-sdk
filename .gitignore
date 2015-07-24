@@ -1,0 +1,27 @@
+#Build Output
+/artifacts
+
+#NuGet
+packages/
+
+#OS junk files
+[Tt]humbs.db
+*.DS_Store
+
+#Visual Studio files
+.vs/
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+*.DotSettings
+
+#Tooling
+_ReSharper*/
+*.resharper
+
+# Office Temp Files
+~$*
+
+#Git
+*.orig
