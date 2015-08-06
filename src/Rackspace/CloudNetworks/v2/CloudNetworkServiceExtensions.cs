@@ -6,38 +6,106 @@ using Rackspace.CloudNetworks.v2;
 namespace Rackspace.Synchronous
 {
     /// <summary>
-    /// Provides synchronous extention methods for a <see cref="CloudNetworkService"/> instance.
+    /// Provides synchronous extention methods for an <see cref="CloudNetworkService"/> instance.
     /// </summary>
     public static class CloudNetworkServiceExtensions
     {
-        /// <inheritdoc cref="OpenStack.Synchronous.NetworkingServiceExtensions.ListNetworks" />
-        public static IEnumerable<Network> ListNetworks(this CloudNetworkService svc)
+        #region Networks
+
+        /// <inheritdoc cref="OpenStack.Synchronous.NetworkingServiceExtensions.ListNetworks"/>
+        public static IEnumerable<Network> ListNetworks(this CloudNetworkService cloudNetworkService)
         {
-            return svc.ListNetworksAsync().ForceSynchronous();
+            return cloudNetworkService.ListNetworksAsync().ForceSynchronous();
         }
 
-        /// <inheritdoc cref="OpenStack.Synchronous.NetworkingServiceExtensions.GetNetwork" />
-        public static Network GetNetwork(this CloudNetworkService svc, string networkId)
+        /// <inheritdoc cref="OpenStack.Synchronous.NetworkingServiceExtensions.GetNetwork"/>
+        public static Network GetNetwork(this CloudNetworkService cloudNetworkService, Identifier networkId)
         {
-            return svc.GetNetworkAsync(networkId).ForceSynchronous();
+            return cloudNetworkService.GetNetworkAsync(networkId).ForceSynchronous();
+        }
+        
+        /// <inheritdoc cref="OpenStack.Synchronous.NetworkingServiceExtensions.CreateNetwork"/>
+        public static Network CreateNetwork(this CloudNetworkService cloudNetworkService, NetworkDefinition network)
+        {
+            return cloudNetworkService.CreateNetworkAsync(network).ForceSynchronous();
         }
 
-        /// <inheritdoc cref="OpenStack.Synchronous.NetworkingServiceExtensions.CreateNetwork" />
-        public static Network CreateNetwork(this CloudNetworkService svc, NetworkDefinition network)
+        /// <inheritdoc cref="OpenStack.Synchronous.NetworkingServiceExtensions.UpdateNetwork"/>
+        public static Network UpdateNetwork(this CloudNetworkService cloudNetworkService, Identifier networkId, NetworkDefinition network)
         {
-            return svc.CreateNetworkAsync(network).ForceSynchronous();
+            return cloudNetworkService.UpdateNetworkAsync(networkId, network).ForceSynchronous();
         }
 
-        /// <inheritdoc cref="OpenStack.Synchronous.NetworkingServiceExtensions.UpdateNetwork" />
-        public static Network UpdateNetwork(this CloudNetworkService svc, string networkId, NetworkDefinition network)
+        /// <inheritdoc cref="OpenStack.Synchronous.NetworkingServiceExtensions.DeleteNetwork"/>
+        public static void DeleteNetwork(this CloudNetworkService cloudNetworkService, Identifier networkId)
         {
-            return svc.UpdateNetworkAsync(networkId, network).ForceSynchronous();
+            cloudNetworkService.DeleteNetworkAsync(networkId).ForceSynchronous();
+        }
+        #endregion
+
+        #region Subnets
+
+        /// <inheritdoc cref="OpenStack.Synchronous.NetworkingServiceExtensions.ListSubnets"/>
+        public static IEnumerable<Subnet> ListSubnets(this CloudNetworkService cloudNetworkService)
+        {
+            return cloudNetworkService.ListSubnetsAsync().ForceSynchronous();
         }
 
-        /// <inheritdoc cref="OpenStack.Synchronous.NetworkingServiceExtensions.DeleteNetwork" />
-        public static void DeleteNetwork(this CloudNetworkService svc, string networkId)
+        /// <inheritdoc cref="OpenStack.Synchronous.NetworkingServiceExtensions.CreateSubnet"/>
+        public static Subnet CreateSubnet(this CloudNetworkService cloudNetworkService, SubnetCreateDefinition subnet)
         {
-            svc.DeleteNetworkAsync(networkId).ForceSynchronous();
+            return cloudNetworkService.CreateSubnetAsync(subnet).ForceSynchronous();
         }
+        
+        /// <inheritdoc cref="OpenStack.Synchronous.NetworkingServiceExtensions.GetSubnet"/>
+        public static Subnet GetSubnet(this CloudNetworkService cloudNetworkService, Identifier subnetId)
+        {
+            return cloudNetworkService.GetSubnetAsync(subnetId).ForceSynchronous();
+        }
+
+        /// <inheritdoc cref="OpenStack.Synchronous.NetworkingServiceExtensions.UpdateSubnet"/>
+        public static Subnet UpdateSubnet(this CloudNetworkService cloudNetworkService, Identifier subnetId, SubnetUpdateDefinition subnet)
+        {
+            return cloudNetworkService.UpdateSubnetAsync(subnetId, subnet).ForceSynchronous();
+        }
+
+        /// <inheritdoc cref="OpenStack.Synchronous.NetworkingServiceExtensions.DeleteSubnet"/>
+        public static void DeleteSubnet(this CloudNetworkService cloudNetworkService, Identifier subnetId)
+        {
+            cloudNetworkService.DeleteSubnetAsync(subnetId).ForceSynchronous();
+        }
+        #endregion
+
+        #region Ports
+        /// <inheritdoc cref="OpenStack.Synchronous.NetworkingServiceExtensions.ListPorts"/>
+        public static IEnumerable<Port> ListPorts(this CloudNetworkService cloudNetworkService)
+        {
+            return cloudNetworkService.ListPortsAsync().ForceSynchronous();
+        }
+
+        /// <inheritdoc cref="OpenStack.Synchronous.NetworkingServiceExtensions.CreatePort"/>
+        public static Port CreatePort(this CloudNetworkService cloudNetworkService, PortCreateDefinition port)
+        {
+            return cloudNetworkService.CreatePortAsync(port).ForceSynchronous();
+        }
+        
+        /// <inheritdoc cref="OpenStack.Synchronous.NetworkingServiceExtensions.GetPort"/>
+        public static Port GetPort(this CloudNetworkService cloudNetworkService, Identifier portId)
+        {
+            return cloudNetworkService.GetPortAsync(portId).ForceSynchronous();
+        }
+
+        /// <inheritdoc cref="OpenStack.Synchronous.NetworkingServiceExtensions.UpdatePort"/>
+        public static Port UpdatePort(this CloudNetworkService cloudNetworkService, Identifier portId, PortUpdateDefinition port)
+        {
+            return cloudNetworkService.UpdatePortAsync(portId, port).ForceSynchronous();
+        }
+
+        /// <inheritdoc cref="OpenStack.Synchronous.NetworkingServiceExtensions.DeletePort"/>
+        public static void DeletePort(this CloudNetworkService cloudNetworkService, Identifier portId)
+        {
+            cloudNetworkService.DeletePortAsync(portId).ForceSynchronous();
+        }
+        #endregion
     }
 }

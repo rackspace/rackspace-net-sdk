@@ -1,9 +1,10 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Net;
+using Rackspace.CloudNetworks.v2.Serialization;
 using Rackspace.Synchronous;
 using Rackspace.Testing;
 using Xunit;
-using Xunit.Abstractions;
 
 namespace Rackspace.CloudNetworks.v2
 {
@@ -21,14 +22,15 @@ namespace Rackspace.CloudNetworks.v2
         {
             using (var httpTest = new HttpTest())
             {
-                httpTest.RespondWithJson(new NetworkCollection(new[] {new Network {Id = "network-id"}}));
+                Identifier networkId = Guid.NewGuid();
+                httpTest.RespondWithJson(new NetworkCollection(new[] {new Network {Id = networkId}}));
 
                 var networks = _cloudNetworkService.ListNetworks();
 
                 httpTest.ShouldHaveCalled("*/networks");
                 Assert.NotNull(networks);
                 Assert.Equal(1, networks.Count());
-                Assert.Equal("network-id", networks.First().Id);
+                Assert.Equal(networkId, networks.First().Id);
             }
         }
 
@@ -37,14 +39,15 @@ namespace Rackspace.CloudNetworks.v2
         {
             using (var httpTest = new HttpTest())
             {
-                httpTest.RespondWithJson(new Network{Id = "network-id"});
+                Identifier networkId = Guid.NewGuid();
+                httpTest.RespondWithJson(new Network{Id = networkId});
 
                 var definition = new NetworkDefinition();
                 var network = _cloudNetworkService.CreateNetwork(definition);
 
                 httpTest.ShouldHaveCalled("*/networks");
                 Assert.NotNull(network);
-                Assert.Equal("network-id", network.Id);
+                Assert.Equal(networkId, network.Id);
             }
         }
         
@@ -53,13 +56,14 @@ namespace Rackspace.CloudNetworks.v2
         {
             using (var httpTest = new HttpTest())
             {
-                httpTest.RespondWithJson(new Network { Id = "network-id" });
+                Identifier networkId = Guid.NewGuid();
+                httpTest.RespondWithJson(new Network { Id = networkId });
 
-                var network = _cloudNetworkService.GetNetwork("network-id");
+                var network = _cloudNetworkService.GetNetwork(networkId);
 
-                httpTest.ShouldHaveCalled("*/networks/network-id");
+                httpTest.ShouldHaveCalled("*/networks/" + networkId);
                 Assert.NotNull(network);
-                Assert.Equal("network-id", network.Id);
+                Assert.Equal(networkId, network.Id);
             }
         }
 
@@ -68,11 +72,12 @@ namespace Rackspace.CloudNetworks.v2
         {
             using (var httpTest = new HttpTest())
             {
+                Identifier networkId = Guid.NewGuid();
                 httpTest.RespondWith((int)HttpStatusCode.NoContent, "All gone!");
 
-                _cloudNetworkService.DeleteNetwork("network-id");
+                _cloudNetworkService.DeleteNetwork(networkId);
 
-                httpTest.ShouldHaveCalled("*/networks/network-id");
+                httpTest.ShouldHaveCalled("*/networks/" + networkId);
             }
         }
 
@@ -81,11 +86,29 @@ namespace Rackspace.CloudNetworks.v2
         {
             using (var httpTest = new HttpTest())
             {
+                Identifier networkId = Guid.NewGuid();
                 httpTest.RespondWith((int)HttpStatusCode.NotFound, "Not here, boss...");
 
-                _cloudNetworkService.DeleteNetwork("network-id");
+                _cloudNetworkService.DeleteNetwork(networkId);
 
-                httpTest.ShouldHaveCalled("*/networks/network-id");
+                httpTest.ShouldHaveCalled("*/networks/" + networkId);
+            }
+        }
+
+        [Fact]
+        public void UpdateNetwork()
+        {
+            using (var httpTest = new HttpTest())
+            {
+                Identifier networkId = Guid.NewGuid();
+                httpTest.RespondWithJson(new Network {Id = networkId});
+
+                var definition = new NetworkDefinition { Name = "new network name" };
+                var network = _cloudNetworkService.UpdateNetwork(networkId, definition);
+
+                httpTest.ShouldHaveCalled("*/networks/" + networkId);
+                Assert.NotNull(network);
+                Assert.Equal(networkId, network.Id);
             }
         }
     }

@@ -76,7 +76,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CloudNetworks\v2\NetworkTests.cs" />
+    <Compile Include="CloudNetworks\v2\PortTests.cs" />
+    <Compile Include="CloudNetworks\v2\SubnetTests.cs" />
+    <Compile Include="IdentifierTests.cs" />
     <Compile Include="Stubs.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -86,9 +90,7 @@
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\..\..\openstack.net\src\corelib\OpenStack.csproj">
       <Project>{1a4fb67f-8642-4402-b931-118955ae7538}</Project>

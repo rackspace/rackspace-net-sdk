@@ -1,13 +1,17 @@
 using System;
 using net.openstack.Core.Domain;
-using net.openstack.Core.Providers;
 using net.openstack.Providers.Rackspace;
 
 namespace Rackspace
 {
-    internal class TestIdentityProvider
+    public class TestIdentityProvider
     {
-        internal static IIdentityProvider GetIdentityProvider()
+        private static readonly string EnvironmentVariablesNotFoundErrorMessage =
+            "No identity environment variables found. Make sure the following environment variables exist: " + Environment.NewLine +
+            "RACKSPACENET_USER" + Environment.NewLine +
+            "RACKSPACENET_APIKEY";
+
+        public static CloudIdentityProvider GetIdentityProvider()
         {
             var identity = GetIdentityFromEnvironment();
             return new CloudIdentityProvider(identity)
@@ -15,26 +19,40 @@ namespace Rackspace
                 ApplicationUserAgent = "CI-BOT"
             };
         }
-
-        internal static CloudIdentity GetIdentityFromEnvironment()
+        
+        public static CloudIdentity GetIdentityFromEnvironment()
         {
-            if (!string.IsNullOrEmpty(Environment.GetEnvironmentVariable("OPENSTACKNET_USER")))
+            var user = Environment.GetEnvironmentVariable("RACKSPACENET_USER");
+            if (!string.IsNullOrEmpty(user))
             {
-                return new CloudIdentity
+                var apiKey = Environment.GetEnvironmentVariable("RACKSPACENET_APIKEY");
+
+                if (!string.IsNullOrEmpty(apiKey))
                 {
-                    Username = Environment.GetEnvironmentVariable("OPENSTACKNET_USER"),
-                    APIKey = Environment.GetEnvironmentVariable("OPENSTACKNET_APIKEY")
-                };
+                    return new CloudIdentityWithProject
+                    {
+                        Username = user,
+                        APIKey = apiKey
+                    };
+                }
             }
-            if (!string.IsNullOrEmpty(Environment.GetEnvironmentVariable("BAMBOO_OPENSTACKNET_USER")))
+
+            user = Environment.GetEnvironmentVariable("BAMBOO_RACKSPACENET_USER");
+            if (!string.IsNullOrEmpty(user))
             {
-                return new CloudIdentity
+                var apiKey = Environment.GetEnvironmentVariable("BAMBOO_RACKSPACENET_PASSWORD");
+
+                if (!string.IsNullOrEmpty(apiKey))
                 {
-                    Username = Environment.GetEnvironmentVariable("BAMBOO_OPENSTACKNET_USER"),
-                    APIKey = Environment.GetEnvironmentVariable("BAMBOO_OPENSTACKNET_APIKEY_PASSWORD")
-                };
+                    return new CloudIdentity
+                    {
+                        Username = user,
+                        APIKey = apiKey
+                    };
+                }
             }
-            throw new Exception("No identity environemnt variables found. Make sure OPENSTACKNET_USER and OPENSTACKNET_APIKEY exist.");
+
+            throw new Exception(EnvironmentVariablesNotFoundErrorMessage);
         }
     }
 }

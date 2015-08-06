@@ -72,7 +72,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CloudNetworks\v2\NetworkTests.cs" />
+    <Compile Include="CloudNetworks\v2\CloudNetworkServiceTests.cs" />
+    <Compile Include="CloudNetworks\v2\CloudNetworksTestDataManager.cs" />
+    <Compile Include="Identity\v2\IdentityTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestIdentityProvider.cs" />
     <Compile Include="XunitTraceListener.cs" />
@@ -81,6 +83,10 @@
     <ProjectReference Include="..\..\..\openstack.net\src\corelib\OpenStack.csproj">
       <Project>{1A4FB67F-8642-4402-B931-118955AE7538}</Project>
       <Name>OpenStack</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\openstack.net\src\testing\integration\OpenStack.IntegrationTests.csproj">
+      <Project>{0C731980-8780-4F9B-9D14-DED790FD649A}</Project>
+      <Name>OpenStack.IntegrationTests</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\src\Rackspace\Rackspace.csproj">
       <Project>{db3f7359-22d2-4a89-845d-1b034c84d844}</Project>
@@ -91,6 +97,7 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

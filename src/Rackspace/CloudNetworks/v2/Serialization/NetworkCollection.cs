@@ -1,13 +1,9 @@
 ﻿using System.Collections.Generic;
 using OpenStack.Serialization;
 
-namespace Rackspace.CloudNetworks.v2
+namespace Rackspace.CloudNetworks.v2.Serialization
 {
-    /// <summary>
-    /// Represents a collection of network resources returned by the <see cref="CloudNetworkService"/>.
-    /// <para>Intended for custom implementations and stubbing responses in unit tests.</para>
-    /// </summary>
-    /// <threadsafety static="true" instance="false"/>
+    /// <inheritdoc cref="OpenStack.Networking.v2.Serialization.NetworkCollection"/>
     [JsonConverterWithConstructor(typeof(RootWrapperConverter), "networks")]
     public class NetworkCollection : List<Network>
     {

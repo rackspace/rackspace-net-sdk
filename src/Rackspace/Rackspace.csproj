@@ -59,14 +59,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CloudNetworks\v2\NetworkCollection.cs" />
+    <Compile Include="Authentication\ServiceType.cs" />
+    <Compile Include="CloudNetworks\IPVersion.cs" />
+    <Compile Include="CloudNetworks\NamespaceDoc.cs" />
+    <Compile Include="CloudNetworks\v2\AllocationPool.cs" />
+    <Compile Include="CloudNetworks\v2\AllowedAddress.cs" />
+    <Compile Include="CloudNetworks\v2\HostRoute.cs" />
+    <Compile Include="CloudNetworks\v2\IPAddressAssociation.cs" />
+    <Compile Include="CloudNetworks\v2\NamespaceDoc.cs" />
+    <Compile Include="CloudNetworks\v2\CloudNetworkService.cs" />
     <Compile Include="CloudNetworks\v2\CloudNetworkServiceExtensions.cs" />
-    <Compile Include="RackspaceNet.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CloudNetworks\v2\Network.cs" />
     <Compile Include="CloudNetworks\v2\NetworkDefinition.cs" />
-    <Compile Include="CloudNetworks\v2\CloudNetworkService.cs" />
     <Compile Include="CloudNetworks\v2\NetworkStatus.cs" />
+    <Compile Include="CloudNetworks\v2\Port.cs" />
+    <Compile Include="CloudNetworks\v2\PortCreateDefinition.cs" />
+    <Compile Include="CloudNetworks\v2\PortStatus.cs" />
+    <Compile Include="CloudNetworks\v2\PortUpdateDefinition.cs" />
+    <Compile Include="CloudNetworks\v2\Serialization\NamespaceDoc.cs" />
+    <Compile Include="CloudNetworks\v2\Serialization\NetworkCollection.cs" />
+    <Compile Include="CloudNetworks\v2\Serialization\PortCollection.cs" />
+    <Compile Include="CloudNetworks\v2\Serialization\SubnetCollection.cs" />
+    <Compile Include="CloudNetworks\v2\Subnet.cs" />
+    <Compile Include="CloudNetworks\v2\SubnetCreateDefinition.cs" />
+    <Compile Include="CloudNetworks\v2\SubnetUpdateDefinition.cs" />
+    <Compile Include="Identifier.cs" />
+    <Compile Include="RackspaceNet.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Serialization\IdentifierConverter.cs" />
     <Compile Include="Testing\HttpTest.cs" />
   </ItemGroup>
   <ItemGroup>
