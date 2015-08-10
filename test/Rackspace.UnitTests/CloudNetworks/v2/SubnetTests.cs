@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
 using System.Net;
+using net.openstack.Core.Domain;
+using Newtonsoft.Json;
 using Rackspace.CloudNetworks.v2.Serialization;
 using Rackspace.Synchronous;
 using Rackspace.Testing;
@@ -18,12 +20,31 @@ namespace Rackspace.CloudNetworks.v2
         }
 
         [Fact]
+        public void SubnetCollectionSerialization()
+        {
+            var subnets = new SubnetCollection
+            {
+                Subnets = { new Subnet { Id = Guid.NewGuid() } },
+                SubnetsLinks = { new Link("next", "http://api.com/next") }
+            };
+            string json = JsonConvert.SerializeObject(subnets, Formatting.None);
+            Assert.Contains("\"subnets\"", json);
+            Assert.DoesNotContain("\"subnet\"", json);
+
+            var result = JsonConvert.DeserializeObject<SubnetCollection>(json);
+            Assert.NotNull(result);
+            Assert.Equal(1, result.Count());
+            Assert.Equal(1, result.Subnets.Count());
+            Assert.Equal(1, result.SubnetsLinks.Count());
+        }
+
+        [Fact]
         public void ListSubnets()
         {
             using (var httpTest = new HttpTest())
             {
                 Identifier subnetId = Guid.NewGuid();
-                httpTest.RespondWithJson(new SubnetCollection(new[] {new Subnet {Id = subnetId}}));
+                httpTest.RespondWithJson(new SubnetCollection {Subnets = {new Subnet {Id = subnetId}}});
 
                 var subnets = _cloudNetworkService.ListSubnets();
 
@@ -31,6 +52,28 @@ namespace Rackspace.CloudNetworks.v2
                 Assert.NotNull(subnets);
                 Assert.Equal(1, subnets.Count());
                 Assert.Equal(subnetId, subnets.First().Id);
+            }
+        }
+
+        [Fact]
+        public void PageSubnets()
+        {
+            using (var httpTest = new HttpTest())
+            {
+                Identifier subnetId = Guid.NewGuid();
+                httpTest.RespondWithJson(new SubnetCollection
+                {
+                    Subnets = { new Subnet { Id = subnetId } },
+                    SubnetsLinks = { new Link("next", "http://api.com/next") }
+                });
+
+                IPage<Subnet> subnets = _cloudNetworkService.ListSubnets(subnetId, 10);
+
+                httpTest.ShouldHaveCalled(string.Format($"*/subnets?marker={subnetId}&limit=10"));
+                Assert.NotNull(subnets);
+                Assert.Equal(1, subnets.Count());
+                Assert.Equal(subnetId, subnets.First().Id);
+                Assert.True(subnets.HasNextPage);
             }
         }
 

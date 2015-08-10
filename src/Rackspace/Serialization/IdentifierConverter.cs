@@ -3,8 +3,19 @@ using Newtonsoft.Json;
 
 namespace Rackspace.Serialization
 {
-    internal class IdentifierConverter : OpenStack.Serialization.IdentifierConverter
+    internal class IdentifierConverter : JsonConverter
     {
+        /// <inheritdoc/>
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        {
+            if (value == null)
+                return;
+
+            Identifier id = (Identifier)value;
+            writer.WriteValue(id.ToString());
+        }
+
+        /// <inheritdoc/>
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
             switch (reader.TokenType)
@@ -16,7 +27,13 @@ namespace Rackspace.Serialization
                     return string.IsNullOrEmpty(id) ? null : new Identifier(id);
             }
 
-            throw new JsonSerializationException($"Unexpected token when deserializing {objectType.FullName}");
+            throw new JsonSerializationException(string.Format("Unexpected token when deserializing {0}", objectType.FullName));
+        }
+
+        /// <inheritdoc/>
+        public override bool CanConvert(Type objectType)
+        {
+            return objectType == typeof(Identifier);
         }
     }
 }

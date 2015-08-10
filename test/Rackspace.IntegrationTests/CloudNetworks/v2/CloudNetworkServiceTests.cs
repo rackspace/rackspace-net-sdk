@@ -79,6 +79,10 @@ namespace Rackspace.CloudNetworks.v2
             Trace.WriteLine("Verifying list of networks...");
             Assert.NotNull(results);
             Assert.All(networks, network => Assert.True(results.Any(x => x.Id == network.Id)));
+
+            Trace.WriteLine("Getting the first page of networks...");
+            var pagedResults = await _networkingService.ListNetworksAsync(pageSize: 1);
+            Assert.Equal(1, pagedResults.Count());
         }
 
         [Fact]
@@ -164,6 +168,10 @@ namespace Rackspace.CloudNetworks.v2
             Trace.WriteLine("Verifying list of subnets...");
             Assert.NotNull(results);
             Assert.All(subnets, subnet => Assert.True(results.Any(x => x.Id == subnet.Id)));
+
+            Trace.WriteLine("Getting the first page of subnets...");
+            var pagedResults = await _networkingService.ListSubnetsAsync(pageSize: 1);
+            Assert.Equal(1, pagedResults.Count());
         }
 
         [Fact]
@@ -244,6 +252,10 @@ namespace Rackspace.CloudNetworks.v2
             Trace.WriteLine("Verifying list of ports...");
             Assert.NotNull(results);
             Assert.All(ports, port => Assert.True(results.Any(x => x.Id == port.Id)));
+
+            Trace.WriteLine("Getting the first page of ports...");
+            var pagedResults = await _networkingService.ListPortsAsync(pageSize: 1);
+            Assert.Equal(1, pagedResults.Count());
         }
 
         [Fact]

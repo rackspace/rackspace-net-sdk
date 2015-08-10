@@ -1,25 +1,31 @@
 ﻿using System.Collections.Generic;
-using OpenStack.Serialization;
+using net.openstack.Core.Domain;
+using Newtonsoft.Json;
+using Rackspace.Serialization;
 
 namespace Rackspace.CloudNetworks.v2.Serialization
 {
     /// <inheritdoc cref="OpenStack.Networking.v2.Serialization.PortCollection"/>
-    [JsonConverterWithConstructor(typeof(RootWrapperConverter), "ports")]
-    public class PortCollection : List<Port>
+    public class PortCollection : Page<Port>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PortCollection"/> class.
+        /// The requested ports.
         /// </summary>
-        public PortCollection()
+        [JsonProperty("ports")]
+        public IList<Port> Ports
         {
+            get { return Items; }
+            set { Items = value; }
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PortCollection"/> class.
+        /// The paging navigation links.
         /// </summary>
-        /// <param name="ports">The networks.</param>
-        public PortCollection(IEnumerable<Port> ports) : base(ports)
+        [JsonProperty("ports_links")]
+        public IList<Link> PortsLinks
         {
+            get { return Links; }
+            set { Links = value; }
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
 using System.Net;
+using net.openstack.Core.Domain;
+using Newtonsoft.Json;
 using Rackspace.CloudNetworks.v2.Serialization;
 using Rackspace.Synchronous;
 using Rackspace.Testing;
@@ -18,12 +20,32 @@ namespace Rackspace.CloudNetworks.v2
         }
 
         [Fact]
+        public void PortCollectionSerialization()
+        {
+            var ports = new PortCollection
+            {
+                Ports = {new Port {Id = Guid.NewGuid()}},
+                PortsLinks = {new Link("next", "http://api.com/next")}
+            };
+
+            string json = JsonConvert.SerializeObject(ports, Formatting.None);
+            Assert.Contains("\"ports\"", json);
+            Assert.DoesNotContain("\"port\"", json);
+
+            var result = JsonConvert.DeserializeObject<PortCollection>(json);
+            Assert.NotNull(result);
+            Assert.Equal(1, result.Count());
+            Assert.Equal(1, result.Ports.Count());
+            Assert.Equal(1, result.PortsLinks.Count());
+        }
+
+        [Fact]
         public void ListPorts()
         {
             using (var httpTest = new HttpTest())
             {
                 Identifier portId = Guid.NewGuid();
-                httpTest.RespondWithJson(new PortCollection(new[] {new Port {Id = portId}}));
+                httpTest.RespondWithJson(new PortCollection {Ports = {new Port {Id = portId}}});
 
                 var ports = _cloudNetworkService.ListPorts();
 
@@ -31,6 +53,28 @@ namespace Rackspace.CloudNetworks.v2
                 Assert.NotNull(ports);
                 Assert.Equal(1, ports.Count());
                 Assert.Equal(portId, ports.First().Id);
+            }
+        }
+
+        [Fact]
+        public void PagePorts()
+        {
+            using (var httpTest = new HttpTest())
+            {
+                Identifier portId = Guid.NewGuid();
+                httpTest.RespondWithJson(new PortCollection
+                {
+                    Ports = { new Port { Id = portId } },
+                    PortsLinks = { new Link("next", "http://api.com/next") }
+                });
+
+                IPage<Port> ports = _cloudNetworkService.ListPorts(portId, 10);
+
+                httpTest.ShouldHaveCalled(string.Format($"*/ports?marker={portId}&limit=10"));
+                Assert.NotNull(ports);
+                Assert.Equal(1, ports.Count());
+                Assert.Equal(portId, ports.First().Id);
+                Assert.True(ports.HasNextPage);
             }
         }
 

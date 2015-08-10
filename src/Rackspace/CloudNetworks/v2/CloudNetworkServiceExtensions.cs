@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using OpenStack.Synchronous.Extensions;
+﻿using OpenStack.Synchronous.Extensions;
 using Rackspace.CloudNetworks.v2;
 
 // ReSharper disable once CheckNamespace
@@ -13,9 +12,9 @@ namespace Rackspace.Synchronous
         #region Networks
 
         /// <inheritdoc cref="OpenStack.Synchronous.NetworkingServiceExtensions.ListNetworks"/>
-        public static IEnumerable<Network> ListNetworks(this CloudNetworkService cloudNetworkService)
+        public static IPage<Network> ListNetworks(this CloudNetworkService cloudNetworkService, Identifier startNetworkId = null, int? pageSize = null)
         {
-            return cloudNetworkService.ListNetworksAsync().ForceSynchronous();
+            return cloudNetworkService.ListNetworksAsync(startNetworkId, pageSize).ForceSynchronous();
         }
 
         /// <inheritdoc cref="OpenStack.Synchronous.NetworkingServiceExtensions.GetNetwork"/>
@@ -46,9 +45,9 @@ namespace Rackspace.Synchronous
         #region Subnets
 
         /// <inheritdoc cref="OpenStack.Synchronous.NetworkingServiceExtensions.ListSubnets"/>
-        public static IEnumerable<Subnet> ListSubnets(this CloudNetworkService cloudNetworkService)
+        public static IPage<Subnet> ListSubnets(this CloudNetworkService cloudNetworkService, Identifier startSubnetId = null, int? pageSize = null)
         {
-            return cloudNetworkService.ListSubnetsAsync().ForceSynchronous();
+            return cloudNetworkService.ListSubnetsAsync(startSubnetId, pageSize).ForceSynchronous();
         }
 
         /// <inheritdoc cref="OpenStack.Synchronous.NetworkingServiceExtensions.CreateSubnet"/>
@@ -78,9 +77,9 @@ namespace Rackspace.Synchronous
 
         #region Ports
         /// <inheritdoc cref="OpenStack.Synchronous.NetworkingServiceExtensions.ListPorts"/>
-        public static IEnumerable<Port> ListPorts(this CloudNetworkService cloudNetworkService)
+        public static IPage<Port> ListPorts(this CloudNetworkService cloudNetworkService, Identifier startPortid = null, int? pageSize = null)
         {
-            return cloudNetworkService.ListPortsAsync().ForceSynchronous();
+            return cloudNetworkService.ListPortsAsync(startPortid, pageSize).ForceSynchronous();
         }
 
         /// <inheritdoc cref="OpenStack.Synchronous.NetworkingServiceExtensions.CreatePort"/>

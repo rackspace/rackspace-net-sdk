@@ -1,9 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 using Flurl.Extensions;
 using Flurl.Http;
-using OpenStack.Synchronous.Extensions;
 using Rackspace.CloudNetworks.v2.Serialization;
 using NetworkingApiBuilder = OpenStack.Networking.v2.NetworkingApiBuilder;
 
@@ -30,17 +28,22 @@ namespace Rackspace.CloudNetworks.v2
 
         #region Networks
         /// <inheritdoc cref="NetworkingApiBuilder.ListNetworksAsync" />
-        public Task<IEnumerable<Network>> ListNetworksAsync(CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IPage<Network>> ListNetworksAsync(Identifier startNetworkId = null, int? pageSize = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            return _networkingApiBuilder
-                .ListNetworksAsync(cancellationToken)
-                .SendAsync()
-                .ReceiveJson<NetworkCollection>()
-                .AsEnumerable<NetworkCollection, Network>();
+            PreparedRequest request = await _networkingApiBuilder.ListNetworksAsync(cancellationToken);
+
+            request.Url.SetQueryParams(new
+            {
+                marker = startNetworkId,
+                limit = pageSize
+            });
+
+            return await request.SendAsync()
+                .ReceiveJson<NetworkCollection>();
         }
 
         /// <inheritdoc cref="NetworkingApiBuilder.GetNetworkAsync" />
-        public Task<Network> GetNetworkAsync(OpenStack.Identifier networkId, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<Network> GetNetworkAsync(Identifier networkId, CancellationToken cancellationToken = default(CancellationToken))
         {
             return _networkingApiBuilder
                 .GetNetworkAsync(networkId, cancellationToken)
@@ -58,7 +61,7 @@ namespace Rackspace.CloudNetworks.v2
         }
         
         /// <inheritdoc cref="NetworkingApiBuilder.UpdateNetworkAsync" />
-        public Task<Network> UpdateNetworkAsync(OpenStack.Identifier networkId, NetworkDefinition network, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<Network> UpdateNetworkAsync(Identifier networkId, NetworkDefinition network, CancellationToken cancellationToken = default(CancellationToken))
         {
             return _networkingApiBuilder
                 .UpdateNetworkAsync(networkId, network, cancellationToken)
@@ -67,7 +70,7 @@ namespace Rackspace.CloudNetworks.v2
         }
 
         /// <inheritdoc cref="NetworkingApiBuilder.DeleteNetworkAsync" />
-        public Task DeleteNetworkAsync(OpenStack.Identifier networkId, CancellationToken cancellationToken = default(CancellationToken))
+        public Task DeleteNetworkAsync(Identifier networkId, CancellationToken cancellationToken = default(CancellationToken))
         {
             return _networkingApiBuilder
                 .DeleteNetworkAsync(networkId, cancellationToken)
@@ -78,13 +81,19 @@ namespace Rackspace.CloudNetworks.v2
         #region Subnets
 
         /// <inheritdoc cref="NetworkingApiBuilder.ListSubnetsAsync" />
-        public Task<IEnumerable<Subnet>> ListSubnetsAsync(CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IPage<Subnet>> ListSubnetsAsync(Identifier startSubnetId = null, int? pageSize = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            return _networkingApiBuilder
-                .ListSubnetsAsync(cancellationToken)
+            PreparedRequest request = await _networkingApiBuilder.ListSubnetsAsync(cancellationToken);
+
+            request.Url.SetQueryParams(new
+            {
+                marker = startSubnetId,
+                limit = pageSize
+            });
+
+            return await request
                 .SendAsync()
-                .ReceiveJson<SubnetCollection>()
-                .AsEnumerable<SubnetCollection, Subnet>();
+                .ReceiveJson<SubnetCollection>();
         }
 
         /// <inheritdoc cref="NetworkingApiBuilder.CreateSubnetAsync" />
@@ -97,7 +106,7 @@ namespace Rackspace.CloudNetworks.v2
         }
         
         /// <inheritdoc cref="NetworkingApiBuilder.GetSubnetAsync" />
-        public Task<Subnet> GetSubnetAsync(OpenStack.Identifier subnetId, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<Subnet> GetSubnetAsync(Identifier subnetId, CancellationToken cancellationToken = default(CancellationToken))
         {
             return _networkingApiBuilder
                 .GetSubnetAsync(subnetId, cancellationToken)
@@ -106,7 +115,7 @@ namespace Rackspace.CloudNetworks.v2
         }
 
         /// <inheritdoc cref="NetworkingApiBuilder.UpdateSubnetAsync" />
-        public Task<Subnet> UpdateSubnetAsync(OpenStack.Identifier subnetId, SubnetUpdateDefinition subnet, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<Subnet> UpdateSubnetAsync(Identifier subnetId, SubnetUpdateDefinition subnet, CancellationToken cancellationToken = default(CancellationToken))
         {
             return _networkingApiBuilder
                 .UpdateSubnetAsync(subnetId, subnet, cancellationToken)
@@ -115,7 +124,7 @@ namespace Rackspace.CloudNetworks.v2
         }
 
         /// <inheritdoc cref="NetworkingApiBuilder.DeleteSubnetAsync" />
-        public Task DeleteSubnetAsync(OpenStack.Identifier subnetId, CancellationToken cancellationToken = default(CancellationToken))
+        public Task DeleteSubnetAsync(Identifier subnetId, CancellationToken cancellationToken = default(CancellationToken))
         {
             return _networkingApiBuilder
                 .DeleteSubnetAsync(subnetId, cancellationToken)
@@ -126,13 +135,18 @@ namespace Rackspace.CloudNetworks.v2
         #region Ports
 
         /// <inheritdoc cref="NetworkingApiBuilder.ListPortsAsync" />
-        public Task<IEnumerable<Port>> ListPortsAsync(CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IPage<Port>> ListPortsAsync(Identifier startPortId = null, int? pageSize = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            return _networkingApiBuilder
-                .ListPortsAsync(cancellationToken)
-                .SendAsync()
-                .ReceiveJson<PortCollection>()
-                .AsEnumerable<PortCollection, Port>();
+            PreparedRequest request = await _networkingApiBuilder.ListPortsAsync(cancellationToken);
+
+            request.Url.SetQueryParams(new
+            {
+                marker = startPortId,
+                limit = pageSize
+            });
+
+            return await request.SendAsync()
+                .ReceiveJson<PortCollection>();
         }
 
         /// <inheritdoc cref="NetworkingApiBuilder.CreatePortAsync" />
@@ -145,7 +159,7 @@ namespace Rackspace.CloudNetworks.v2
         }
         
         /// <inheritdoc cref="NetworkingApiBuilder.GetPortAsync" />
-        public Task<Port> GetPortAsync(OpenStack.Identifier portId, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<Port> GetPortAsync(Identifier portId, CancellationToken cancellationToken = default(CancellationToken))
         {
             return _networkingApiBuilder
                 .GetPortAsync(portId, cancellationToken)
@@ -154,7 +168,7 @@ namespace Rackspace.CloudNetworks.v2
         }
 
         /// <inheritdoc cref="NetworkingApiBuilder.UpdatePortAsync" />
-        public Task<Port> UpdatePortAsync(OpenStack.Identifier portId, PortUpdateDefinition port, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<Port> UpdatePortAsync(Identifier portId, PortUpdateDefinition port, CancellationToken cancellationToken = default(CancellationToken))
         {
             return _networkingApiBuilder
                 .UpdatePortAsync(portId, port, cancellationToken)
@@ -163,7 +177,7 @@ namespace Rackspace.CloudNetworks.v2
         }
 
         /// <inheritdoc cref="NetworkingApiBuilder.DeletePortAsync" />
-        public Task DeletePortAsync(OpenStack.Identifier portId, CancellationToken cancellationToken = default(CancellationToken))
+        public Task DeletePortAsync(Identifier portId, CancellationToken cancellationToken = default(CancellationToken))
         {
             return _networkingApiBuilder
                 .DeletePortAsync(portId, cancellationToken)

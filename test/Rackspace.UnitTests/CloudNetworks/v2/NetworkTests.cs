@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
 using System.Net;
+using net.openstack.Core.Domain;
+using Newtonsoft.Json;
 using Rackspace.CloudNetworks.v2.Serialization;
 using Rackspace.Synchronous;
 using Rackspace.Testing;
@@ -18,12 +20,31 @@ namespace Rackspace.CloudNetworks.v2
         }
 
         [Fact]
+        public void NetworkCollectionSerialization()
+        {
+            var networks = new NetworkCollection
+            {
+                Networks = {new Network {Id = Guid.NewGuid()}},
+                NetworksLinks = {new Link("next", "http://api.com/next")}
+            };
+            string json = JsonConvert.SerializeObject(networks, Formatting.None);
+            Assert.Contains("\"networks\"", json);
+            Assert.DoesNotContain("\"network\"", json);
+
+            var result = JsonConvert.DeserializeObject<NetworkCollection>(json);
+            Assert.NotNull(result);
+            Assert.Equal(1, result.Count());
+            Assert.Equal(1, result.Networks.Count());
+            Assert.Equal(1, result.NetworksLinks.Count());
+        }
+
+        [Fact]
         public void ListNetworks()
         {
             using (var httpTest = new HttpTest())
             {
                 Identifier networkId = Guid.NewGuid();
-                httpTest.RespondWithJson(new NetworkCollection(new[] {new Network {Id = networkId}}));
+                httpTest.RespondWithJson(new NetworkCollection {Networks = {new Network {Id = networkId}}});
 
                 var networks = _cloudNetworkService.ListNetworks();
 
@@ -31,6 +52,28 @@ namespace Rackspace.CloudNetworks.v2
                 Assert.NotNull(networks);
                 Assert.Equal(1, networks.Count());
                 Assert.Equal(networkId, networks.First().Id);
+            }
+        }
+
+        [Fact]
+        public void PageNetworks()
+        {
+            using (var httpTest = new HttpTest())
+            {
+                Identifier networkId = Guid.NewGuid();
+                httpTest.RespondWithJson(new NetworkCollection
+                {
+                    Networks = {new Network {Id = networkId}},
+                    NetworksLinks = {new Link("next", "http://api.com/next")}
+                });
+
+                IPage<Network> networks = _cloudNetworkService.ListNetworks(networkId, 10);
+
+                httpTest.ShouldHaveCalled(string.Format($"*/networks?marker={networkId}&limit=10"));
+                Assert.NotNull(networks);
+                Assert.Equal(1, networks.Count());
+                Assert.Equal(networkId, networks.First().Id);
+                Assert.True(networks.HasNextPage);
             }
         }
 

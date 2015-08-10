@@ -1,25 +1,31 @@
 ﻿using System.Collections.Generic;
-using OpenStack.Serialization;
+using net.openstack.Core.Domain;
+using Newtonsoft.Json;
+using Rackspace.Serialization;
 
 namespace Rackspace.CloudNetworks.v2.Serialization
 {
     /// <inheritdoc cref="OpenStack.Networking.v2.Serialization.NetworkCollection"/>
-    [JsonConverterWithConstructor(typeof(RootWrapperConverter), "networks")]
-    public class NetworkCollection : List<Network>
+    public class NetworkCollection : Page<Network>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="NetworkCollection"/> class.
+        /// The requested networks.
         /// </summary>
-        public NetworkCollection()
+        [JsonProperty("networks")]
+        public IList<Network> Networks
         {
+            get { return Items; }
+            set { Items = value; }
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="NetworkCollection"/> class.
+        /// The paging navigation links.
         /// </summary>
-        /// <param name="networks">The networks.</param>
-        public NetworkCollection(IEnumerable<Network> networks) : base(networks)
+        [JsonProperty("networks_links")]
+        public IList<Link> NetworksLinks
         {
+            get { return Links; }
+            set { Links = value; }
         }
     }
 }
