@@ -63,7 +63,6 @@
     <Compile Include="CloudNetworks\IPVersion.cs" />
     <Compile Include="CloudNetworks\NamespaceDoc.cs" />
     <Compile Include="CloudNetworks\v2\AllocationPool.cs" />
-    <Compile Include="CloudNetworks\v2\AllowedAddress.cs" />
     <Compile Include="CloudNetworks\v2\HostRoute.cs" />
     <Compile Include="CloudNetworks\v2\IPAddressAssociation.cs" />
     <Compile Include="CloudNetworks\v2\NamespaceDoc.cs" />
