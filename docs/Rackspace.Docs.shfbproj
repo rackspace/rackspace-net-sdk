@@ -14,7 +14,7 @@
     <Name>Rackspace.Docs</Name>
     <!-- SHFB properties -->
     <FrameworkVersion>.NET Framework 4.5.2</FrameworkVersion>
-    <OutputPath>..\artifacts\docs</OutputPath>
+    <OutputPath>..\artifacts\docs\html\</OutputPath>
     <HtmlHelpName>Rackspace.Docs</HtmlHelpName>
     <Language>en-US</Language>
     <TransformComponentArguments>
@@ -99,17 +99,18 @@
       <Filter entryType="Namespace" fullName="Rackspace.Serialization" isExposed="False" />
     </ApiFilter>
     <ComponentConfigurations>
-      <ComponentConfig id="IntelliSense Component" enabled="True" xmlns="">
+      <ComponentConfig id="IntelliSense Component" enabled="True">
         <component id="IntelliSense Component">
           <!-- Output options (optional)
   Attributes:
     Include namespaces (false by default)
     Namespaces comments filename ("Namespaces" if not specified or empty)
     Output folder (current folder if not specified or empty) -->
-          <output includeNamespaces="false" namespacesFile="Namespaces" folder="{@OutputFolder}\API" />
+          <output includeNamespaces="false" namespacesFile="Namespaces" folder="{@OutputFolder}\..\api" />
         </component>
       </ComponentConfig>
     </ComponentConfigurations>
+    <ComponentPath>..\packages\EWSoftware.SHFB.NETFramework\tools\</ComponentPath>
   </PropertyGroup>
   <!-- There are no properties for these groups.  AnyCPU needs to appear in order for Visual Studio to perform
 			 the build.  The others are optional common platform types that may appear. -->
