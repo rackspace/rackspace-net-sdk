@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <Configuration>Debug</Configuration>
+    <Version>0.1.0</Version>
+
+    <NuGet>$(LocalAppData)\NuGet\NuGet.exe</NuGet>
+    <MSBuild>&quot;$(MSBuildToolsPath)\MSBuild.exe&quot;</MSBuild>
+    <XUnit>..\packages\xunit.runner.console.2.0.0\tools\xunit.console.exe</XUnit>
+    <XUnitXslt>..\packages\xunit.runner.console.2.0.0\tools\NUnitXml.xslt</XUnitXslt>
+  </PropertyGroup>
+
+  <Target Name="CI">
+    <PropertyGroup>
+      <Configuration>Release</Configuration>
+    </PropertyGroup>
+
+    <CallTarget Targets="Build" />
+    <CallTarget Targets="UnitTest" />
+    <CallTarget Targets="IntegrationTest" />
+  </Target>
+
+  <Target Name="Build" DependsOnTargets="RestorePackages">
+    <Exec Command="$(MSBuild) ..\Rackspace.sln /p:Configuration=$(Configuration) /nologo /v:minimal" />
+  </Target>
+
+  <Target Name="RestorePackages" DependsOnTargets="DownloadNuGet">
+    <Exec Command="$(NuGet) restore ..\Rackspace.sln" WorkingDirectory="$(MSBuildThisFileDirectory)" />
+  </Target>
+
+  <Target Name="DownloadNuGet" Condition="!Exists('$(NuGet)')">
+    <MakeDir Directories="$(LocalAppData)\NuGet" />
+    <Exec Command="@powershell -NoProfile -ExecutionPolicy unrestricted -Command &quot;$ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest 'https://www.nuget.org/nuget.exe' -OutFile '$(NuGet)'&quot;" />
+  </Target>
+
+  <Target Name="UnitTest" DependsOnTargets="Build">
+    <MakeDir Directories="..\artifacts\TestResults\" />
+    <Exec Command="$(XUnit) ..\test\Rackspace.UnitTests\bin\$(Configuration)\Rackspace.UnitTests.dll -xml ..\artifacts\TestResults\unit-tests.xml" ContinueOnError="true" />
+
+    <!-- Convert test results to the NUnit format for easier reporting -->
+    <XslTransformation XmlInputPaths="..\artifacts\TestResults\unit-tests.xml"  XslInputPath="$(XUnitXslt)"
+      OutputPaths="..\artifacts\TestResults\unit-tests.nunit.xml" />
+  </Target>
+
+  <Target Name="IntegrationTest" DependsOnTargets="Build">
+    <MakeDir Directories="..\artifacts\TestResults\" />
+    <Exec Command="$(XUnit) ..\test\Rackspace.IntegrationTests\bin\$(Configuration)\Rackspace.IntegrationTests.dll -xml ..\artifacts\TestResults\integration-tests.xml -notrait ci=false" ContinueOnError="true" />
+
+    <!-- Convert test results to the NUnit format for easier reporting -->
+    <XslTransformation XmlInputPaths="..\artifacts\TestResults\integration-tests.xml"  XslInputPath="$(XUnitXslt)"
+      OutputPaths="..\artifacts\TestResults\integration-tests.nunit.xml" />
+  </Target>
+
+</Project>

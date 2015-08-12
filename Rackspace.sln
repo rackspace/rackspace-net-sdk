@@ -5,6 +5,7 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CC35C73A-4149-4585-9498-8AF3DB9CF2DF}"
 	ProjectSection(SolutionItems) = preProject
+		build\build.proj = build\build.proj
 		NuGet.config = NuGet.config
 	EndProjectSection
 EndProject
@@ -12,15 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rackspace.UnitTests", "test
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rackspace", "src\Rackspace\Rackspace.csproj", "{DB3F7359-22D2-4A89-845D-1B034C84D844}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OpenStack.NET", "OpenStack.NET", "{B2EFD65E-3A10-40C7-AF4C-DCF09315C1E3}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rackspace.IntegrationTests", "test\Rackspace.IntegrationTests\Rackspace.IntegrationTests.csproj", "{96D6144F-38B2-45CE-AEF4-9F7C23BF0EDC}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenStack", "..\openstack.net\src\corelib\OpenStack.csproj", "{1A4FB67F-8642-4402-B931-118955AE7538}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenStack.UnitTests", "..\openstack.net\src\testing\unit\OpenStack.UnitTests.csproj", "{AC3D4496-F18B-4907-9FEB-E87F9C6CB7E4}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenStack.IntegrationTests", "..\openstack.net\src\testing\integration\OpenStack.IntegrationTests.csproj", "{0C731980-8780-4F9B-9D14-DED790FD649A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,25 +33,8 @@ Global
 		{96D6144F-38B2-45CE-AEF4-9F7C23BF0EDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96D6144F-38B2-45CE-AEF4-9F7C23BF0EDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96D6144F-38B2-45CE-AEF4-9F7C23BF0EDC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1A4FB67F-8642-4402-B931-118955AE7538}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1A4FB67F-8642-4402-B931-118955AE7538}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1A4FB67F-8642-4402-B931-118955AE7538}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1A4FB67F-8642-4402-B931-118955AE7538}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AC3D4496-F18B-4907-9FEB-E87F9C6CB7E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AC3D4496-F18B-4907-9FEB-E87F9C6CB7E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AC3D4496-F18B-4907-9FEB-E87F9C6CB7E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AC3D4496-F18B-4907-9FEB-E87F9C6CB7E4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0C731980-8780-4F9B-9D14-DED790FD649A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0C731980-8780-4F9B-9D14-DED790FD649A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0C731980-8780-4F9B-9D14-DED790FD649A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0C731980-8780-4F9B-9D14-DED790FD649A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{1A4FB67F-8642-4402-B931-118955AE7538} = {B2EFD65E-3A10-40C7-AF4C-DCF09315C1E3}
-		{AC3D4496-F18B-4907-9FEB-E87F9C6CB7E4} = {B2EFD65E-3A10-40C7-AF4C-DCF09315C1E3}
-		{0C731980-8780-4F9B-9D14-DED790FD649A} = {B2EFD65E-3A10-40C7-AF4C-DCF09315C1E3}
 	EndGlobalSection
 EndGlobal

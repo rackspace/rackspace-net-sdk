@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Linq;
-using OpenStack;
 using Xunit;
 using Xunit.Abstractions;
 
