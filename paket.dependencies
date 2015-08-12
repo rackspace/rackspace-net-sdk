@@ -1,7 +1,7 @@
 source https://www.myget.org/F/openstacknetsdk/api/v2
 source https://nuget.org/api/v2
 
-nuget openstack.net != 1.5.0-beta1
+nuget openstack.net !~> 1.5.0-beta
 nuget moq !>= 4.2
 nuget xunit !~> 2.0.0
 nuget xunit.runner.console !~> 2.0.0
