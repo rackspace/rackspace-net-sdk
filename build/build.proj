@@ -19,10 +19,19 @@
     <CallTarget Targets="Build" />
     <CallTarget Targets="UnitTest" />
     <CallTarget Targets="IntegrationTest" />
+    <CallTarget Targets="Documentation" />
   </Target>
 
   <Target Name="Build" DependsOnTargets="RestorePackages">
     <Exec Command="$(MSBuild) ..\Rackspace.sln /p:Configuration=$(Configuration) /nologo /v:minimal" />
+  </Target>
+
+  <Target Name="Documentation" DependsOnTargets="Build">
+    <PropertyGroup>
+      <SHFBROOT>$(MSBuildThisFileDirectory.Replace('build\','packages'))\EWSoftware.SHFB\tools</SHFBROOT>
+    </PropertyGroup>
+
+    <Exec Command="(set SHFBROOT=$(SHFBROOT)) &amp; $(MSBuild) ..\docs\Rackspace.Docs.sln /p:Configuration=$(Configuration) /nologo /v:minimal" />
   </Target>
 
   <Target Name="RestorePackages" DependsOnTargets="DownloadPaket">
