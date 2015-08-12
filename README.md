@@ -12,6 +12,9 @@ We are in the middle of migrating Rackspace solutions out of [OpenStack.NET](htt
 ** Prerequisites **
 * Visual Studio 2015
 
+** Optional **
+* We are using [Paket](http://fsprojects.github.io/Paket) for dependency management instead of NuGet. As long as you execute build.cmd before building, you do not need to install anything else, but if you like there is the [Paket Visual Studio Extension](http://fsprojects.github.io/Paket/editor-support.html#Visual-Studio) which lets you restore and update packages from the Tools menu in Visual Studio.
+
 ### Build script
 
 Execute `build.cmd` to download all dependencies and build. Use `build.cmd help` or `build.cmd /?` to view the available command line arguments.
