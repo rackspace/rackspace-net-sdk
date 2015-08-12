@@ -6,7 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CC35C73A-4149-4585-9498-8AF3DB9CF2DF}"
 	ProjectSection(SolutionItems) = preProject
 		build\build.proj = build\build.proj
-		NuGet.config = NuGet.config
+		paket.dependencies = paket.dependencies
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rackspace.UnitTests", "test\Rackspace.UnitTests\Rackspace.UnitTests.csproj", "{6D1C8845-3569-4B33-BA94-E344572D1DBC}"

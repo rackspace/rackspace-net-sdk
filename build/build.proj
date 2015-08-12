@@ -5,10 +5,10 @@
     <Configuration>Debug</Configuration>
     <Version>0.1.0</Version>
 
-    <NuGet>$(LocalAppData)\NuGet\NuGet.exe</NuGet>
+    <Paket>..\.paket\paket.exe</Paket>
     <MSBuild>&quot;$(MSBuildToolsPath)\MSBuild.exe&quot;</MSBuild>
-    <XUnit>..\packages\xunit.runner.console.2.0.0\tools\xunit.console.exe</XUnit>
-    <XUnitXslt>..\packages\xunit.runner.console.2.0.0\tools\NUnitXml.xslt</XUnitXslt>
+    <XUnit>..\packages\xunit.runner.console\tools\xunit.console.exe</XUnit>
+    <XUnitXslt>..\packages\xunit.runner.console\tools\NUnitXml.xslt</XUnitXslt>
   </PropertyGroup>
 
   <Target Name="CI">
@@ -25,13 +25,12 @@
     <Exec Command="$(MSBuild) ..\Rackspace.sln /p:Configuration=$(Configuration) /nologo /v:minimal" />
   </Target>
 
-  <Target Name="RestorePackages" DependsOnTargets="DownloadNuGet">
-    <Exec Command="$(NuGet) restore ..\Rackspace.sln" WorkingDirectory="$(MSBuildThisFileDirectory)" />
+  <Target Name="RestorePackages" DependsOnTargets="DownloadPaket">
+    <Exec Command="$(Paket) install"/>
   </Target>
 
-  <Target Name="DownloadNuGet" Condition="!Exists('$(NuGet)')">
-    <MakeDir Directories="$(LocalAppData)\NuGet" />
-    <Exec Command="@powershell -NoProfile -ExecutionPolicy unrestricted -Command &quot;$ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest 'https://www.nuget.org/nuget.exe' -OutFile '$(NuGet)'&quot;" />
+  <Target Name="DownloadPaket" Condition="!Exists('$(Paket)')">
+    <Exec Command="..\.paket\paket.bootstrapper.exe" />
   </Target>
 
   <Target Name="UnitTest" DependsOnTargets="Build">

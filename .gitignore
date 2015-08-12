@@ -1,7 +1,9 @@
 #Build Output
 /artifacts
 
-#NuGet
+#NuGet/Paket
+/.paket/paket.exe
+paket.lock
 packages/
 
 #OS junk files
