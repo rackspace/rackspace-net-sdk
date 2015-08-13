@@ -54,9 +54,11 @@
     <HtmlSdkLinkType>Msdn</HtmlSdkLinkType>
     <IncludeFavorites>False</IncludeFavorites>
     <BinaryTOC>False</BinaryTOC>
-    <FeedbackEMailLinkText>sdk-support%40rackspace.com</FeedbackEMailLinkText>
-    <FeedbackEMailAddress>sdk-support%40rackspace.com</FeedbackEMailAddress>
-    <CopyrightText>Copyright 2015 Rackspace, Inc.</CopyrightText>
+    <FeedbackEMailLinkText>
+    </FeedbackEMailLinkText>
+    <FeedbackEMailAddress>
+    </FeedbackEMailAddress>
+    <CopyrightText>Go back to the Rackspace .NET SDK project home.</CopyrightText>
     <RootNamespaceTitle>API</RootNamespaceTitle>
     <ApiFilter>
       <Filter entryType="Namespace" fullName="Flurl.Extensions" isExposed="False" />
@@ -111,6 +113,11 @@
       </ComponentConfig>
     </ComponentConfigurations>
     <ComponentPath>..\packages\EWSoftware.SHFB.NETFramework\tools\</ComponentPath>
+    <HeaderText>
+    </HeaderText>
+    <FooterText>
+    </FooterText>
+    <CopyrightHref>http://rackspace.github.io/Rackspace.NET/</CopyrightHref>
   </PropertyGroup>
   <!-- There are no properties for these groups.  AnyCPU needs to appear in order for Visual Studio to perform
 			 the build.  The others are optional common platform types that may appear. -->
