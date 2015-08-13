@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Rackspace</id>
+    <version>0.0.0</version>
+    <title>Rackspace .NET SDK</title>
+    <authors>carolynvs</authors>
+    <licenseUrl>https://github.com/rackspace/Rackspace.NET/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://rackspace.github.io/Rackspace.NET/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Automating all things Rackspace</description>
+    <releaseNotes>https://github.com/rackspace/Rackspace.NET/releases/v$version$</releaseNotes>
+    <copyright>2015 Rackspace, Inc.</copyright>
+    <tags>openstack rackspace rackconnect</tags>
+    <dependencies>
+      <group targetFramework="4.5">
+        <dependency id="openstack.net" version="1.5.0-beta-1" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+
+    <!-- Runtime libraries -->
+    <file src="..\src\Rackspace\bin\$Configuration$\Rackspace.dll" target="lib\net45"/>
+    <file src="..\src\Rackspace\bin\$Configuration$\Rackspace.pdb" target="lib\net45"/>
+    <file src="..\artifacts\docs\api\Rackspace.xml" target="lib\net45"/>
+
+  </files>
+</package>
