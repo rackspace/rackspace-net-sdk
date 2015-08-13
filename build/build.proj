@@ -3,7 +3,7 @@
 
   <PropertyGroup>
     <Configuration>Debug</Configuration>
-    <Version>0.1.0-beta1</Version>
+    <Version>0.1.0-beta2</Version>
 
     <NuGet>$(LocalAppData)\NuGet\NuGet.exe</NuGet>
     <Paket>..\.paket\paket.exe</Paket>
