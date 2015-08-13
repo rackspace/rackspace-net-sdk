@@ -1,0 +1,7 @@
+* text=auto
+
+# Certainly binary files
+*.gif binary
+*.png binary
+*.ico binary
+*.snk binary
