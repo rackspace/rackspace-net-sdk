@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="{{site.baseurl}}/stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="{{site.baseurl}}/stylesheets/pygment_zenburn.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="{{site.baseurl}}/stylesheets/print.css" media="print" />
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title> {{ page.title }} </title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
+        <h2>The .NET SDK for all things Rackspace</h2>
+        <a href="https://github.com/rackspace/Rackspace.NET" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+
+          {{ content }}
+
+        </section>
+
+        <aside id="sidebar">
+          <a href="http://nuget.org/packages/Rackspace" class="button nuget">
+            <small>Install</small>
+            NuGet Package
+          </a>
+          <a href="{{site.baseurl}}/docs" class="button docs">
+            <small>Read</small>
+            SDK Docs
+          </a>
+        </aside>
+      </div>
+    </div>
+
+    <div id="footer" class="inner clearfix">
+      <div id="copyright">Copyright 2015 Rackspce, Inc.</div>
+      <div id="attribution">
+        <a href="https://github.com/jasonlong/architect-theme">architect-theme</a> is maintained by <a href="https://github.com/jasonlong">jasonlong</a>
+        and <a href="https://github.com/pietromenna/jekyll-architect-theme">jekyll-architect-theme</a> is maintained by <a href="https://github.com/pietromenna">pietromenna</a>.
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,1 +1,22 @@
-	Hello world! Check out our <a href="docs/index.html">SDK docs</a>.
+---
+layout: default
+title: Rackspace .NET SDK
+---
+
+<div id="home">
+  <p>{Explain what the Rackspace .NET SDK is and its relationship to OpenStack.NET}</p>
+
+  <h2>Getting Started</h2>
+  <pre>
+    * Install NuGet package
+    * Add using statement for Rackspace and desired area, e.g. Rackspace.CloudNetworks.v2
+    * {Example}
+  </pre>
+
+  <h2>Recent Blog Posts</h2>
+  <ul class="posts">
+    {% for post in site.posts limit:5 %}
+      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
