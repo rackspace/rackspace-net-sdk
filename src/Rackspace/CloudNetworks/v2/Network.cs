@@ -5,6 +5,7 @@ namespace Rackspace.CloudNetworks.v2
 {
     /// <summary>
     /// Represents a network resource of the <see cref="CloudNetworkService"/>.
+    /// <para/>
     /// <para>
     /// Isolated virtual Layer-2 domains; a network can also be regarded as a virtual (or logical) switch.
     /// </para>

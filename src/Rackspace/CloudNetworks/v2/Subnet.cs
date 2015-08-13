@@ -4,10 +4,9 @@ using OpenStack.Serialization;
 namespace Rackspace.CloudNetworks.v2
 {
     /// <summary>
-    /// Represents a subnet resource of the <see cref="CloudNetworkService"/>.
-    /// <para>
-    /// IPv4 or IPv6 address blocks from which IPs to be assigned to VMs on a given network are selected.
-    /// </para>
+    /// <para>Represents a subnet resource of the <see cref="CloudNetworkService"/>.</para>
+    /// <para/>
+    /// <para>IPv4 or IPv6 address blocks from which IPs to be assigned to VMs on a given network are selected.</para>
     /// </summary>
     /// <threadsafety static="true" instance="false"/>
     [JsonConverterWithConstructor(typeof(RootWrapperConverter), "subnet")]

@@ -1,5 +1,4 @@
 using Newtonsoft.Json;
-using OpenStack.Networking.v2;
 
 namespace Rackspace.CloudNetworks.v2
 {
@@ -40,7 +39,7 @@ namespace Rackspace.CloudNetworks.v2
         public Identifier SubnetId { get; set; }
 
         /// <summary>
-        /// The subnet identifier.
+        /// The associated IP address.
         /// </summary>
         [JsonProperty("ip_address")]
         public string IPAddress { get; set; }

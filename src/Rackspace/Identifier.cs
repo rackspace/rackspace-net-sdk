@@ -5,11 +5,13 @@ using Rackspace.Serialization;
 namespace Rackspace
 {
     /// <summary>
-    /// Represents a uniqe identifier.
+    /// Represents a unique identifier.
+    /// <para/>
     /// <para>
     /// This is a Guid which has implicit and explicit conversions to/from Guid and String.
     /// </para>
     /// </summary>
+    /// <threadsafety static="true" instance="false"/>
     [JsonConverter(typeof(IdentifierConverter))]
     public class Identifier
     {
@@ -123,13 +125,28 @@ namespace Rackspace
             return _id.GetHashCode();
         }
 
-        /// <inheritdoc />
+
+        /// <summary>
+        /// Implements the operator ==.
+        /// </summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>
+        /// The result of the operator.
+        /// </returns>
         public static bool operator ==(Identifier left, Identifier right)
         {
             return Equals(left, right);
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Implements the operator !=.
+        /// </summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>
+        /// The result of the operator.
+        /// </returns>
         public static bool operator !=(Identifier left, Identifier right)
         {
             return !Equals(left, right);

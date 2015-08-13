@@ -7,6 +7,7 @@ namespace Rackspace.Synchronous
     /// <summary>
     /// Provides synchronous extention methods for an <see cref="CloudNetworkService"/> instance.
     /// </summary>
+    /// <threadsafety static="true" instance="false"/>
     public static class CloudNetworkServiceExtensions
     {
         #region Networks

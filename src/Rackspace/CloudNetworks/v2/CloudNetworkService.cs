@@ -12,6 +12,7 @@ namespace Rackspace.CloudNetworks.v2
     /// </summary>
     /// <seealso href="http://api.rackspace.com/api-ref-networks.html">Cloud Networks API v2 Reference</seealso>
     /// <seealso href="http://docs.rackspace.com/networks/api/v2/cn-gettingstarted/content/ch_preface.html">Cloud Networks Getting Started</seealso>
+    /// <threadsafety static="true" instance="false"/>
     public class CloudNetworkService
     {
         private readonly NetworkingApiBuilder _networkingApiBuilder;

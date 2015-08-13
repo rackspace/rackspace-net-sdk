@@ -4,10 +4,11 @@ namespace Rackspace.CloudNetworks.v2
 {
     /// <summary>
     /// Represents a port resource of the <see cref="CloudNetworkService"/>.
-    /// </summary>
+    /// <para/>
     /// <para>
     /// Virtual (or logical) switch ports on a given network.
     /// </para>
+    /// </summary>
     /// <threadsafety static="true" instance="false"/>
     public class Port : PortCreateDefinition
     {
