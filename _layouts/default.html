@@ -41,6 +41,23 @@
             <small>Read</small>
             SDK Docs
           </a>
+
+          <div class="posts">
+        	  {% for post in site.posts %}
+        	    {% unless post.next %}
+        	      <h3>{{ post.date | date: '%Y %B' }}</h3>
+        	    {% else %}
+        	      {% capture year %}{{ post.date | date: '%Y %B' }}{% endcapture %}
+        	      {% capture nyear %}{{ post.next.date | date: '%Y %B' }}{% endcapture %}
+        	      {% if year != nyear %}
+        	        <h3>{{ post.date | date: '%Y %B' }}</h3>
+        	      {% endif %}
+        	    {% endunless %}
+
+        	    <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a><br/>
+        	  {% endfor %}
+          </div>
+
         </aside>
       </div>
     </div>
