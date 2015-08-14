@@ -4,14 +4,55 @@ title: Rackspace .NET SDK
 ---
 
 <div id="home">
-  <p>{Explain what the Rackspace .NET SDK is and its relationship to OpenStack.NET}</p>
+  <p>
+    The Rackspace .NET SDK is here to help you automate any Rackspace service. Our goal?
+  </p>
+  <p style="text-align: center; color: #2e7bcf">
+    <i><em>If the control panel can do it, we can automate it!</em></i>
+  </p>
+
+  <h2>Features</h2>
+  <p>
+    Here's what you can do today with the Rackspce .NET SDK:
+  </p>
+  <ul>
+    <li>Provision multiple application servers with Cloud Servers</li>
+    <li>Secure your network with Cloud Networks</li>
+    <li>Meet high availability requirements with Cloud Load Balancers</li>
+    <li>Associate a domain name to your server using Cloud DNS</li>
+    <li>Scale your server's drive space with Cloud Block Storage</li>
+    <li>Deploy your website's static files with Cloud Files</li>
+    <li>Setup a MySQL database with Cloud Databases</li>
+    <li>Use durable message queueing with Cloud Queues</li>
+    <li>Enable Akamai with Rackspace CDN</li>
+  </ul>
 
   <h2>Getting Started</h2>
-  <pre>
-    * Install NuGet package
-    * Add using statement for Rackspace and desired area, e.g. Rackspace.CloudNetworks.v2
-    * {Example}
-  </pre>
+  <p>
+    Use NuGet to install the Rackspace package:
+  </p>
+  <div class="nuget-badge">
+    <p>
+      <code>PM&gt; Install-Package Rackspace -Pre</code>
+    </p>
+  </div>
+
+  <p>
+    Now you can use everything that's available today in <a href="http://openstacknetsdk.org">OpenStack.NET</a>,
+    plus new features as they are added to the Rackspace .NET SDK.
+  </p>
+
+  {% highlight csharp %}
+using net.openstack.Core.Domain;
+using net.openstack.Providers.Rackspace;
+using Rackspace.CloudNetworks.v2;
+
+var identity = new CloudIdentity { Username = "{username}", APIKey = "{api-key}" };
+var identityService = new CloudIdentityProvider(identity);
+
+var networkService = new CloudNetworkService(identityService, "{region}");
+var networks = await networkService.ListNetworksAsync();
+  {% endhighlight %}
 
   <h2>Recent Blog Posts</h2>
   <ul class="posts">
