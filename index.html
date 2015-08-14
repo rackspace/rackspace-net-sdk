@@ -29,6 +29,12 @@ title: Rackspace .NET SDK
 
   <h2>Getting Started</h2>
   <p>
+    Take a look at
+    <a href="https://developer.rackspace.com/sdks/dot-net/">Getting Started with .NET SDK</a>
+    for information on supported services and walkthroughs.
+  </p>
+
+  <p>
     Use NuGet to install the Rackspace package:
   </p>
   <div class="nuget-badge">
@@ -36,21 +42,4 @@ title: Rackspace .NET SDK
       <code>PM&gt; Install-Package Rackspace -Pre</code>
     </p>
   </div>
-
-  <p>
-    Now you can use everything that's available today in <a href="http://openstacknetsdk.org">OpenStack.NET</a>,
-    plus new features as they are added to the Rackspace .NET SDK.
-  </p>
-
-  {% highlight csharp %}
-using net.openstack.Core.Domain;
-using net.openstack.Providers.Rackspace;
-using Rackspace.CloudNetworks.v2;
-
-var identity = new CloudIdentity { Username = "{username}", APIKey = "{api-key}" };
-var identityService = new CloudIdentityProvider(identity);
-
-var networkService = new CloudNetworkService(identityService, "{region}");
-var networks = await networkService.ListNetworksAsync();
-  {% endhighlight %}
 </div>
