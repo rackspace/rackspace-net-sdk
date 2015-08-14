@@ -1,18 +1,19 @@
 # Rackspace .NET SDK
-The .NET SDK for all things Rackspace.
+Automating all things Rackspace! Checkout http://rackspace.github.io/Rackspace.NET for project information and how to get started with the SDK.
 
 ## Migration
-We are in the middle of migrating Rackspace solutions out of [OpenStack.NET](https://github.com/openstacknetsdk/openstack.net).
+We are in the middle of migrating Rackspace solutions out of [OpenStack.NET](https://github.com/openstacknetsdk/openstack.net), creating a clean, clear separating between OpenStack and Rackspace functionality.
 
+* [Introducing Rackspace .NET SDK](http://rackspace.github.io/Rackspace.NET/blog/introducing-rackspace-dotnet-sdk/)
 * [Migration Plan and FAQ](https://github.com/openstacknetsdk/openstack.net/wiki/Rackspace-and-OpenStack.NET)
-* [OpenStack.NET 1.5.x Milestones](https://github.com/openstacknetsdk/openstack.net/milestones)
 * [Rackspace .NET SDK 0.x Milesones](https://github.com/rackspace/rackspace.net/milestones)
+* [OpenStack.NET 1.5.x Milestones](https://github.com/openstacknetsdk/openstack.net/milestones)
 
 ## Building from Source
-** Prerequisites **
+**Prerequisites**
 * Visual Studio 2015
 
-** Optional **
+**Optional**
 * We are using [Paket](http://fsprojects.github.io/Paket) for dependency management instead of NuGet. As long as you execute build.cmd before building, you do not need to install anything else, but if you like there is the [Paket Visual Studio Extension](http://fsprojects.github.io/Paket/editor-support.html#Visual-Studio) which lets you restore and update packages from the Tools menu in Visual Studio.
 
 ### Build script
