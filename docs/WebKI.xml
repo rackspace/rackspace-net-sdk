@@ -98,6 +98,8 @@
   </HelpKINode>
   <HelpKINode Title="GetNetwork method" Url="html/M_Rackspace_Synchronous_CloudNetworkServiceExtensions_GetNetwork.htm" />
   <HelpKINode Title="GetNetworkAsync method" Url="html/M_Rackspace_CloudNetworks_v2_CloudNetworkService_GetNetworkAsync.htm" />
+  <HelpKINode Title="GetNextPage(Of T) method" Url="html/M_Rackspace_Synchronous_PageExtensions_GetNextPage__1.htm" />
+  <HelpKINode Title="GetNextPage&lt;T&gt; method" Url="html/M_Rackspace_Synchronous_PageExtensions_GetNextPage__1.htm" />
   <HelpKINode Title="GetNextPageAsync method" Url="html/M_Rackspace_IPage_1_GetNextPageAsync.htm" />
   <HelpKINode Title="GetPort method" Url="html/M_Rackspace_Synchronous_CloudNetworkServiceExtensions_GetPort.htm" />
   <HelpKINode Title="GetPortAsync method" Url="html/M_Rackspace_CloudNetworks_v2_CloudNetworkService_GetPortAsync.htm" />
@@ -230,6 +232,13 @@
   </HelpKINode>
   <HelpKINode Title="NetworkStatus enumeration" Url="html/T_Rackspace_CloudNetworks_v2_NetworkStatus.htm" />
   <HelpKINode Title="NextHop property" Url="html/P_Rackspace_CloudNetworks_v2_HostRoute_NextHop.htm" />
+  <HelpKINode Title="PageExtensions class">
+    <HelpKINode Title="PageExtensions Class" Url="html/T_Rackspace_Synchronous_PageExtensions.htm" />
+    <HelpKINode Title="about PageExtensions class" Url="html/T_Rackspace_Synchronous_PageExtensions.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_Rackspace_Synchronous_PageExtensions.htm" />
+  </HelpKINode>
+  <HelpKINode Title="PageExtensions.GetNextPage(Of T) method" Url="html/M_Rackspace_Synchronous_PageExtensions_GetNextPage__1.htm" />
+  <HelpKINode Title="PageExtensions.GetNextPage&lt;T&gt; method" Url="html/M_Rackspace_Synchronous_PageExtensions_GetNextPage__1.htm" />
   <HelpKINode Title="Port class">
     <HelpKINode Title="Port Class" Url="html/T_Rackspace_CloudNetworks_v2_Port.htm" />
     <HelpKINode Title="about Port class" Url="html/T_Rackspace_CloudNetworks_v2_Port.htm" />
@@ -287,6 +296,7 @@
   <HelpKINode Title="Rackspace.RackspaceNet.Tracing class" Url="html/T_Rackspace_RackspaceNet_Tracing.htm" />
   <HelpKINode Title="Rackspace.Synchronous namespace" Url="html/N_Rackspace_Synchronous.htm" />
   <HelpKINode Title="Rackspace.Synchronous.CloudNetworkServiceExtensions class" Url="html/T_Rackspace_Synchronous_CloudNetworkServiceExtensions.htm" />
+  <HelpKINode Title="Rackspace.Synchronous.PageExtensions class" Url="html/T_Rackspace_Synchronous_PageExtensions.htm" />
   <HelpKINode Title="Rackspace.Testing namespace" Url="html/N_Rackspace_Testing.htm" />
   <HelpKINode Title="Rackspace.Testing.HttpTest class" Url="html/T_Rackspace_Testing_HttpTest.htm" />
   <HelpKINode Title="RackspaceNet class">
