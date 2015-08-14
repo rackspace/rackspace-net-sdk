@@ -1,7 +1,7 @@
 source https://www.myget.org/F/openstacknetsdk/api/v2
 source https://nuget.org/api/v2
 
-nuget openstack.net !~> 1.5.0-beta
+nuget openstack.net !>= 1.5.0 prerelease
 nuget moq !>= 4.2
 nuget EWSoftware.SHFB 2015.7.25
 nuget EWSoftware.SHFB.NETFramework 4.6.0
