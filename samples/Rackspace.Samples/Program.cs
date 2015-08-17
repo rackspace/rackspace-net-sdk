@@ -1,45 +1,47 @@
 ﻿using System;
-using net.openstack.Core.Domain;
-using net.openstack.Providers.Rackspace;
-using Rackspace.CloudNetworks.v2;
-using Rackspace.Synchronous;
+using System.Collections.Generic;
 
-namespace Rackspace.Samples
+internal class Program
 {
-    class Program
+    private static readonly Dictionary<int, ISample> _samples = new Dictionary<int, ISample>
     {
-        static void Main()
+        {1, new CloudNetworkSamples()}
+    };
+
+    private static void Main()
+    {
+        Console.Write("User: ");
+        string username = Console.ReadLine();
+
+        Console.Write("API Key: ");
+        string apiKey = Console.ReadLine();
+
+        Console.Write("Region: ");
+        string region = Console.ReadLine();
+
+        Console.WriteLine("Available Samples: ");
+        Console.WriteLine("\t1. Cloud Networks");
+        Console.WriteLine();
+
+        Console.Write("Enter the example number to execute: ");
+        string requestedSample = Console.ReadLine();
+        int sampleId;
+        if (!(int.TryParse(requestedSample, out sampleId) && _samples.ContainsKey(sampleId)))
         {
-            Console.Write("User: ");
-            string username = Console.ReadLine();
-
-            Console.Write("API Key: ");
-            string apikey = Console.ReadLine();
-
-            Console.Write("Region: ");
-            string region = Console.ReadLine();
-
-            // This is a example of how to authenticate and view your token, service catalog, etc.
-            // It is not necessary to authenticate explicitly.
-            Console.WriteLine("Explicitly Authenticating...");
-            var identity = new CloudIdentity
-            {
-                Username = username,
-                APIKey = apikey
-            };
-            var identityService = new CloudIdentityProvider(identity);
-            UserAccess authResult = identityService.Authenticate();
-            Console.WriteLine($"Welcome, {authResult.User.Name}!");
-
-            Console.WriteLine("Listing Networks...");
-            var networkService = new CloudNetworkService(identityService, region);
-            foreach (Network network in networkService.ListNetworks())
-            {
-                Console.WriteLine($"{network.Name}\t\t\t{network.IsShared}");
-            }
-
-            Console.WriteLine("Press any key to exit...");
-            Console.ReadLine();
+            Console.WriteLine("Invalid sample requested. Exiting.");
         }
+        else
+        {
+            ISample sample = _samples[sampleId];
+
+            Console.WriteLine();
+            Console.WriteLine("Do you want to proceed? [y/N]: ");
+            var shouldProceed = Console.ReadLine();
+            if (shouldProceed.ToLower() == "y")
+                sample.Run(username, apiKey, region).Wait();
+        }
+
+        Console.WriteLine("Press any key to exit...");
+        Console.ReadLine();
     }
 }
