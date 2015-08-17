@@ -62,44 +62,44 @@
     <RootNamespaceTitle>API</RootNamespaceTitle>
     <ApiFilter>
       <Filter entryType="Namespace" fullName="Flurl.Extensions" isExposed="False" />
-      <Filter entryType="Namespace" fullName="Flurl.Http" isExposed="False" />
-      <Filter entryType="Namespace" fullName="net.openstack.Core" isExposed="False" />
-      <Filter entryType="Namespace" fullName="net.openstack.Core.Caching" isExposed="False" />
-      <Filter entryType="Namespace" fullName="net.openstack.Core.Collections" isExposed="False" />
-      <Filter entryType="Namespace" fullName="net.openstack.Core.Domain" isExposed="False" />
-      <Filter entryType="Namespace" fullName="net.openstack.Core.Domain.Converters" isExposed="False" />
-      <Filter entryType="Namespace" fullName="net.openstack.Core.Domain.Mapping" isExposed="False" />
-      <Filter entryType="Namespace" fullName="net.openstack.Core.Domain.Queues" isExposed="False" />
-      <Filter entryType="Namespace" fullName="net.openstack.Core.Exceptions" isExposed="False" />
-      <Filter entryType="Namespace" fullName="net.openstack.Core.Exceptions.Response" isExposed="False" />
-      <Filter entryType="Namespace" fullName="net.openstack.Core.Providers" isExposed="False" />
-      <Filter entryType="Namespace" fullName="net.openstack.Core.Synchronous" isExposed="False" />
-      <Filter entryType="Namespace" fullName="net.openstack.Core.Validators" isExposed="False" />
-      <Filter entryType="Namespace" fullName="net.openstack.Providers.Hp" isExposed="False" />
-      <Filter entryType="Namespace" fullName="net.openstack.Providers.Rackspace" isExposed="False" />
-      <Filter entryType="Namespace" fullName="net.openstack.Providers.Rackspace.Exceptions" isExposed="False" />
-      <Filter entryType="Namespace" fullName="net.openstack.Providers.Rackspace.Objects" isExposed="False" />
-      <Filter entryType="Namespace" fullName="net.openstack.Providers.Rackspace.Objects.AutoScale" isExposed="False" />
-      <Filter entryType="Namespace" fullName="net.openstack.Providers.Rackspace.Objects.Databases" isExposed="False" />
-      <Filter entryType="Namespace" fullName="net.openstack.Providers.Rackspace.Objects.Dns" isExposed="False" />
-      <Filter entryType="Namespace" fullName="net.openstack.Providers.Rackspace.Objects.LoadBalancers" isExposed="False" />
-      <Filter entryType="Namespace" fullName="net.openstack.Providers.Rackspace.Objects.Monitoring" isExposed="False" />
-      <Filter entryType="Namespace" fullName="net.openstack.Providers.Rackspace.Objects.Request" isExposed="False" />
-      <Filter entryType="Namespace" fullName="net.openstack.Providers.Rackspace.Objects.Response" isExposed="False" />
-      <Filter entryType="Namespace" fullName="net.openstack.Providers.Rackspace.Validators" isExposed="False" />
-      <Filter entryType="Namespace" fullName="OpenStack" isExposed="False" />
-      <Filter entryType="Namespace" fullName="OpenStack.Authentication" isExposed="False" />
-      <Filter entryType="Namespace" fullName="OpenStack.ContentDeliveryNetworks.v1" isExposed="False" />
-      <Filter entryType="Namespace" fullName="OpenStack.Networking" isExposed="False" />
-      <Filter entryType="Namespace" fullName="OpenStack.Networking.v2" isExposed="False" />
-      <Filter entryType="Namespace" fullName="OpenStack.Networking.v2.Serialization" isExposed="False" />
-      <Filter entryType="Namespace" fullName="OpenStack.Serialization" isExposed="False" />
-      <Filter entryType="Namespace" fullName="OpenStack.Synchronous" isExposed="False" />
-      <Filter entryType="Namespace" fullName="OpenStack.Synchronous.Extensions" isExposed="False" />
-      <Filter entryType="Namespace" fullName="OpenStack.Testing" isExposed="False" />
-      <Filter entryType="Namespace" fullName="Rackspace.CloudNetworks.v2.Serialization" isExposed="False" />
-      <Filter entryType="Namespace" fullName="Rackspace.Serialization" isExposed="False" />
-    </ApiFilter>
+<Filter entryType="Namespace" fullName="Flurl.Http" isExposed="False" />
+<Filter entryType="Namespace" fullName="net.openstack.Core" isExposed="False" />
+<Filter entryType="Namespace" fullName="net.openstack.Core.Caching" isExposed="False" />
+<Filter entryType="Namespace" fullName="net.openstack.Core.Collections" isExposed="False" />
+<Filter entryType="Namespace" fullName="net.openstack.Core.Domain" isExposed="False" />
+<Filter entryType="Namespace" fullName="net.openstack.Core.Domain.Converters" isExposed="False" />
+<Filter entryType="Namespace" fullName="net.openstack.Core.Domain.Mapping" isExposed="False" />
+<Filter entryType="Namespace" fullName="net.openstack.Core.Domain.Queues" isExposed="False" />
+<Filter entryType="Namespace" fullName="net.openstack.Core.Exceptions" isExposed="False" />
+<Filter entryType="Namespace" fullName="net.openstack.Core.Exceptions.Response" isExposed="False" />
+<Filter entryType="Namespace" fullName="net.openstack.Core.Providers" isExposed="False" />
+<Filter entryType="Namespace" fullName="net.openstack.Core.Synchronous" isExposed="False" />
+<Filter entryType="Namespace" fullName="net.openstack.Core.Validators" isExposed="False" />
+<Filter entryType="Namespace" fullName="net.openstack.Providers.Hp" isExposed="False" />
+<Filter entryType="Namespace" fullName="net.openstack.Providers.Rackspace" isExposed="False" />
+<Filter entryType="Namespace" fullName="net.openstack.Providers.Rackspace.Exceptions" isExposed="False" />
+<Filter entryType="Namespace" fullName="net.openstack.Providers.Rackspace.Objects" isExposed="False" />
+<Filter entryType="Namespace" fullName="net.openstack.Providers.Rackspace.Objects.AutoScale" isExposed="False" />
+<Filter entryType="Namespace" fullName="net.openstack.Providers.Rackspace.Objects.Databases" isExposed="False" />
+<Filter entryType="Namespace" fullName="net.openstack.Providers.Rackspace.Objects.Dns" isExposed="False" />
+<Filter entryType="Namespace" fullName="net.openstack.Providers.Rackspace.Objects.LoadBalancers" isExposed="False" />
+<Filter entryType="Namespace" fullName="net.openstack.Providers.Rackspace.Objects.Monitoring" isExposed="False" />
+<Filter entryType="Namespace" fullName="net.openstack.Providers.Rackspace.Objects.Request" isExposed="False" />
+<Filter entryType="Namespace" fullName="net.openstack.Providers.Rackspace.Objects.Response" isExposed="False" />
+<Filter entryType="Namespace" fullName="net.openstack.Providers.Rackspace.Validators" isExposed="False" />
+<Filter entryType="Namespace" fullName="OpenStack" isExposed="False" />
+<Filter entryType="Namespace" fullName="OpenStack.Authentication" isExposed="False" />
+<Filter entryType="Namespace" fullName="OpenStack.ContentDeliveryNetworks.v1" isExposed="False" />
+<Filter entryType="Namespace" fullName="OpenStack.Networking" isExposed="False" />
+<Filter entryType="Namespace" fullName="OpenStack.Networking.v2" isExposed="False" />
+<Filter entryType="Namespace" fullName="OpenStack.Networking.v2.Serialization" isExposed="False" />
+<Filter entryType="Namespace" fullName="OpenStack.Serialization" isExposed="False" />
+<Filter entryType="Namespace" fullName="OpenStack.Synchronous" isExposed="False" />
+<Filter entryType="Namespace" fullName="OpenStack.Synchronous.Extensions" isExposed="False" />
+<Filter entryType="Namespace" fullName="OpenStack.Testing" isExposed="False" />
+<Filter entryType="Namespace" fullName="Rackspace.CloudNetworks.v2.Serialization" isExposed="False" />
+<Filter entryType="Namespace" fullName="Rackspace.Serialization" isExposed="False" />
+<Filter entryType="Namespace" fullName="System.Extensions" isExposed="False" /></ApiFilter>
     <ComponentConfigurations>
       <ComponentConfig id="IntelliSense Component" enabled="True">
         <component id="IntelliSense Component">
