@@ -5,12 +5,12 @@
     <version>0.0.0</version>
     <title>Rackspace .NET SDK</title>
     <authors>carolynvs</authors>
-    <licenseUrl>https://github.com/rackspace/Rackspace.NET/blob/master/LICENSE</licenseUrl>
-    <projectUrl>https://rackspace.github.io/Rackspace.NET/</projectUrl>
-    <iconUrl>https://raw.githubusercontent.com/rackspace/Rackspace.NET/master/build/rackspace-logo.png</iconUrl>
+    <licenseUrl>https://github.com/rackspace/rackspace-net-sdk/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://rackspace.github.io/rackspace-net-sdk/</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/rackspace/rackspace-net-sdk/master/build/rackspace-logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Automating all things Rackspace</description>
-    <releaseNotes>https://github.com/rackspace/Rackspace.NET/releases/v$version$</releaseNotes>
+    <releaseNotes>https://github.com/rackspace/rackspace-net-sdk/releases/v$version$</releaseNotes>
     <copyright>2015 Rackspace, Inc.</copyright>
     <tags>openstack rackspace rackconnect</tags>
     <dependencies>

@@ -1,12 +1,12 @@
 # Rackspace .NET SDK
-Automating all things Rackspace! Checkout http://rackspace.github.io/Rackspace.NET for project information and how to get started with the SDK.
+Automating all things Rackspace! Checkout http://rackspace.github.io/rackspace-net-sdk for project information and how to get started with the SDK.
 
 ## Migration
 We are in the middle of migrating Rackspace solutions out of [OpenStack.NET](https://github.com/openstacknetsdk/openstack.net), creating a clean, clear separating between OpenStack and Rackspace functionality.
 
-* [Introducing Rackspace .NET SDK](http://rackspace.github.io/Rackspace.NET/blog/introducing-rackspace-dotnet-sdk/)
+* [Introducing Rackspace .NET SDK](http://rackspace.github.io/rackspace-net-sdk/blog/introducing-rackspace-dotnet-sdk/)
 * [Migration Plan and FAQ](https://github.com/openstacknetsdk/openstack.net/wiki/Rackspace-and-OpenStack.NET)
-* [Rackspace .NET SDK 0.x Milesones](https://github.com/rackspace/rackspace.net/milestones)
+* [Rackspace .NET SDK 0.x Milesones](https://github.com/rackspace/rackspace-net-sdk/milestones)
 * [OpenStack.NET 1.5.x Milestones](https://github.com/openstacknetsdk/openstack.net/milestones)
 
 ## Building from Source
