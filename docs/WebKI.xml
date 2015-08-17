@@ -60,6 +60,7 @@
   <HelpKINode Title="CloudNetworkServiceExtensions.UpdateNetwork method" Url="html/M_Rackspace_Synchronous_CloudNetworkServiceExtensions_UpdateNetwork.htm" />
   <HelpKINode Title="CloudNetworkServiceExtensions.UpdatePort method" Url="html/M_Rackspace_Synchronous_CloudNetworkServiceExtensions_UpdatePort.htm" />
   <HelpKINode Title="CloudNetworkServiceExtensions.UpdateSubnet method" Url="html/M_Rackspace_Synchronous_CloudNetworkServiceExtensions_UpdateSubnet.htm" />
+  <HelpKINode Title="Configuration field" Url="html/F_Rackspace_RackspaceNet_Configuration.htm" />
   <HelpKINode Title="Configure method" Url="html/M_Rackspace_RackspaceNet_Configure.htm" />
   <HelpKINode Title="CreateNetwork method" Url="html/M_Rackspace_Synchronous_CloudNetworkServiceExtensions_CreateNetwork.htm" />
   <HelpKINode Title="CreateNetworkAsync method" Url="html/M_Rackspace_CloudNetworks_v2_CloudNetworkService_CreateNetworkAsync.htm" />
@@ -294,6 +295,7 @@
   <HelpKINode Title="Rackspace.IPage&lt;T&gt; interface" Url="html/T_Rackspace_IPage_1.htm" />
   <HelpKINode Title="Rackspace.RackspaceNet class" Url="html/T_Rackspace_RackspaceNet.htm" />
   <HelpKINode Title="Rackspace.RackspaceNet.Tracing class" Url="html/T_Rackspace_RackspaceNet_Tracing.htm" />
+  <HelpKINode Title="Rackspace.RackspaceNetConfigurationOptions class" Url="html/T_Rackspace_RackspaceNetConfigurationOptions.htm" />
   <HelpKINode Title="Rackspace.Synchronous namespace" Url="html/N_Rackspace_Synchronous.htm" />
   <HelpKINode Title="Rackspace.Synchronous.CloudNetworkServiceExtensions class" Url="html/T_Rackspace_Synchronous_CloudNetworkServiceExtensions.htm" />
   <HelpKINode Title="Rackspace.Synchronous.PageExtensions class" Url="html/T_Rackspace_Synchronous_PageExtensions.htm" />
@@ -302,14 +304,23 @@
   <HelpKINode Title="RackspaceNet class">
     <HelpKINode Title="RackspaceNet Class" Url="html/T_Rackspace_RackspaceNet.htm" />
     <HelpKINode Title="about RackspaceNet class" Url="html/T_Rackspace_RackspaceNet.htm" />
+    <HelpKINode Title="fields" Url="html/Fields_T_Rackspace_RackspaceNet.htm" />
     <HelpKINode Title="methods" Url="html/Methods_T_Rackspace_RackspaceNet.htm" />
   </HelpKINode>
+  <HelpKINode Title="RackspaceNet.Configuration field" Url="html/F_Rackspace_RackspaceNet_Configuration.htm" />
   <HelpKINode Title="RackspaceNet.Configure method" Url="html/M_Rackspace_RackspaceNet_Configure.htm" />
   <HelpKINode Title="RackspaceNet.Tracing class">
     <HelpKINode Title="RackspaceNet.Tracing Class" Url="html/T_Rackspace_RackspaceNet_Tracing.htm" />
     <HelpKINode Title="about RackspaceNet.Tracing class" Url="html/T_Rackspace_RackspaceNet_Tracing.htm" />
   </HelpKINode>
   <HelpKINode Title="RackspaceNet.Tracing.Http field" Url="html/F_Rackspace_RackspaceNet_Tracing_Http.htm" />
+  <HelpKINode Title="RackspaceNetConfigurationOptions class">
+    <HelpKINode Title="RackspaceNetConfigurationOptions Class" Url="html/T_Rackspace_RackspaceNetConfigurationOptions.htm" />
+    <HelpKINode Title="about RackspaceNetConfigurationOptions class" Url="html/T_Rackspace_RackspaceNetConfigurationOptions.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_Rackspace_RackspaceNetConfigurationOptions.htm" />
+  </HelpKINode>
+  <HelpKINode Title="RackspaceNetConfigurationOptions.ResetDefaults method" Url="html/M_Rackspace_RackspaceNetConfigurationOptions_ResetDefaults.htm" />
+  <HelpKINode Title="ResetDefaults method" Url="html/M_Rackspace_RackspaceNetConfigurationOptions_ResetDefaults.htm" />
   <HelpKINode Title="SecurityGroups property" Url="html/P_Rackspace_CloudNetworks_v2_PortUpdateDefinition_SecurityGroups.htm" />
   <HelpKINode Title="Start property" Url="html/P_Rackspace_CloudNetworks_v2_AllocationPool_Start.htm" />
   <HelpKINode Title="Status property">
