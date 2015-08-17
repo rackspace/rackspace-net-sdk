@@ -1,4 +1,4 @@
 name: Rackspace .NET SDK
 markdown: redcarpet
 permalink: /blog/:title
-baseurl: /Rackspace.NET
+baseurl: /rackspace-net-sdk

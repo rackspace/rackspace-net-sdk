@@ -63,8 +63,8 @@ server.AssignPublicIP();
 For more details on how this will improve OpenStack.NET, checkout
 [Rackspace.NET and OpenStack.NET: Peas and Carrots][rackspacenet-openstacknet].
 
-[v0.4.0]: https://github.com/rackspace/Rackspace.NET/milestones/v0.4.0
-[rackspacenet-milestones]: https://github.com/rackspace/rackspace.net/milestones
+[v0.4.0]: https://github.com/rackspace/rackspace-net-sdk/milestones/v0.4.0
+[rackspacenet-milestones]: https://github.com/rackspace/rackspace-net-sdk/milestones
 [cloud-networks-overview]: http://www.rackspace.com/cloud/networks
 [nuget-pkg]: http://nuget.org/packages/Rackspace
 [rackspacenet-openstacknet]: https://github.com/openstacknetsdk/openstack.net/wiki/Rackspace-and-OpenStack.NET
