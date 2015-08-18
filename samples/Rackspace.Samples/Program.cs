@@ -5,7 +5,8 @@ internal class Program
 {
     private static readonly Dictionary<int, ISample> _samples = new Dictionary<int, ISample>
     {
-        {1, new CloudNetworkSamples()}
+        {1, new CloudNetworkSamples()},
+        {1, new AssignPublicIPSamples()}
     };
 
     private static void Main()
@@ -21,6 +22,7 @@ internal class Program
 
         Console.WriteLine("Available Samples: ");
         Console.WriteLine("\t1. Cloud Networks");
+        Console.WriteLine("\t2. RackConnect: Assign Public IP to Cloud Server");
         Console.WriteLine();
 
         Console.Write("Enter the example number to execute: ");

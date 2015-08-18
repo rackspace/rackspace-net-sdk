@@ -84,6 +84,8 @@
     <Compile Include="CloudNetworks\v2\PortTests.cs" />
     <Compile Include="CloudNetworks\v2\SubnetTests.cs" />
     <Compile Include="IdentifierTests.cs" />
+    <Compile Include="RackConnect\v3\NetworkTests.cs" />
+    <Compile Include="RackConnect\v3\PublicIPTests.cs" />
     <Compile Include="RackspaceNetTests.cs" />
     <Compile Include="Stubs.cs" />
   </ItemGroup>

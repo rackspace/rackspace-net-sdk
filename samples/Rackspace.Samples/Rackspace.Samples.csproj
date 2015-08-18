@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssignPublicIPSamples.cs" />
     <Compile Include="CloudNetworkSamples.cs" />
     <Compile Include="ISample.cs" />
     <Compile Include="Program.cs" />
