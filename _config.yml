@@ -2,3 +2,4 @@ name: Rackspace .NET SDK
 markdown: redcarpet
 permalink: /blog/:title
 baseurl: /rackspace-net-sdk
+exclude: [build]
