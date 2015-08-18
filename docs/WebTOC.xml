@@ -1,73 +1,73 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <HelpTOC>
 
-  <HelpTOCNode Id="7a179ae8-5e68-49a3-88b6-067d7e4b874d" Title="API" Url="html/R_Project_Rackspace_Docs.htm">
-    <HelpTOCNode Id="8d3b83bb-09fb-4131-92fb-831c3c4ad5c8" Title="Rackspace" Url="html/N_Rackspace.htm">
-      <HelpTOCNode Id="5ebabd9b-60e2-4f2c-a499-e62d17162f6f" Title="Identifier Class" Url="html/T_Rackspace_Identifier.htm">
-        <HelpTOCNode Id="0c6c456e-4f0f-4780-b3d9-28f745921121" Title="Identifier Constructor " Url="html/Overload_Rackspace_Identifier__ctor.htm">
+  <HelpTOCNode Id="b695c51c-05a1-4f4e-9efc-7a66315c1f99" Title="API" Url="html/R_Project_Rackspace_Docs.htm">
+    <HelpTOCNode Id="8dbc8489-cdc7-4fd1-b515-5025c7a4f976" Title="Rackspace" Url="html/N_Rackspace.htm">
+      <HelpTOCNode Id="0a52af01-f7ea-49c7-8e85-f2db115ca133" Title="Identifier Class" Url="html/T_Rackspace_Identifier.htm">
+        <HelpTOCNode Id="598d9fa7-bf8d-4ffb-ae06-da93e6c6bfdd" Title="Identifier Constructor " Url="html/Overload_Rackspace_Identifier__ctor.htm">
           <HelpTOCNode Title="Identifier Constructor (Guid)" Url="html/M_Rackspace_Identifier__ctor.htm" />
           <HelpTOCNode Title="Identifier Constructor (String)" Url="html/M_Rackspace_Identifier__ctor_1.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="b4b568d2-3ef2-4214-a7da-150002174e86" Title="Identifier Methods" Url="html/Methods_T_Rackspace_Identifier.htm">
+        <HelpTOCNode Id="a7ab6354-d5d7-4337-888a-303644942b55" Title="Identifier Methods" Url="html/Methods_T_Rackspace_Identifier.htm">
           <HelpTOCNode Title="Equals Method " Url="html/M_Rackspace_Identifier_Equals.htm" />
           <HelpTOCNode Title="GetHashCode Method " Url="html/M_Rackspace_Identifier_GetHashCode.htm" />
           <HelpTOCNode Title="ToString Method " Url="html/M_Rackspace_Identifier_ToString.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="cc701ca3-f402-4379-9240-59bcef3b7ded" Title="Identifier Operators and Type Conversions" Url="html/Operators_T_Rackspace_Identifier.htm">
+        <HelpTOCNode Id="868e8142-7370-4b0c-9805-64de67e1e60b" Title="Identifier Operators and Type Conversions" Url="html/Operators_T_Rackspace_Identifier.htm">
           <HelpTOCNode Title="Equality Operator " Url="html/M_Rackspace_Identifier_op_Equality.htm" />
           <HelpTOCNode Title="Explicit Conversion (String to Identifier)" Url="html/M_Rackspace_Identifier_op_Explicit.htm" />
-          <HelpTOCNode Id="ee5ebeac-4991-43c7-8170-260a96b16497" Title="Implicit Conversion Operators" Url="html/Overload_Rackspace_Identifier_op_Implicit.htm">
+          <HelpTOCNode Id="883f8180-f955-4372-a81a-c3e66f85d169" Title="Implicit Conversion Operators" Url="html/Overload_Rackspace_Identifier_op_Implicit.htm">
             <HelpTOCNode Title="Implicit Conversion (Guid to Identifier)" Url="html/M_Rackspace_Identifier_op_Implicit_1.htm" />
             <HelpTOCNode Title="Implicit Conversion (Identifier to String)" Url="html/M_Rackspace_Identifier_op_Implicit.htm" />
           </HelpTOCNode>
           <HelpTOCNode Title="Inequality Operator " Url="html/M_Rackspace_Identifier_op_Inequality.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="e6ee0c74-c2a4-4f67-86a9-a30d7f38d3c9" Title="IPage(T) Interface" Url="html/T_Rackspace_IPage_1.htm">
-        <HelpTOCNode Id="3726c7d4-d076-47e2-a0b4-17379105d999" Title="IPage(T) Properties" Url="html/Properties_T_Rackspace_IPage_1.htm">
+      <HelpTOCNode Id="7d8e64fc-dc60-4807-816b-01078f5f0693" Title="IPage(T) Interface" Url="html/T_Rackspace_IPage_1.htm">
+        <HelpTOCNode Id="a3e52101-7aac-4c69-adac-0c8a1c8d9b43" Title="IPage(T) Properties" Url="html/Properties_T_Rackspace_IPage_1.htm">
           <HelpTOCNode Title="HasNextPage Property " Url="html/P_Rackspace_IPage_1_HasNextPage.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="ab7bb983-9be3-434b-985a-65aa887bd0dd" Title="IPage(T) Methods" Url="html/Methods_T_Rackspace_IPage_1.htm">
+        <HelpTOCNode Id="7c021f18-18de-441f-a1fa-5ddefe092ccf" Title="IPage(T) Methods" Url="html/Methods_T_Rackspace_IPage_1.htm">
           <HelpTOCNode Title="GetNextPageAsync Method " Url="html/M_Rackspace_IPage_1_GetNextPageAsync.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="602b4500-5cc2-4865-8717-b4f00c9cd464" Title="RackspaceNet Class" Url="html/T_Rackspace_RackspaceNet.htm">
-        <HelpTOCNode Id="9eb305a6-fdc0-4aa6-87fd-b8b1453a0f2f" Title="RackspaceNet Methods" Url="html/Methods_T_Rackspace_RackspaceNet.htm">
+      <HelpTOCNode Id="2c6f97eb-bb62-45db-b1ea-0161001f8822" Title="RackspaceNet Class" Url="html/T_Rackspace_RackspaceNet.htm">
+        <HelpTOCNode Id="32a8cc16-6af5-4164-a71c-3f5d7f1994b9" Title="RackspaceNet Methods" Url="html/Methods_T_Rackspace_RackspaceNet.htm">
           <HelpTOCNode Title="Configure Method " Url="html/M_Rackspace_RackspaceNet_Configure.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="cdc69121-9dad-407e-a52c-6858a0c4215d" Title="RackspaceNet Fields" Url="html/Fields_T_Rackspace_RackspaceNet.htm">
+        <HelpTOCNode Id="74a5816c-d01d-4d4f-8e67-d566319328b7" Title="RackspaceNet Fields" Url="html/Fields_T_Rackspace_RackspaceNet.htm">
           <HelpTOCNode Title="Configuration Field" Url="html/F_Rackspace_RackspaceNet_Configuration.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="73433881-a62c-46a1-895e-84907cb5666d" Title="RackspaceNet.Tracing Class" Url="html/T_Rackspace_RackspaceNet_Tracing.htm">
-        <HelpTOCNode Id="05cf0a8d-d07e-4866-8a0d-d95e3d4da6de" Title="Tracing Fields" Url="html/Fields_T_Rackspace_RackspaceNet_Tracing.htm">
+      <HelpTOCNode Id="7609216c-55dd-4d8f-a525-9a267fb26f07" Title="RackspaceNet.Tracing Class" Url="html/T_Rackspace_RackspaceNet_Tracing.htm">
+        <HelpTOCNode Id="64a3bbd4-0f02-4cab-8362-75789d4f7cf0" Title="Tracing Fields" Url="html/Fields_T_Rackspace_RackspaceNet_Tracing.htm">
           <HelpTOCNode Title="Http Field" Url="html/F_Rackspace_RackspaceNet_Tracing_Http.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="fe5675a6-1102-4fb5-ba5c-562c4dd73cae" Title="RackspaceNetConfigurationOptions Class" Url="html/T_Rackspace_RackspaceNetConfigurationOptions.htm">
-        <HelpTOCNode Id="6f3622a6-c03b-4109-9294-8b7ef978ac24" Title="RackspaceNetConfigurationOptions Methods" Url="html/Methods_T_Rackspace_RackspaceNetConfigurationOptions.htm">
+      <HelpTOCNode Id="9926ee4f-0c15-44f5-bd06-a4dc460db168" Title="RackspaceNetConfigurationOptions Class" Url="html/T_Rackspace_RackspaceNetConfigurationOptions.htm">
+        <HelpTOCNode Id="896975c9-a0f5-47f8-a5d4-c0abe97f7e2f" Title="RackspaceNetConfigurationOptions Methods" Url="html/Methods_T_Rackspace_RackspaceNetConfigurationOptions.htm">
           <HelpTOCNode Title="ResetDefaults Method " Url="html/M_Rackspace_RackspaceNetConfigurationOptions_ResetDefaults.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="5433d2b4-a1e6-4f11-8391-cc30029aae86" Title="Rackspace.CloudNetworks" Url="html/N_Rackspace_CloudNetworks.htm">
+    <HelpTOCNode Id="9eabd7fb-1e40-48d6-b35c-9f307ff3e4e0" Title="Rackspace.CloudNetworks" Url="html/N_Rackspace_CloudNetworks.htm">
       <HelpTOCNode Title="IPVersion Enumeration" Url="html/T_Rackspace_CloudNetworks_IPVersion.htm" />
     </HelpTOCNode>
-    <HelpTOCNode Id="ba996099-1d34-482b-b719-d5e668d35916" Title="Rackspace.CloudNetworks.v2" Url="html/N_Rackspace_CloudNetworks_v2.htm">
-      <HelpTOCNode Id="89ca4ac3-906a-4431-8031-0f32692ec233" Title="AllocationPool Class" Url="html/T_Rackspace_CloudNetworks_v2_AllocationPool.htm">
+    <HelpTOCNode Id="8b6709b8-78cf-4560-ab7c-7c4fe9930a04" Title="Rackspace.CloudNetworks.v2" Url="html/N_Rackspace_CloudNetworks_v2.htm">
+      <HelpTOCNode Id="170d98a1-d503-4fec-a66c-581fcb828624" Title="AllocationPool Class" Url="html/T_Rackspace_CloudNetworks_v2_AllocationPool.htm">
         <HelpTOCNode Title="AllocationPool Constructor " Url="html/M_Rackspace_CloudNetworks_v2_AllocationPool__ctor.htm" />
-        <HelpTOCNode Id="fe454a67-a715-4222-a910-18a3cd2a1130" Title="AllocationPool Properties" Url="html/Properties_T_Rackspace_CloudNetworks_v2_AllocationPool.htm">
+        <HelpTOCNode Id="a3d996e4-b0cb-454d-95de-f5918f369894" Title="AllocationPool Properties" Url="html/Properties_T_Rackspace_CloudNetworks_v2_AllocationPool.htm">
           <HelpTOCNode Title="End Property " Url="html/P_Rackspace_CloudNetworks_v2_AllocationPool_End.htm" />
           <HelpTOCNode Title="Start Property " Url="html/P_Rackspace_CloudNetworks_v2_AllocationPool_Start.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="f4e5af67-06f3-4289-ad94-84066456f330" Title="AllocationPool Methods" Url="html/Methods_T_Rackspace_CloudNetworks_v2_AllocationPool.htm">
+        <HelpTOCNode Id="898e310d-c05d-47d2-b8c0-debf6903f18d" Title="AllocationPool Methods" Url="html/Methods_T_Rackspace_CloudNetworks_v2_AllocationPool.htm">
           <HelpTOCNode Title="Equals Method " Url="html/M_Rackspace_CloudNetworks_v2_AllocationPool_Equals.htm" />
           <HelpTOCNode Title="GetHashCode Method " Url="html/M_Rackspace_CloudNetworks_v2_AllocationPool_GetHashCode.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="aa2d8489-0ae7-4e11-8703-26018be96a41" Title="CloudNetworkService Class" Url="html/T_Rackspace_CloudNetworks_v2_CloudNetworkService.htm">
+      <HelpTOCNode Id="8a5ec4c8-1fec-4fd8-a17d-321819d500bf" Title="CloudNetworkService Class" Url="html/T_Rackspace_CloudNetworks_v2_CloudNetworkService.htm">
         <HelpTOCNode Title="CloudNetworkService Constructor " Url="html/M_Rackspace_CloudNetworks_v2_CloudNetworkService__ctor.htm" />
-        <HelpTOCNode Id="9c614e3d-6bd5-4580-8b9e-39a71366bd4c" Title="CloudNetworkService Methods" Url="html/Methods_T_Rackspace_CloudNetworks_v2_CloudNetworkService.htm">
+        <HelpTOCNode Id="ba0cb92a-e557-4adf-a417-c54bd6b74749" Title="CloudNetworkService Methods" Url="html/Methods_T_Rackspace_CloudNetworks_v2_CloudNetworkService.htm">
           <HelpTOCNode Title="CreateNetworkAsync Method " Url="html/M_Rackspace_CloudNetworks_v2_CloudNetworkService_CreateNetworkAsync.htm" />
           <HelpTOCNode Title="CreatePortAsync Method " Url="html/M_Rackspace_CloudNetworks_v2_CloudNetworkService_CreatePortAsync.htm" />
           <HelpTOCNode Title="CreateSubnetAsync Method " Url="html/M_Rackspace_CloudNetworks_v2_CloudNetworkService_CreateSubnetAsync.htm" />
@@ -85,38 +85,38 @@
           <HelpTOCNode Title="UpdateSubnetAsync Method " Url="html/M_Rackspace_CloudNetworks_v2_CloudNetworkService_UpdateSubnetAsync.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="6ef34c53-271d-4602-a5f5-9d704515c64e" Title="HostRoute Class" Url="html/T_Rackspace_CloudNetworks_v2_HostRoute.htm">
+      <HelpTOCNode Id="f0ecaa51-db02-4daa-8d09-7cad9b20245a" Title="HostRoute Class" Url="html/T_Rackspace_CloudNetworks_v2_HostRoute.htm">
         <HelpTOCNode Title="HostRoute Constructor " Url="html/M_Rackspace_CloudNetworks_v2_HostRoute__ctor.htm" />
-        <HelpTOCNode Id="f79a2ade-305c-44b2-aadc-11e7d5bdddd1" Title="HostRoute Properties" Url="html/Properties_T_Rackspace_CloudNetworks_v2_HostRoute.htm">
+        <HelpTOCNode Id="20486588-7577-4fdb-a7bc-6a3d4bd8c2c3" Title="HostRoute Properties" Url="html/Properties_T_Rackspace_CloudNetworks_v2_HostRoute.htm">
           <HelpTOCNode Title="DestinationCIDR Property " Url="html/P_Rackspace_CloudNetworks_v2_HostRoute_DestinationCIDR.htm" />
           <HelpTOCNode Title="NextHop Property " Url="html/P_Rackspace_CloudNetworks_v2_HostRoute_NextHop.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="37146988-492e-4388-8235-9e72a86935e9" Title="HostRoute Methods" Url="html/Methods_T_Rackspace_CloudNetworks_v2_HostRoute.htm">
+        <HelpTOCNode Id="44b3849e-f487-4c4e-9139-284efe6a7a45" Title="HostRoute Methods" Url="html/Methods_T_Rackspace_CloudNetworks_v2_HostRoute.htm">
           <HelpTOCNode Title="Equals Method " Url="html/M_Rackspace_CloudNetworks_v2_HostRoute_Equals.htm" />
           <HelpTOCNode Title="GetHashCode Method " Url="html/M_Rackspace_CloudNetworks_v2_HostRoute_GetHashCode.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="6eb16292-2851-4e5b-af77-3c522bbaf64b" Title="IPAddressAssociation Class" Url="html/T_Rackspace_CloudNetworks_v2_IPAddressAssociation.htm">
-        <HelpTOCNode Id="6a30aef2-d9dc-4981-9548-5de0122d9378" Title="IPAddressAssociation Constructor " Url="html/Overload_Rackspace_CloudNetworks_v2_IPAddressAssociation__ctor.htm">
+      <HelpTOCNode Id="500876cb-cd63-49ee-9340-570a476cd03a" Title="IPAddressAssociation Class" Url="html/T_Rackspace_CloudNetworks_v2_IPAddressAssociation.htm">
+        <HelpTOCNode Id="6d08b2c1-d294-4a6e-b981-1e61f46d2fbe" Title="IPAddressAssociation Constructor " Url="html/Overload_Rackspace_CloudNetworks_v2_IPAddressAssociation__ctor.htm">
           <HelpTOCNode Title="IPAddressAssociation Constructor (Identifier)" Url="html/M_Rackspace_CloudNetworks_v2_IPAddressAssociation__ctor.htm" />
           <HelpTOCNode Title="IPAddressAssociation Constructor (Identifier, String)" Url="html/M_Rackspace_CloudNetworks_v2_IPAddressAssociation__ctor_1.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="35e616f3-6163-4694-a97a-630dc2c97d55" Title="IPAddressAssociation Properties" Url="html/Properties_T_Rackspace_CloudNetworks_v2_IPAddressAssociation.htm">
+        <HelpTOCNode Id="07ca3908-5995-439a-bda8-065efb6d7039" Title="IPAddressAssociation Properties" Url="html/Properties_T_Rackspace_CloudNetworks_v2_IPAddressAssociation.htm">
           <HelpTOCNode Title="IPAddress Property " Url="html/P_Rackspace_CloudNetworks_v2_IPAddressAssociation_IPAddress.htm" />
           <HelpTOCNode Title="SubnetId Property " Url="html/P_Rackspace_CloudNetworks_v2_IPAddressAssociation_SubnetId.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="d8111669-adc0-42d5-9076-db470cdc1c28" Title="IPAddressAssociation Methods" Url="html/Methods_T_Rackspace_CloudNetworks_v2_IPAddressAssociation.htm">
+        <HelpTOCNode Id="08f950be-5661-42b4-91aa-ca735ecd0998" Title="IPAddressAssociation Methods" Url="html/Methods_T_Rackspace_CloudNetworks_v2_IPAddressAssociation.htm">
           <HelpTOCNode Title="Equals Method " Url="html/M_Rackspace_CloudNetworks_v2_IPAddressAssociation_Equals.htm" />
           <HelpTOCNode Title="GetHashCode Method " Url="html/M_Rackspace_CloudNetworks_v2_IPAddressAssociation_GetHashCode.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="8f3d6547-b39f-4e68-bd5e-af5ebc94f707" Title="IPAddressAssociation Operators" Url="html/Operators_T_Rackspace_CloudNetworks_v2_IPAddressAssociation.htm">
+        <HelpTOCNode Id="2bbd8674-9b4d-4d7b-b673-a582dde18060" Title="IPAddressAssociation Operators" Url="html/Operators_T_Rackspace_CloudNetworks_v2_IPAddressAssociation.htm">
           <HelpTOCNode Title="Equality Operator " Url="html/M_Rackspace_CloudNetworks_v2_IPAddressAssociation_op_Equality.htm" />
           <HelpTOCNode Title="Inequality Operator " Url="html/M_Rackspace_CloudNetworks_v2_IPAddressAssociation_op_Inequality.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="3cdc9712-bd81-4991-b241-0d9c4a0b317a" Title="Network Class" Url="html/T_Rackspace_CloudNetworks_v2_Network.htm">
+      <HelpTOCNode Id="1b76e4ab-d0b3-4bac-9955-eb54b85f95c0" Title="Network Class" Url="html/T_Rackspace_CloudNetworks_v2_Network.htm">
         <HelpTOCNode Title="Network Constructor " Url="html/M_Rackspace_CloudNetworks_v2_Network__ctor.htm" />
-        <HelpTOCNode Id="2fdda9cd-4c18-403a-8896-536b6bac5f2d" Title="Network Properties" Url="html/Properties_T_Rackspace_CloudNetworks_v2_Network.htm">
+        <HelpTOCNode Id="ca13402f-886f-451f-a7d1-aecfd672bc46" Title="Network Properties" Url="html/Properties_T_Rackspace_CloudNetworks_v2_Network.htm">
           <HelpTOCNode Title="Id Property " Url="html/P_Rackspace_CloudNetworks_v2_Network_Id.htm" />
           <HelpTOCNode Title="IsShared Property " Url="html/P_Rackspace_CloudNetworks_v2_Network_IsShared.htm" />
           <HelpTOCNode Title="IsUp Property " Url="html/P_Rackspace_CloudNetworks_v2_Network_IsUp.htm" />
@@ -124,56 +124,56 @@
           <HelpTOCNode Title="Subnets Property " Url="html/P_Rackspace_CloudNetworks_v2_Network_Subnets.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="1ac679ba-a810-45fc-b071-d281c320b25a" Title="NetworkDefinition Class" Url="html/T_Rackspace_CloudNetworks_v2_NetworkDefinition.htm">
+      <HelpTOCNode Id="2ad84cca-0ecb-4341-9704-3ffd189fa2d4" Title="NetworkDefinition Class" Url="html/T_Rackspace_CloudNetworks_v2_NetworkDefinition.htm">
         <HelpTOCNode Title="NetworkDefinition Constructor " Url="html/M_Rackspace_CloudNetworks_v2_NetworkDefinition__ctor.htm" />
-        <HelpTOCNode Id="acd5ed9a-2650-4287-835c-47851da272cf" Title="NetworkDefinition Properties" Url="html/Properties_T_Rackspace_CloudNetworks_v2_NetworkDefinition.htm">
+        <HelpTOCNode Id="7b4cd89b-556d-4a7f-979b-17162b514765" Title="NetworkDefinition Properties" Url="html/Properties_T_Rackspace_CloudNetworks_v2_NetworkDefinition.htm">
           <HelpTOCNode Title="Name Property " Url="html/P_Rackspace_CloudNetworks_v2_NetworkDefinition_Name.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
       <HelpTOCNode Title="NetworkStatus Enumeration" Url="html/T_Rackspace_CloudNetworks_v2_NetworkStatus.htm" />
-      <HelpTOCNode Id="b133692b-40f4-4c01-8da8-c3aa3f77f855" Title="Port Class" Url="html/T_Rackspace_CloudNetworks_v2_Port.htm">
+      <HelpTOCNode Id="7b6f8abf-fc95-4a17-afd6-ae2f2685a34b" Title="Port Class" Url="html/T_Rackspace_CloudNetworks_v2_Port.htm">
         <HelpTOCNode Title="Port Constructor " Url="html/M_Rackspace_CloudNetworks_v2_Port__ctor.htm" />
-        <HelpTOCNode Id="356e0b2a-d61d-476f-9724-3b7789495738" Title="Port Properties" Url="html/Properties_T_Rackspace_CloudNetworks_v2_Port.htm">
+        <HelpTOCNode Id="fb29cb13-a9e4-4f83-86d5-be9839ef3166" Title="Port Properties" Url="html/Properties_T_Rackspace_CloudNetworks_v2_Port.htm">
           <HelpTOCNode Title="Id Property " Url="html/P_Rackspace_CloudNetworks_v2_Port_Id.htm" />
           <HelpTOCNode Title="IsUp Property " Url="html/P_Rackspace_CloudNetworks_v2_Port_IsUp.htm" />
           <HelpTOCNode Title="MACAddress Property " Url="html/P_Rackspace_CloudNetworks_v2_Port_MACAddress.htm" />
           <HelpTOCNode Title="Status Property " Url="html/P_Rackspace_CloudNetworks_v2_Port_Status.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="cd3ff65c-ea18-4903-a92f-11a96936a550" Title="PortCreateDefinition Class" Url="html/T_Rackspace_CloudNetworks_v2_PortCreateDefinition.htm">
+      <HelpTOCNode Id="67dbf472-1914-40ce-87fa-d142a0523994" Title="PortCreateDefinition Class" Url="html/T_Rackspace_CloudNetworks_v2_PortCreateDefinition.htm">
         <HelpTOCNode Title="PortCreateDefinition Constructor " Url="html/M_Rackspace_CloudNetworks_v2_PortCreateDefinition__ctor.htm" />
-        <HelpTOCNode Id="94da427c-91d3-4e85-a3bb-2ac74e9fa29f" Title="PortCreateDefinition Properties" Url="html/Properties_T_Rackspace_CloudNetworks_v2_PortCreateDefinition.htm">
+        <HelpTOCNode Id="ddaae1b9-7e19-48eb-84bc-00692eb2e2ab" Title="PortCreateDefinition Properties" Url="html/Properties_T_Rackspace_CloudNetworks_v2_PortCreateDefinition.htm">
           <HelpTOCNode Title="DeviceId Property " Url="html/P_Rackspace_CloudNetworks_v2_PortCreateDefinition_DeviceId.htm" />
           <HelpTOCNode Title="DeviceOwner Property " Url="html/P_Rackspace_CloudNetworks_v2_PortCreateDefinition_DeviceOwner.htm" />
           <HelpTOCNode Title="NetworkId Property " Url="html/P_Rackspace_CloudNetworks_v2_PortCreateDefinition_NetworkId.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
       <HelpTOCNode Title="PortStatus Enumeration" Url="html/T_Rackspace_CloudNetworks_v2_PortStatus.htm" />
-      <HelpTOCNode Id="e6a53855-9375-46af-9095-89ffa35e44ac" Title="PortUpdateDefinition Class" Url="html/T_Rackspace_CloudNetworks_v2_PortUpdateDefinition.htm">
+      <HelpTOCNode Id="90f1bfab-5077-4ffe-bbb9-abcd96172449" Title="PortUpdateDefinition Class" Url="html/T_Rackspace_CloudNetworks_v2_PortUpdateDefinition.htm">
         <HelpTOCNode Title="PortUpdateDefinition Constructor " Url="html/M_Rackspace_CloudNetworks_v2_PortUpdateDefinition__ctor.htm" />
-        <HelpTOCNode Id="dad07c02-b6d9-4e89-ae8e-fd1a4218b498" Title="PortUpdateDefinition Properties" Url="html/Properties_T_Rackspace_CloudNetworks_v2_PortUpdateDefinition.htm">
+        <HelpTOCNode Id="cea4f49c-f881-4344-8a02-5350c1d4fdf1" Title="PortUpdateDefinition Properties" Url="html/Properties_T_Rackspace_CloudNetworks_v2_PortUpdateDefinition.htm">
           <HelpTOCNode Title="FixedIPs Property " Url="html/P_Rackspace_CloudNetworks_v2_PortUpdateDefinition_FixedIPs.htm" />
           <HelpTOCNode Title="Name Property " Url="html/P_Rackspace_CloudNetworks_v2_PortUpdateDefinition_Name.htm" />
           <HelpTOCNode Title="SecurityGroups Property " Url="html/P_Rackspace_CloudNetworks_v2_PortUpdateDefinition_SecurityGroups.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="60593e0e-dc21-4116-b184-d478135b3064" Title="Subnet Class" Url="html/T_Rackspace_CloudNetworks_v2_Subnet.htm">
+      <HelpTOCNode Id="a0789a56-8193-4899-8689-158a52d3124c" Title="Subnet Class" Url="html/T_Rackspace_CloudNetworks_v2_Subnet.htm">
         <HelpTOCNode Title="Subnet Constructor " Url="html/M_Rackspace_CloudNetworks_v2_Subnet__ctor.htm" />
-        <HelpTOCNode Id="4afc2807-6915-4972-8281-c466559af614" Title="Subnet Properties" Url="html/Properties_T_Rackspace_CloudNetworks_v2_Subnet.htm">
+        <HelpTOCNode Id="9ce2ffca-7143-4c53-87b9-03792f083f92" Title="Subnet Properties" Url="html/Properties_T_Rackspace_CloudNetworks_v2_Subnet.htm">
           <HelpTOCNode Title="Id Property " Url="html/P_Rackspace_CloudNetworks_v2_Subnet_Id.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="4df49c49-cdf1-4a2c-bafd-b2b54c799b75" Title="SubnetCreateDefinition Class" Url="html/T_Rackspace_CloudNetworks_v2_SubnetCreateDefinition.htm">
+      <HelpTOCNode Id="9161f5c3-ffa1-4f50-ae7a-9bb977d861d1" Title="SubnetCreateDefinition Class" Url="html/T_Rackspace_CloudNetworks_v2_SubnetCreateDefinition.htm">
         <HelpTOCNode Title="SubnetCreateDefinition Constructor " Url="html/M_Rackspace_CloudNetworks_v2_SubnetCreateDefinition__ctor.htm" />
-        <HelpTOCNode Id="0fe01f6a-76cf-4101-b937-2d80abc2d798" Title="SubnetCreateDefinition Properties" Url="html/Properties_T_Rackspace_CloudNetworks_v2_SubnetCreateDefinition.htm">
+        <HelpTOCNode Id="ab6de000-516d-4d37-9a7f-5ff3820966b1" Title="SubnetCreateDefinition Properties" Url="html/Properties_T_Rackspace_CloudNetworks_v2_SubnetCreateDefinition.htm">
           <HelpTOCNode Title="CIDR Property " Url="html/P_Rackspace_CloudNetworks_v2_SubnetCreateDefinition_CIDR.htm" />
           <HelpTOCNode Title="IPVersion Property " Url="html/P_Rackspace_CloudNetworks_v2_SubnetCreateDefinition_IPVersion.htm" />
           <HelpTOCNode Title="NetworkId Property " Url="html/P_Rackspace_CloudNetworks_v2_SubnetCreateDefinition_NetworkId.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="fa35dd56-5ffa-489d-8b30-0a8b3451a39c" Title="SubnetUpdateDefinition Class" Url="html/T_Rackspace_CloudNetworks_v2_SubnetUpdateDefinition.htm">
+      <HelpTOCNode Id="11f5cb39-ff8a-4133-9dc9-8cb1721c926c" Title="SubnetUpdateDefinition Class" Url="html/T_Rackspace_CloudNetworks_v2_SubnetUpdateDefinition.htm">
         <HelpTOCNode Title="SubnetUpdateDefinition Constructor " Url="html/M_Rackspace_CloudNetworks_v2_SubnetUpdateDefinition__ctor.htm" />
-        <HelpTOCNode Id="3c3e32b0-b1c0-45f0-9639-b76d50f3a1c1" Title="SubnetUpdateDefinition Properties" Url="html/Properties_T_Rackspace_CloudNetworks_v2_SubnetUpdateDefinition.htm">
+        <HelpTOCNode Id="e678f820-68e5-4685-9e86-9907922be629" Title="SubnetUpdateDefinition Properties" Url="html/Properties_T_Rackspace_CloudNetworks_v2_SubnetUpdateDefinition.htm">
           <HelpTOCNode Title="AllocationPools Property " Url="html/P_Rackspace_CloudNetworks_v2_SubnetUpdateDefinition_AllocationPools.htm" />
           <HelpTOCNode Title="GatewayIP Property " Url="html/P_Rackspace_CloudNetworks_v2_SubnetUpdateDefinition_GatewayIP.htm" />
           <HelpTOCNode Title="HostRoutes Property " Url="html/P_Rackspace_CloudNetworks_v2_SubnetUpdateDefinition_HostRoutes.htm" />
@@ -182,9 +182,9 @@
         </HelpTOCNode>
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="c8fc35cb-cfee-43d6-85c8-38c70840f7bc" Title="Rackspace.Synchronous" Url="html/N_Rackspace_Synchronous.htm">
-      <HelpTOCNode Id="4e928b52-6707-493d-bcac-75bf71bcb3de" Title="CloudNetworkServiceExtensions Class" Url="html/T_Rackspace_Synchronous_CloudNetworkServiceExtensions.htm">
-        <HelpTOCNode Id="6d49bc7f-72fe-4b27-89ac-806e0cf16ff5" Title="CloudNetworkServiceExtensions Methods" Url="html/Methods_T_Rackspace_Synchronous_CloudNetworkServiceExtensions.htm">
+    <HelpTOCNode Id="90f337aa-1cda-4e55-858e-9de5c2c7a004" Title="Rackspace.Synchronous" Url="html/N_Rackspace_Synchronous.htm">
+      <HelpTOCNode Id="b6f0276e-b23f-433b-aa38-4566d32086e4" Title="CloudNetworkServiceExtensions Class" Url="html/T_Rackspace_Synchronous_CloudNetworkServiceExtensions.htm">
+        <HelpTOCNode Id="becb4885-af6e-47d3-a1ae-dd8d3c370618" Title="CloudNetworkServiceExtensions Methods" Url="html/Methods_T_Rackspace_Synchronous_CloudNetworkServiceExtensions.htm">
           <HelpTOCNode Title="CreateNetwork Method " Url="html/M_Rackspace_Synchronous_CloudNetworkServiceExtensions_CreateNetwork.htm" />
           <HelpTOCNode Title="CreatePort Method " Url="html/M_Rackspace_Synchronous_CloudNetworkServiceExtensions_CreatePort.htm" />
           <HelpTOCNode Title="CreateSubnet Method " Url="html/M_Rackspace_Synchronous_CloudNetworkServiceExtensions_CreateSubnet.htm" />
@@ -202,14 +202,14 @@
           <HelpTOCNode Title="UpdateSubnet Method " Url="html/M_Rackspace_Synchronous_CloudNetworkServiceExtensions_UpdateSubnet.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="4a479349-b55b-4fa2-a412-4ad952da7ee2" Title="PageExtensions Class" Url="html/T_Rackspace_Synchronous_PageExtensions.htm">
-        <HelpTOCNode Id="8b92b9e6-dfa3-48f2-9ff5-e297913eebdf" Title="PageExtensions Methods" Url="html/Methods_T_Rackspace_Synchronous_PageExtensions.htm">
+      <HelpTOCNode Id="95ce275a-fe10-47db-933b-a0c47c1f82e1" Title="PageExtensions Class" Url="html/T_Rackspace_Synchronous_PageExtensions.htm">
+        <HelpTOCNode Id="a60ac2d4-0fe1-4131-b3f5-042ca02679ca" Title="PageExtensions Methods" Url="html/Methods_T_Rackspace_Synchronous_PageExtensions.htm">
           <HelpTOCNode Title="GetNextPage(T) Method " Url="html/M_Rackspace_Synchronous_PageExtensions_GetNextPage__1.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="12e4940d-5a74-4c5b-97c8-34453d9cebcc" Title="Rackspace.Testing" Url="html/N_Rackspace_Testing.htm">
-      <HelpTOCNode Id="9056bec5-0954-4f75-8423-7943d67a3466" Title="HttpTest Class" Url="html/T_Rackspace_Testing_HttpTest.htm">
+    <HelpTOCNode Id="7e4389aa-45b0-427d-a5f0-45c3ed3756e4" Title="Rackspace.Testing" Url="html/N_Rackspace_Testing.htm">
+      <HelpTOCNode Id="8d879033-7566-4ec4-bfa6-33947215dbb0" Title="HttpTest Class" Url="html/T_Rackspace_Testing_HttpTest.htm">
         <HelpTOCNode Title="HttpTest Constructor " Url="html/M_Rackspace_Testing_HttpTest__ctor.htm" />
         <HelpTOCNode Title="HttpTest Properties" Url="html/Properties_T_Rackspace_Testing_HttpTest.htm" />
         <HelpTOCNode Title="HttpTest Methods" Url="html/Methods_T_Rackspace_Testing_HttpTest.htm" />
