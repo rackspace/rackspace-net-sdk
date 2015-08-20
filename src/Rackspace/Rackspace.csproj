@@ -82,6 +82,7 @@
     <Compile Include="Extensions\TypeExtensions.cs" />
     <Compile Include="Identifier.cs" />
     <Compile Include="IPage.cs" />
+    <Compile Include="IServiceResource.cs" />
     <Compile Include="NamespaceDoc.cs" />
     <Compile Include="RackConnect\v3\NetworkReference.cs" />
     <Compile Include="RackConnect\v3\PublicIP.cs" />

@@ -25,6 +25,7 @@ namespace Rackspace.RackConnect.v3
 
                 var results = _rackConnectService.ListNetworks();
 
+                httpTest.ShouldHaveCalled($"*/cloud_networks");
                 Assert.NotNull(results);
                 Assert.Equal(1, results.Count());
                 Assert.Equal(id, results.First().Id);
@@ -41,6 +42,7 @@ namespace Rackspace.RackConnect.v3
 
                 var result = _rackConnectService.GetNetwork(id);
 
+                httpTest.ShouldHaveCalled($"*/cloud_networks/{id}");
                 Assert.NotNull(result);
                 Assert.Equal(id, result.Id);
             }

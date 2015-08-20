@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
@@ -40,24 +41,38 @@ namespace Rackspace.RackConnect.v3
             _urlBuilder = new ServiceUrlBuilder(ServiceType.RackConnect, authenticationProvider, region);
         }
 
+        private void SetOwner(IServiceResource<RackConnectService> resource)
+        {
+            resource.Owner = this;
+        }
+
         #region Public IPs
 
         /// <summary>
-        /// Lists all public ip addresses associated with the account.
+        /// Lists all public IP addresses associated with the account.
         /// </summary>
+        /// <param name="serverId">Filter the results to only those associated with the specified server.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>
-        /// A collection of public ip addresses associated with the account.
+        /// A collection of public IP addresses associated with the account.
         /// </returns>
-        public async Task<IEnumerable<PublicIP>> ListPublicIPsAsync(CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IEnumerable<PublicIP>> ListPublicIPsAsync(string serverId = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             Url endpoint = await _urlBuilder.GetEndpoint(cancellationToken).ConfigureAwait(false);
 
-            return await endpoint
+            var ips = await endpoint
                 .AppendPathSegments("public_ips")
+                .SetQueryParam("cloud_server_id", serverId)
                 .Authenticate(_authenticationProvider)
                 .GetJsonAsync<IEnumerable<PublicIP>>(cancellationToken)
                 .ConfigureAwait(false);
+
+            foreach (var ip in ips)
+            {
+                SetOwner(ip);
+            }
+
+            return ips;
         }
 
         /// <summary>
@@ -88,7 +103,7 @@ namespace Rackspace.RackConnect.v3
                 .ReceiveJson<PublicIP>()
                 .ConfigureAwait(false);
 
-            ip.SetOwner(this);
+            SetOwner(ip);
 
             return ip;
         }
@@ -102,11 +117,15 @@ namespace Rackspace.RackConnect.v3
         {
             Url endpoint = await _urlBuilder.GetEndpoint(cancellationToken).ConfigureAwait(false);
             
-            return await endpoint
+            var ip = await endpoint
                 .AppendPathSegments("public_ips", publicIPId)
                 .Authenticate(_authenticationProvider)
                 .GetJsonAsync<PublicIP>(cancellationToken)
                 .ConfigureAwait(false);
+
+            SetOwner(ip);
+
+            return ip;
         }
 
         /// <summary>
@@ -150,7 +169,7 @@ namespace Rackspace.RackConnect.v3
                     catch (OperationCanceledException ex)
                     {
                         if (timeoutSource.IsCancellationRequested)
-                            throw new TimeoutException($"The requested timeout of {timeout.Value.TotalSeconds} seconds has been reached while waiting for the service ({publicIPId}) to be deployed.", ex);
+                            throw new TimeoutException($"The requested timeout of {timeout.Value.TotalSeconds} seconds has been reached while waiting for the public IP ({publicIPId}) to become active.", ex);
 
                         throw;
                     }
@@ -158,6 +177,84 @@ namespace Rackspace.RackConnect.v3
             }
         }
 
+        /// <summary>
+        /// Waits for the public IP address to be removed from a server.
+        /// </summary>
+        /// <param name="publicIPId">The public IP address identifier.</param>
+        /// <param name="refreshDelay">The amount of time to wait between requests.</param>
+        /// <param name="timeout">The amount of time to wait before throwing a <see cref="TimeoutException"/>.</param>
+        /// <param name="progress">The progress callback.</param>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="TimeoutException">If the <paramref name="timeout"/> value is reached.</exception>
+        /// <exception cref="FlurlHttpException">If the API call returns a bad <see cref="HttpStatusCode"/>.</exception>
+        public async Task WaitUntilPublicIPIsRemovedAsync(Identifier publicIPId, TimeSpan? refreshDelay = null, TimeSpan? timeout = null, IProgress<bool> progress = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            if (string.IsNullOrEmpty(publicIPId))
+                throw new ArgumentNullException("publicIPId");
+
+            refreshDelay = refreshDelay ?? TimeSpan.FromSeconds(5);
+            timeout = timeout ?? TimeSpan.FromMinutes(5);
+
+            using (var timeoutSource = new CancellationTokenSource(timeout.Value))
+            using (var rootCancellationToken = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken, timeoutSource.Token))
+            {
+                while (true)
+                {
+                    bool complete;
+                    try
+                    {
+                        PublicIP ip = await GetPublicIPAsync(publicIPId, cancellationToken).ConfigureAwait(false);
+                        if(ip.Status == PublicIPStatus.RemoveFailed)
+                            throw new ServiceOperationFailedException(ip.StatusDetails);
+
+                        complete = ip.Status == PublicIPStatus.Removed;
+                    }
+                    catch (FlurlHttpException httpError)
+                    {
+                        if (httpError.Call.HttpStatus == HttpStatusCode.NotFound)
+                            complete = true;
+                        else
+                            throw;
+                    }
+
+                    progress?.Report(complete);
+
+                    if (complete)
+                        return;
+
+                    try
+                    {
+                        await Task.Delay(refreshDelay.Value, rootCancellationToken.Token).ConfigureAwait(false);
+                    }
+                    catch (OperationCanceledException ex)
+                    {
+                        if (timeoutSource.IsCancellationRequested)
+                            throw new TimeoutException($"The requested timeout of {timeout.Value.TotalSeconds} seconds has been reached while waiting for the public IP ({publicIPId}) to be removed.", ex);
+
+                        throw;
+                    }
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Removes the public IP address.
+        /// </summary>
+        /// <param name="publicIPId">The public IP address identifier.</param>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        public async Task RemovePublicIPAsync(Identifier publicIPId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            if (publicIPId == null)
+                throw new ArgumentNullException("publicIPId");
+
+            Url endpoint = await _urlBuilder.GetEndpoint(cancellationToken).ConfigureAwait(false);
+            
+            await endpoint
+                .AppendPathSegments("public_ips", publicIPId)
+                .Authenticate(_authenticationProvider)
+                .DeleteAsync(cancellationToken)
+                .ConfigureAwait(false);
+        }
         #endregion
 
         #region Networks

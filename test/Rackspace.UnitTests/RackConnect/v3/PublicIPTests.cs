@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Net;
 using Rackspace.Synchronous;
 using Rackspace.Testing;
 using Xunit;
@@ -25,9 +26,46 @@ namespace Rackspace.RackConnect.v3
 
                 var results = _rackConnectService.ListPublicIPs();
 
+                httpTest.ShouldHaveCalled($"*/public_ips");
                 Assert.NotNull(results);
                 Assert.Equal(1, results.Count());
                 Assert.Equal(id, results.First().Id);
+                Assert.All(results.OfType<IServiceResource<RackConnectService>>(), ip => Assert.NotNull(ip.Owner));
+            }
+        }
+
+        [Fact]
+        public void ListPublicIPsForServer()
+        {
+            using (var httpTest = new HttpTest())
+            {
+                string serverId = Guid.NewGuid().ToString();
+                Identifier id = Guid.NewGuid();
+                httpTest.RespondWithJson(new[] { new PublicIP { Id = id } });
+
+                var results = _rackConnectService.ListPublicIPs(serverId);
+
+                httpTest.ShouldHaveCalled($"*/public_ips?cloud_server_id={serverId}");
+                Assert.NotNull(results);
+                Assert.Equal(1, results.Count());
+                Assert.Equal(id, results.First().Id);
+            }
+        }
+
+        [Fact]
+        public void GetPublicIP()
+        {
+            using (var httpTest = new HttpTest())
+            {
+                Identifier id = Guid.NewGuid();
+                httpTest.RespondWithJson(new PublicIP { Id = id });
+
+                var result = _rackConnectService.GetPublicIP(id);
+
+                httpTest.ShouldHaveCalled($"*/public_ips/{id}");
+                Assert.NotNull(result);
+                Assert.Equal(id, result.Id);
+                Assert.NotNull(((IServiceResource<RackConnectService>)result).Owner);
             }
         }
 
@@ -42,8 +80,10 @@ namespace Rackspace.RackConnect.v3
 
                 var result = _rackConnectService.AssignPublicIP(serverId);
 
+                httpTest.ShouldHaveCalled($"*/public_ips");
                 Assert.NotNull(result);
                 Assert.Equal(id, result.Id);
+                Assert.NotNull(((IServiceResource<RackConnectService>)result).Owner);
             }
         }
 
@@ -75,19 +115,57 @@ namespace Rackspace.RackConnect.v3
         }
 
         [Fact]
-        public void ListNetworks()
+        public void RemovePublicIP()
         {
             using (var httpTest = new HttpTest())
             {
                 Identifier id = Guid.NewGuid();
-                httpTest.RespondWithJson(new[] { new NetworkReference() { Id = id } });
+                httpTest.RespondWithJson(new PublicIP { Id = id });
 
-                var results = _rackConnectService.ListNetworks();
+                _rackConnectService.RemovePublicIP(id);
 
-                Assert.NotNull(results);
-                Assert.Equal(1, results.Count());
-                Assert.Equal(id, results.First().Id);
+                httpTest.ShouldHaveCalled($"*/public_ips/{id}");
             }
+        }
+
+        [Fact]
+        public void WaitUntilRemoved()
+        {
+            using (var httpTest = new HttpTest())
+            {
+                Identifier id = Guid.NewGuid();
+                httpTest.RespondWithJson(new PublicIP { Id = id, Status = PublicIPStatus.Active });
+                httpTest.RespondWith((int) HttpStatusCode.NoContent, "All gone!");
+                httpTest.RespondWithJson(new PublicIP { Id = id, Status = PublicIPStatus.Removed });
+
+                var ip = _rackConnectService.GetPublicIP(id);
+                ip.Remove();
+                ip.WaitUntilRemoved();
+            }
+        }
+
+        [Fact]
+        public void WaitUntilRemoved_AcceptsNotFoundExceptionAsSuccess()
+        {
+            using (var httpTest = new HttpTest())
+            {
+                Identifier id = Guid.NewGuid();
+                httpTest.RespondWithJson(new PublicIP { Id = id, Status = PublicIPStatus.Active });
+                httpTest.RespondWith((int) HttpStatusCode.NoContent, "All gone!");
+                httpTest.RespondWith((int) HttpStatusCode.NotFound, "Not here, boss!");
+
+                var ip = _rackConnectService.GetPublicIP(id);
+                ip.Remove();
+                ip.WaitUntilRemoved();
+            }
+        }
+
+        [Fact]
+        public void WaitUntilRemoved_ThrowsException_WhenCalledOnManuallyCreatedInstance()
+        {
+            var ip = new PublicIP();
+
+            Assert.Throws<InvalidOperationException>(() => ip.WaitUntilRemoved());
         }
     }
 }

@@ -52,10 +52,24 @@ namespace Rackspace.RackConnect.v3
             Assert.Equal(server.Id, ip.Server.ServerId);
             Assert.NotNull(ip.PublicIPv4Address);
             Assert.Equal(PublicIPStatus.Active, ip.Status);
+
+            Trace.WriteLine("Retrieving public IPs assigned to the test cloud server...");
+            var ips = await _rackConnectService.ListPublicIPsAsync(server.Id);
+            Assert.NotNull(ips);
+            Assert.True(ips.Any(x => x.Id == ip.Id));
+
+            Trace.WriteLine("Removing public IP from test cloud server...");
+            await ip.RemoveAsync();
+            await ip.WaitUntilRemovedAsync();
+
+            Trace.WriteLine($"Verifying that {ip.PublicIPv4Address} is no longer assigned...");
+            ips = await _rackConnectService.ListPublicIPsAsync(server.Id);
+            Assert.NotNull(ips);
+            Assert.False(ips.Any(x => x.Id == ip.Id));
         }
 
         [Fact]
-        public async Task ListNetworks()
+        public async Task ListNetworksTest()
         {
             Trace.WriteLine("Listing RackConnect networks...");
             var networks = await _rackConnectService.ListNetworksAsync();
@@ -63,6 +77,23 @@ namespace Rackspace.RackConnect.v3
             Assert.NotNull(networks);
             var network = networks.FirstOrDefault();
             Assert.NotNull(network);
+            Assert.NotNull(network.Id);
+            Assert.NotNull(network.Name);
+            Assert.NotNull(network.CIDR);
+            Assert.NotNull(network.Created);
+        }
+
+        [Fact]
+        public async Task GetNetworkTest()
+        {
+            Trace.WriteLine("Listing RackConnect networks...");
+            var networks = await _rackConnectService.ListNetworksAsync();
+            Assert.NotNull(networks);
+            var network = networks.FirstOrDefault();
+            Assert.NotNull(network);
+
+            Trace.WriteLine($"Retrieving RackConnect network ${network.Name}...");
+            network = await _rackConnectService.GetNetworkAsync(network.Id);
             Assert.NotNull(network.Id);
             Assert.NotNull(network.Name);
             Assert.NotNull(network.CIDR);
