@@ -53,10 +53,6 @@
     <Reference Include="openstacknet">
       <HintPath>..\..\packages\openstack.net\lib\net45\openstacknet.dll</HintPath>
     </Reference>
-    <Reference Include="SimpleRESTServices, Version=1.3.0.0, Culture=neutral, PublicKeyToken=8965cea5c205d3a3, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SimpleRESTServices\lib\net40\SimpleRESTServices.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
