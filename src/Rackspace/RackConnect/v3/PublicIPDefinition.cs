@@ -22,5 +22,11 @@ namespace Rackspace.RackConnect.v3
         /// </summary>
         [JsonIgnore]
         public string ServerId { get; set; }
+
+        /// <summary>
+        /// Determines whether a Public IP is removed from your environment once the server to which it is attached is deleted.
+        /// </summary>
+        [JsonProperty("retain")]
+        public bool ShouldRetain { get; set; }
     }
 }

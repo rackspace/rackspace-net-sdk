@@ -34,6 +34,23 @@ namespace Rackspace.RackConnect.v3
         }
 
         [Fact]
+        public async Task ProvisionUnassignedPublicIPTest()
+        {
+            Trace.Write("Provisioning a public ip address... ");
+            var ipRequest = new PublicIPDefinition {ShouldRetain = true};
+            var ip = await _testData.ProvisionPublicIP(ipRequest);
+
+            await ip.WaitUntilActiveAsync();
+            Trace.WriteLine(ip.PublicIPv4Address);
+
+            Assert.NotNull(ip);
+            Assert.Null(ip.Server);
+            Assert.True(ip.ShouldRetain);
+            Assert.NotNull(ip.PublicIPv4Address);
+            Assert.Equal(PublicIPStatus.Active, ip.Status);
+        }
+
+        [Fact]
         public async Task ProvisionPublicIPTest()
         {
             Trace.WriteLine("Looking up the RackConnect network...");

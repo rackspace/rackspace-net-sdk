@@ -55,6 +55,12 @@ namespace Rackspace.RackConnect.v3
         [JsonProperty("updated")]
         public DateTime? Updated { get; set; }
 
+        /// <summary>
+        /// Determines whether a Public IP is removed from your environment once the server to which it is attached is deleted.
+        /// </summary>
+        [JsonProperty("retain")]
+        public bool ShouldRetain { get; set; }
+
         /// <inheritdoc cref="RackConnectService.WaitUntilPublicIPIsActiveAsync" />
         /// <exception cref="InvalidOperationException">When the <see cref="PublicIP"/> instance was not constructed by the <see cref="RackConnectService"/>, as it is missing the appropriate internal state to execute service calls.</exception>
         public async Task WaitUntilActiveAsync(TimeSpan? refreshDelay = null, TimeSpan? timeout = null, IProgress<bool> progress = null, CancellationToken cancellationToken = default(CancellationToken))
