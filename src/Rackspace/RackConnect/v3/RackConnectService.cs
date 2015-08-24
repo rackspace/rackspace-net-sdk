@@ -243,6 +243,7 @@ namespace Rackspace.RackConnect.v3
             await endpoint
                 .AppendPathSegments("public_ips", publicIPId)
                 .Authenticate(_authenticationProvider)
+                .AllowHttpStatus(HttpStatusCode.NotFound)
                 .DeleteAsync(cancellationToken)
                 .ConfigureAwait(false);
         }
