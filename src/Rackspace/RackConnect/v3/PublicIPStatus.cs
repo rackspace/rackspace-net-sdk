@@ -29,7 +29,7 @@ namespace Rackspace.RackConnect.v3
         Adding,
 
         /// <summary>
-        /// The public IP address has not yet been built.
+        /// The server associated with the public IP is still being built.
         /// </summary>
         [EnumMember(Value = "PENDING_BUILD")]
         PendingBuild,

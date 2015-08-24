@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Net;
+using Newtonsoft.Json;
 using Rackspace.Synchronous;
 using Rackspace.Testing;
 using Xunit;
@@ -70,7 +71,7 @@ namespace Rackspace.RackConnect.v3
         }
 
         [Fact]
-        public void AssignPublicIP()
+        public void ProvisionPublicIP()
         {
             using (var httpTest = new HttpTest())
             {
@@ -78,7 +79,8 @@ namespace Rackspace.RackConnect.v3
                 Identifier id = Guid.NewGuid();
                 httpTest.RespondWithJson(new PublicIP { Id = id });
 
-                var result = _rackConnectService.AssignPublicIP(serverId);
+                var ipRequest = new PublicIPDefinition {ServerId = serverId};
+                var result = _rackConnectService.ProvisionPublicIP(ipRequest);
 
                 httpTest.ShouldHaveCalled($"*/public_ips");
                 Assert.NotNull(result);
@@ -92,17 +94,30 @@ namespace Rackspace.RackConnect.v3
         {
             using (var httpTest = new HttpTest())
             {
-                string serverId = Guid.NewGuid().ToString();
                 Identifier id = Guid.NewGuid();
                 httpTest.RespondWithJson(new PublicIP {Id = id, Status = PublicIPStatus.Adding});
                 httpTest.RespondWithJson(new PublicIP {Id = id, Status = PublicIPStatus.Active, PublicIPv4Address = "10.0.0.1"});
 
-                var ip = _rackConnectService.AssignPublicIP(serverId);
+                var ip = _rackConnectService.GetPublicIP(id);
                 ip.WaitUntilActive();
 
                 Assert.NotNull(ip);
                 Assert.Equal(id, ip.Id);
                 Assert.NotNull(ip.PublicIPv4Address);
+            }
+        }
+
+        [Fact]
+        public void WaitUntilActive_ThrowsException_WhenAddFails()
+        {
+            using (var httpTest = new HttpTest())
+            {
+                Identifier id = Guid.NewGuid();
+                httpTest.RespondWithJson(new PublicIP { Id = id, Status = PublicIPStatus.Adding });
+                httpTest.RespondWithJson(new PublicIP { Id = id, Status = PublicIPStatus.AddFailed, StatusDetails = "No IP for you!"});
+
+                var ip = _rackConnectService.GetPublicIP(id);
+                Assert.Throws<ServiceOperationFailedException>(() => ip.WaitUntilActive());
             }
         }
 
@@ -141,6 +156,22 @@ namespace Rackspace.RackConnect.v3
                 var ip = _rackConnectService.GetPublicIP(id);
                 ip.Remove();
                 ip.WaitUntilRemoved();
+            }
+        }
+
+        [Fact]
+        public void WaitUntilRemoved_ThrowsException_WhenRemoveFails()
+        {
+            using (var httpTest = new HttpTest())
+            {
+                Identifier id = Guid.NewGuid();
+                httpTest.RespondWithJson(new PublicIP { Id = id, Status = PublicIPStatus.Active });
+                httpTest.RespondWithJson(new PublicIP { Id = id, Status = PublicIPStatus.Active });
+                httpTest.RespondWithJson(new PublicIP { Id = id, Status = PublicIPStatus.RemoveFailed });
+
+                var ip = _rackConnectService.GetPublicIP(id);
+                ip.Remove();
+                Assert.Throws<ServiceOperationFailedException>(() =>ip.WaitUntilRemoved());
             }
         }
 

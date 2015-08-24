@@ -80,6 +80,7 @@
     <Compile Include="ContentDeliveryNetworks\v1\ContentDeliveryNetworkServiceTests.cs" />
     <Compile Include="Identity\v2\IdentityTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RackConnect\v3\RackConnectTestDataManager.cs" />
     <Compile Include="RackConnect\v3\RackConnectServiceTests.cs" />
     <Compile Include="CloudServers\v2\CloudServersTestDataManager.cs" />
     <Compile Include="TestData.cs" />

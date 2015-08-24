@@ -39,16 +39,28 @@ namespace Rackspace.Synchronous
             return rackConnectService.GetPublicIPAsync(publicIPId).ForceSynchronous();
         }
 
-        /// <inheritdoc cref="RackConnectService.AssignPublicIPAsync"/>
-        public static PublicIP AssignPublicIP(this RackConnectService rackConnectService, string serverId)
+        /// <inheritdoc cref="RackConnectService.ProvisionPublicIPAsync"/>
+        public static PublicIP ProvisionPublicIP(this RackConnectService rackConnectService, PublicIPDefinition definition)
         {
-            return rackConnectService.AssignPublicIPAsync(serverId).ForceSynchronous();
+            return rackConnectService.ProvisionPublicIPAsync(definition).ForceSynchronous();
+        }
+
+        /// <inheritdoc cref="RackConnectService.WaitUntilPublicIPIsActiveAsync"/>
+        public static PublicIP WaitUntilPublicIPIsActive(this RackConnectService rackConnectService, Identifier publicIPId, TimeSpan? refreshDelay = null, TimeSpan? timeout = null, IProgress<bool> progress = null)
+        {
+            return rackConnectService.WaitUntilPublicIPIsActiveAsync(publicIPId, refreshDelay, timeout, progress).ForceSynchronous();
         }
 
         /// <inheritdoc cref="PublicIP.WaitUntilActiveAsync"/>
         public static void WaitUntilActive(this PublicIP publicIP, TimeSpan? refreshDelay = null, TimeSpan? timeout = null, IProgress<bool> progress = null)
         {
             publicIP.WaitUntilActiveAsync(refreshDelay, timeout, progress).ForceSynchronous();
+        }
+
+        /// <inheritdoc cref="RackConnectService.WaitUntilPublicIPIsRemovedAsync"/>
+        public static void WaitUntilPublicIPIsRemoved(this RackConnectService rackConnectService, Identifier publicIPId, TimeSpan? refreshDelay = null, TimeSpan? timeout = null, IProgress<bool> progress = null)
+        {
+            rackConnectService.WaitUntilPublicIPIsRemovedAsync(publicIPId, refreshDelay, timeout, progress).ForceSynchronous();
         }
 
         /// <inheritdoc cref="PublicIP.WaitUntilRemovedAsync"/>

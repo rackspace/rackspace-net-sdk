@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
@@ -76,30 +75,22 @@ namespace Rackspace.RackConnect.v3
         }
 
         /// <summary>
-        /// Assigns a public IP address to the specified server.
+        /// Provisions a public IP address.
         /// </summary>
-        /// <param name="serverId">The server identifier.</param>
+        /// <param name="definition">The</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>The identifer of the public IP address while it is being provisioned. Use <see cref="WaitUntilPublicIPIsActiveAsync"/> to wait for the IP address to be full active.</returns>
-        public async Task<PublicIP> AssignPublicIPAsync(string serverId, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<PublicIP> ProvisionPublicIPAsync(PublicIPDefinition definition, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (string.IsNullOrEmpty(serverId))
-                throw new ArgumentNullException("serverId");
+            if (definition == null)
+                throw new ArgumentNullException("definition");
 
             Url endpoint = await _urlBuilder.GetEndpoint(cancellationToken).ConfigureAwait(false);
-
-            var request = new
-            {
-                cloud_server = new
-                {
-                    id = serverId
-                }
-            };
-
+            
             var ip = await endpoint
                 .AppendPathSegments("public_ips")
                 .Authenticate(_authenticationProvider)
-                .PostJsonAsync(request, cancellationToken)
+                .PostJsonAsync(definition, cancellationToken)
                 .ReceiveJson<PublicIP>()
                 .ConfigureAwait(false);
 

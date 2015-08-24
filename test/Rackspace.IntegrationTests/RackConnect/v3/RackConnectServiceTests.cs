@@ -11,7 +11,7 @@ namespace Rackspace.RackConnect.v3
     public class RackConnectServiceTests : IDisposable
     {
         private readonly RackConnectService _rackConnectService;
-        private readonly CloudServersTestDataManager _testData;
+        private readonly RackConnectTestDataManager _testData;
 
         public RackConnectServiceTests(ITestOutputHelper testLog)
         {
@@ -22,7 +22,7 @@ namespace Rackspace.RackConnect.v3
             var authenticationProvider = TestIdentityProvider.GetIdentityProvider("RackConnect");
             _rackConnectService = new RackConnectService(authenticationProvider, "LON");
 
-            _testData = new CloudServersTestDataManager(authenticationProvider);
+            _testData = new RackConnectTestDataManager(_rackConnectService, authenticationProvider);
         }
 
         public void Dispose()
@@ -34,7 +34,7 @@ namespace Rackspace.RackConnect.v3
         }
 
         [Fact]
-        public async Task AssignPublicIPTest()
+        public async Task ProvisionPublicIPTest()
         {
             Trace.WriteLine("Looking up the RackConnect network...");
             var network = (await _rackConnectService.ListNetworksAsync()).First();
@@ -43,8 +43,10 @@ namespace Rackspace.RackConnect.v3
             var server = _testData.CreateServer(network.Id);
             Trace.WriteLine(server.Id);
 
-            Trace.Write("Assigning a public ip address... ");
+            Trace.Write("Assigning a public ip address to the test cloud server... ");
+            var ipRequest = new PublicIPDefinition {ServerId = server.Id, ShouldRetain = true};
             var ip = await _rackConnectService.AssignPublicIPAsync(server.Id);
+            var ip = await _testData.ProvisionPublicIP(ipRequest);
             await ip.WaitUntilActiveAsync();
             Trace.WriteLine(ip.PublicIPv4Address);
 
