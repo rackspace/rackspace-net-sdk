@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net.Http.Headers;
+using System.Text.RegularExpressions;
 using Flurl.Http;
 using Rackspace.Testing;
 using Xunit;
@@ -39,6 +40,22 @@ namespace Rackspace
                 var userAgent = httpTest.CallLog[0].Request.Headers.UserAgent.ToString();
                 Assert.Contains("rackspace.net", userAgent);
                 Assert.Contains("openstack.net", userAgent);
+            }
+        }
+
+        [Fact]
+        public async void UserAgentOnlyListedOnceTest()
+        {
+            using (var httpTest = new HttpTest())
+            {
+                RackspaceNet.Configure();
+                RackspaceNet.Configure();
+
+                await "http://api.com".GetAsync();
+
+                var userAgent = httpTest.CallLog[0].Request.Headers.UserAgent.ToString();
+                var matches = new Regex("rackspace").Matches(userAgent);
+                Assert.Equal(1, matches.Count);
             }
         }
 
