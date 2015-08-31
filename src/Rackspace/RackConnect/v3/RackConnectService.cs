@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using Flurl;
@@ -85,18 +86,46 @@ namespace Rackspace.RackConnect.v3
             if (definition == null)
                 throw new ArgumentNullException("definition");
 
-            Url endpoint = await _urlBuilder.GetEndpoint(cancellationToken).ConfigureAwait(false);
-            
-            var ip = await endpoint
-                .AppendPathSegments("public_ips")
-                .Authenticate(_authenticationProvider)
-                .PostJsonAsync(definition, cancellationToken)
-                .ReceiveJson<PublicIP>()
-                .ConfigureAwait(false);
+            string endpoint = await _urlBuilder.GetEndpoint(cancellationToken).ConfigureAwait(false);
 
-            SetOwner(ip);
+            Func<Task<PublicIP>> executeRequest = async () =>
+            {
+                var ip = await new Url(endpoint)
+                    .AppendPathSegment("public_ips")
+                    .SetQueryParam("retain", definition.ShouldRetain)
+                    .Authenticate(_authenticationProvider)
+                    .PostJsonAsync(definition, cancellationToken)
+                    .ReceiveJson<PublicIP>()
+                    .ConfigureAwait(false);
 
-            return ip;
+                SetOwner(ip);
+
+                return ip;
+            };
+
+            try
+            {
+                return await executeRequest();
+            }
+            catch (FlurlHttpException ex) when (ProvisionFailedDueToServerCreationRaceCondition(ex))
+            {
+                await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
+                return await executeRequest();
+            }
+        }
+
+        /// <summary>
+        /// Check if a request to provision a Public IP failed because of a race condition
+        /// between when we created the server and when we requested the IP
+        /// i.e. The RackConnect API asked for the server details from the server API and got back a 404
+        /// </summary>
+        private static bool ProvisionFailedDueToServerCreationRaceCondition(FlurlHttpException ex)
+        {
+            if (ex.Call.HttpStatus != HttpStatusCode.Conflict)
+                return false;
+
+            string errorMessage = ex.GetResponseString();
+            return Regex.IsMatch(errorMessage, "Cloud Server .* is unprocessable");
         }
 
         /// <summary>

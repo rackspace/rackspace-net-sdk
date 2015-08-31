@@ -26,7 +26,8 @@ namespace Rackspace.RackConnect.v3
         /// <summary>
         /// Determines whether a Public IP is removed from your environment once the server to which it is attached is deleted.
         /// </summary>
-        [JsonProperty("retain")]
+        //[JsonProperty("retain")]
+        [JsonIgnore] // Wait until this is fixed in RackConnect service, right now it expects retain in the query parameters
         public bool ShouldRetain { get; set; }
     }
 }

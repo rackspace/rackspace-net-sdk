@@ -33,7 +33,7 @@ namespace Rackspace.RackConnect.v3
             _testData.Dispose();
         }
 
-        [Fact]
+        [Fact(Skip = "Skip while a bug exists in RemovePublicIP functionality.")]
         public async Task ProvisionUnassignedPublicIPTest()
         {
             Trace.Write("Provisioning a public ip address... ");
@@ -61,8 +61,7 @@ namespace Rackspace.RackConnect.v3
             Trace.WriteLine(server.Id);
 
             Trace.Write("Assigning a public ip address to the test cloud server... ");
-            var ipRequest = new PublicIPDefinition {ServerId = server.Id, ShouldRetain = true};
-            var ip = await _rackConnectService.AssignPublicIPAsync(server.Id);
+            var ipRequest = new PublicIPDefinition {ServerId = server.Id};
             var ip = await _testData.ProvisionPublicIP(ipRequest);
             await ip.WaitUntilActiveAsync();
             Trace.WriteLine(ip.PublicIPv4Address);

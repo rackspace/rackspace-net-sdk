@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Net;
-using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Rackspace.Synchronous;
 using Rackspace.Testing;
 using Xunit;
@@ -167,7 +167,7 @@ namespace Rackspace.RackConnect.v3
                 Identifier id = Guid.NewGuid();
                 httpTest.RespondWithJson(new PublicIP { Id = id, Status = PublicIPStatus.Active });
                 httpTest.RespondWithJson(new PublicIP { Id = id, Status = PublicIPStatus.Active });
-                httpTest.RespondWithJson(new PublicIP { Id = id, Status = PublicIPStatus.RemoveFailed });
+                httpTest.RespondWith(JObject.Parse(@"{'status':'REMOVE_FAILED'}").ToString());
 
                 var ip = _rackConnectService.GetPublicIP(id);
                 ip.Remove();
