@@ -29,6 +29,12 @@ namespace Rackspace.RackConnect.v3
         Adding,
 
         /// <summary>
+        /// The public IP address is being updated.
+        /// </summary>
+        [EnumMember(Value = "UPDATING")]
+        Updating,
+
+        /// <summary>
         /// The server associated with the public IP is still being built.
         /// </summary>
         [EnumMember(Value = "PENDING_BUILD")]
@@ -39,6 +45,12 @@ namespace Rackspace.RackConnect.v3
         /// </summary>
         [EnumMember(Value = "ADD_FAILED")]
         AddFailed,
+
+        /// <summary>
+        /// The public IP address update operation failed.
+        /// </summary>
+        [EnumMember(Value = "UPDATE_FAILED")]
+        UpdateFailed,
 
         /// <summary>
         /// The public IP address remove operation failed.

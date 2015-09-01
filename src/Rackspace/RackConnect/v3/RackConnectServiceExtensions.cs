@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Marvin.JsonPatch;
 using OpenStack.Synchronous.Extensions;
 using Rackspace.RackConnect.v3;
 
@@ -69,7 +70,13 @@ namespace Rackspace.Synchronous
             publicIP.WaitUntilRemovedAsync(refreshDelay, timeout, progress).ForceSynchronous();
         }
 
-        /// <inheritdoc cref="RackConnectService.RemovePublicIPAsync"/>
+        /// <inheritdoc cref="RackConnectService.UpdatePublicIPAsync"/>
+        public static PublicIP UpdatePublicIP(this RackConnectService rackConnectService, Identifier publicIPId, PublicIPUpdateDefinition definition)
+        {
+            return rackConnectService.UpdatePublicIPAsync(publicIPId, definition).ForceSynchronous();
+        }
+
+        /// <inheritdoc cref="RackConnectService.DeletePublicIPAsync"/>
         public static void RemovePublicIP(this RackConnectService rackConnectService, Identifier publicIPId)
         {
             rackConnectService.RemovePublicIPAsync(publicIPId).ForceSynchronous();
@@ -79,6 +86,18 @@ namespace Rackspace.Synchronous
         public static void Remove(this PublicIP publicIP)
         {
             publicIP.RemoveAsync().ForceSynchronous();
+        }
+
+        /// <inheritdoc cref="PublicIP.AssignAsync"/>
+        public static void Assign(this PublicIP publicIP, string serverId)
+        {
+            publicIP.AssignAsync(serverId).ForceSynchronous();
+        }
+
+        /// <inheritdoc cref="PublicIP.UnassignAsync"/>
+        public static void Unassign(this PublicIP publicIP)
+        {
+            publicIP.UnassignAsync().ForceSynchronous();
         }
         #endregion
     }

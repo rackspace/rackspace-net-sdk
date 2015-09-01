@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Flurl;
 using Flurl.Extensions;
 using Flurl.Http;
+using Marvin.JsonPatch;
 using OpenStack.Authentication;
 
 namespace Rackspace.RackConnect.v3
@@ -82,11 +83,11 @@ namespace Rackspace.RackConnect.v3
         }
 
         /// <summary>
-        /// Provisions a public IP address.
+        /// Allocates a public IP address to the current account.
         /// </summary>
-        /// <param name="definition">The</param>
+        /// <param name="definition">The public IP definition.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns>The identifer of the public IP address while it is being provisioned. Use <see cref="WaitUntilPublicIPIsActiveAsync"/> to wait for the IP address to be full active.</returns>
+        /// <returns>The identifer of the public IP address while it is being provisioned. Use <see cref="WaitUntilPublicIPIsActiveAsync"/> to wait for the IP address to be fully active.</returns>
         public async Task<PublicIP> ProvisionPublicIPAsync(PublicIPDefinition definition, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (definition == null)
@@ -178,7 +179,7 @@ namespace Rackspace.RackConnect.v3
                 while (true)
                 {
                     PublicIP ip = await GetPublicIPAsync(publicIPId, cancellationToken).ConfigureAwait(false);
-                    if (ip.Status == PublicIPStatus.AddFailed)
+                    if (ip.Status == PublicIPStatus.CreateFailed || ip.Status == PublicIPStatus.UpdateFailed)
                         throw new ServiceOperationFailedException(ip.StatusDetails);
 
                     bool complete = ip.Status == PublicIPStatus.Active;
@@ -264,7 +265,7 @@ namespace Rackspace.RackConnect.v3
         }
         
         /// <summary>
-        /// Removes the public IP address.
+        /// Removes the public IP address from the current account.
         /// </summary>
         /// <param name="publicIPId">The public IP address identifier.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -281,6 +282,32 @@ namespace Rackspace.RackConnect.v3
                 .AllowHttpStatus(HttpStatusCode.NotFound)
                 .DeleteAsync(cancellationToken)
                 .ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Updates the public IP address.
+        /// </summary>
+        /// <param name="publicIPId">The public IP address identifier.</param>
+        /// <param name="definition">The updated public IP definition.</param>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        public async Task<PublicIP> UpdatePublicIPAsync(Identifier publicIPId, PublicIPUpdateDefinition definition, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            if (definition == null)
+                throw new ArgumentNullException("definition");
+
+            Url endpoint = await _urlBuilder.GetEndpoint(cancellationToken).ConfigureAwait(false);
+
+            var ip = await endpoint
+                .AppendPathSegments("public_ips", publicIPId)
+                .Authenticate(_authenticationProvider)
+                .AllowHttpStatus(HttpStatusCode.NotFound)
+                .PatchJsonAsync(definition, cancellationToken)
+                .ReceiveJson<PublicIP>()
+                .ConfigureAwait(false);
+
+            SetOwner(ip);
+
+            return ip;
         }
         #endregion
 

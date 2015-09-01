@@ -86,6 +86,32 @@ namespace Rackspace.RackConnect.v3
             await owner.RemovePublicIPAsync(Id, cancellationToken).ConfigureAwait(false);
         }
 
+        /// <summary>
+        /// Assigns the Public IP to a cloud server.
+        /// </summary>
+        /// <exception cref="InvalidOperationException">When the <see cref="PublicIP"/> instance was not constructed by the <see cref="RackConnectService"/>, as it is missing the appropriate internal state to execute service calls.</exception>
+        public async Task AssignAsync(string serverId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var owner = GetOwner();
+            var patch = new JsonPatchDocument<PublicIPDefinition>();
+            patch.Replace(x => x.ServerId, serverId);
+            var result = await owner.UpdatePublicIPAsync(Id, patch, cancellationToken).ConfigureAwait(false);
+            result.CopyProperties(this);
+        }
+
+        /// <summary>
+        /// Removes the Public IP from the server to which it is currently assigned.
+        /// </summary>
+        /// <exception cref="InvalidOperationException">When the <see cref="PublicIP"/> instance was not constructed by the <see cref="RackConnectService"/>, as it is missing the appropriate internal state to execute service calls.</exception>
+        public async Task UnassignAsync(CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var owner = GetOwner();
+            var patch = new JsonPatchDocument<PublicIPDefinition>();
+            patch.Replace(x => x.ServerId, null);
+            var result = await owner.UpdatePublicIPAsync(Id, patch, cancellationToken).ConfigureAwait(false);
+            result.CopyProperties(this);
+        }
+
         private RackConnectService GetOwner([CallerMemberName]string callerName = "")
         {
             var owner = ((IServiceResource<RackConnectService>) this).Owner;

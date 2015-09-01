@@ -96,13 +96,65 @@ namespace Rackspace.RackConnect.v3
                 Identifier id = Guid.NewGuid();
                 httpTest.RespondWithJson(new PublicIP { Id = id });
 
-                var ipRequest = new PublicIPDefinition {ServerId = serverId};
-                var result = _rackConnectService.ProvisionPublicIP(ipRequest);
+                var ipRequest = new PublicIPCreateDefinition {ServerId = serverId};
+                var result = _rackConnectService.CreatePublicIP(ipRequest);
 
                 httpTest.ShouldHaveCalled($"*/public_ips");
                 Assert.NotNull(result);
                 Assert.Equal(id, result.Id);
                 Assert.NotNull(((IServiceResource<RackConnectService>)result).Owner);
+            }
+        }
+
+        [Fact]
+        public void UpdatePublicIP()
+        {
+            using (var httpTest = new HttpTest())
+            {
+                Identifier id = Guid.NewGuid();
+                httpTest.RespondWithJson(new PublicIP { Id = id });
+
+                var result = _rackConnectService.UpdatePublicIP(id, new PublicIPUpdateDefinition());
+
+                httpTest.ShouldHaveCalled($"*/public_ips/{id}");
+                Assert.NotNull(result);
+                Assert.Equal(id, result.Id);
+                Assert.NotNull(((IServiceResource<RackConnectService>)result).Owner);
+            }
+        }
+
+        [Fact]
+        public void AssignPublicIP()
+        {
+            using (var httpTest = new HttpTest())
+            {
+                Identifier serverId = Guid.NewGuid();
+                Identifier id = Guid.NewGuid();
+                httpTest.RespondWithJson(new PublicIP {Id = id});
+                httpTest.RespondWithJson(new PublicIP {Id = id, Server = new PublicIPServerAssociation {ServerId = serverId}});
+
+                var ip = _rackConnectService.GetPublicIP(id);
+                ip.Assign(serverId);
+
+                httpTest.ShouldHaveCalled($"*/public_ips/{id}");
+                Assert.NotNull(ip.Server);
+                Assert.Equal(serverId, ip.Server.ServerId);
+            }
+        }
+
+        [Fact]
+        public void UnassignPublicIP()
+        {
+            using (var httpTest = new HttpTest())
+            {
+                Identifier id = Guid.NewGuid();
+                httpTest.RespondWithJson(new PublicIP {Id = id, ShouldRetain = true});
+
+                var ip = _rackConnectService.GetPublicIP(id);
+                ip.Unassign();
+
+                httpTest.ShouldHaveCalled($"*/public_ips/{id}");
+                Assert.Null(ip.Server);
             }
         }
 
@@ -145,7 +197,7 @@ namespace Rackspace.RackConnect.v3
 
             Assert.Throws<InvalidOperationException>(() => ip.WaitUntilActive());
         }
-
+        
         [Fact]
         public void RemovePublicIP()
         {

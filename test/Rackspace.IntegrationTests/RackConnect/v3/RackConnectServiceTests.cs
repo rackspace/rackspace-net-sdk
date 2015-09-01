@@ -34,11 +34,10 @@ namespace Rackspace.RackConnect.v3
         }
 
         [Fact(Skip = "Skip while a bug exists in RemovePublicIP functionality.")]
-        public async Task ProvisionUnassignedPublicIPTest()
+        public async Task CreateUnassignedPublicIPTest()
         {
             Trace.Write("Provisioning a public ip address... ");
-            var ipRequest = new PublicIPDefinition {ShouldRetain = true};
-            var ip = await _testData.ProvisionPublicIP(ipRequest);
+            var ip = await _testData.CreatePublicIP(new PublicIPCreateDefinition { ShouldRetain = true });
 
             await ip.WaitUntilActiveAsync();
             Trace.WriteLine(ip.PublicIPv4Address);
@@ -51,7 +50,7 @@ namespace Rackspace.RackConnect.v3
         }
 
         [Fact]
-        public async Task ProvisionPublicIPTest()
+        public async Task CreatePublicIPTest()
         {
             Trace.WriteLine("Looking up the RackConnect network...");
             var network = (await _rackConnectService.ListNetworksAsync()).First();
@@ -61,8 +60,8 @@ namespace Rackspace.RackConnect.v3
             Trace.WriteLine(server.Id);
 
             Trace.Write("Assigning a public ip address to the test cloud server... ");
-            var ipRequest = new PublicIPDefinition {ServerId = server.Id};
-            var ip = await _testData.ProvisionPublicIP(ipRequest);
+            var ipRequest = new PublicIPCreateDefinition {ServerId = server.Id, ShouldRetain = true};
+            var ip = await _testData.CreatePublicIP(ipRequest);
             await ip.WaitUntilActiveAsync();
             Trace.WriteLine(ip.PublicIPv4Address);
 
@@ -76,7 +75,13 @@ namespace Rackspace.RackConnect.v3
             var ips = await _rackConnectService.ListPublicIPsAsync(filterByServer);
             Assert.NotNull(ips);
             Assert.True(ips.Any(x => x.Id == ip.Id));
-            
+
+            Trace.WriteLine("Update the IP address to not be retained...");
+            ip = await _rackConnectService.UpdatePublicIPAsync(ip.Id, new PublicIPUpdateDefinition { ShouldRetain = false });
+            await ip.WaitUntilActiveAsync();
+            Assert.NotNull(ip);
+            Assert.False(ip.ShouldRetain);
+
             Trace.WriteLine("Removing public IP from test cloud server...");
             await ip.DeleteAsync();
             await ip.WaitUntilDeletedAsync();
