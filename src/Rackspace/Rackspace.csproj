@@ -91,6 +91,7 @@
     <Compile Include="RackConnect\v3\NetworkReference.cs" />
     <Compile Include="RackConnect\v3\PublicIP.cs" />
     <Compile Include="RackConnect\v3\PublicIPCreateDefinition.cs" />
+    <Compile Include="RackConnect\v3\PublicIPExtensions.cs" />
     <Compile Include="RackConnect\v3\PublicIPNetworkAssociation.cs" />
     <Compile Include="RackConnect\v3\PublicIPServerAssociation.cs" />
     <Compile Include="RackConnect\v3\PublicIPStatus.cs" />
