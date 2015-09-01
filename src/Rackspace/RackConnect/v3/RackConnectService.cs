@@ -51,18 +51,24 @@ namespace Rackspace.RackConnect.v3
         /// <summary>
         /// Lists all public IP addresses associated with the account.
         /// </summary>
-        /// <param name="serverId">Filter the results to only those associated with the specified server.</param>
+        /// <param name="filter">Optional filter parameters.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>
         /// A collection of public IP addresses associated with the account.
         /// </returns>
-        public async Task<IEnumerable<PublicIP>> ListPublicIPsAsync(string serverId = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IEnumerable<PublicIP>> ListPublicIPsAsync(ListPublicIPsFilter filter = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            filter = filter ?? new ListPublicIPsFilter();
+
             Url endpoint = await _urlBuilder.GetEndpoint(cancellationToken).ConfigureAwait(false);
 
             var ips = await endpoint
                 .AppendPathSegments("public_ips")
-                .SetQueryParam("cloud_server_id", serverId)
+                .SetQueryParams(new
+                {
+                    cloud_server_id = filter.ServerId,
+                    retain = filter.IsRetained
+                })
                 .Authenticate(_authenticationProvider)
                 .GetJsonAsync<IEnumerable<PublicIP>>(cancellationToken)
                 .ConfigureAwait(false);

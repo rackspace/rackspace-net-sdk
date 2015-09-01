@@ -42,11 +42,28 @@ namespace Rackspace.RackConnect.v3
             {
                 string serverId = Guid.NewGuid().ToString();
                 Identifier id = Guid.NewGuid();
-                httpTest.RespondWithJson(new[] { new PublicIP { Id = id } });
+                httpTest.RespondWithJson(new[] {new PublicIP {Id = id}});
 
-                var results = _rackConnectService.ListPublicIPs(serverId);
+                var results = _rackConnectService.ListPublicIPs(new ListPublicIPsFilter {ServerId = serverId});
 
                 httpTest.ShouldHaveCalled($"*/public_ips?cloud_server_id={serverId}");
+                Assert.NotNull(results);
+                Assert.Equal(1, results.Count());
+                Assert.Equal(id, results.First().Id);
+            }
+        }
+
+        [Fact]
+        public void ListPersistentPublicIPs()
+        {
+            using (var httpTest = new HttpTest())
+            {
+                Identifier id = Guid.NewGuid();
+                httpTest.RespondWithJson(new[] { new PublicIP { Id = id } });
+
+                var results = _rackConnectService.ListPublicIPs(new ListPublicIPsFilter { IsRetained = true });
+
+                httpTest.ShouldHaveCalled($"*/public_ips?retain=True");
                 Assert.NotNull(results);
                 Assert.Equal(1, results.Count());
                 Assert.Equal(id, results.First().Id);

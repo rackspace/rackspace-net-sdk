@@ -72,16 +72,17 @@ namespace Rackspace.RackConnect.v3
             Assert.Equal(PublicIPStatus.Active, ip.Status);
 
             Trace.WriteLine("Retrieving public IPs assigned to the test cloud server...");
-            var ips = await _rackConnectService.ListPublicIPsAsync(server.Id);
+            var filterByServer = new ListPublicIPsFilter {ServerId = server.Id};
+            var ips = await _rackConnectService.ListPublicIPsAsync(filterByServer);
             Assert.NotNull(ips);
             Assert.True(ips.Any(x => x.Id == ip.Id));
-
+            
             Trace.WriteLine("Removing public IP from test cloud server...");
-            await ip.RemoveAsync();
-            await ip.WaitUntilRemovedAsync();
+            await ip.DeleteAsync();
+            await ip.WaitUntilDeletedAsync();
 
             Trace.WriteLine($"Verifying that {ip.PublicIPv4Address} is no longer assigned...");
-            ips = await _rackConnectService.ListPublicIPsAsync(server.Id);
+            ips = await _rackConnectService.ListPublicIPsAsync(filterByServer);
             Assert.NotNull(ips);
             Assert.False(ips.Any(x => x.Id == ip.Id));
         }

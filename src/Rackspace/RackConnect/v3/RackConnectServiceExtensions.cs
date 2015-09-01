@@ -28,9 +28,9 @@ namespace Rackspace.Synchronous
 
         #region Public IPs
         /// <inheritdoc cref="RackConnectService.ListPublicIPsAsync"/>
-        public static IEnumerable<PublicIP> ListPublicIPs(this RackConnectService rackConnectService, string serverId = null)
+        public static IEnumerable<PublicIP> ListPublicIPs(this RackConnectService rackConnectService, ListPublicIPsFilter filter = null)
         {
-            return rackConnectService.ListPublicIPsAsync(serverId).ForceSynchronous();
+            return rackConnectService.ListPublicIPsAsync(filter).ForceSynchronous();
         }
 
         /// <inheritdoc cref="RackConnectService.GetPublicIPAsync"/>
