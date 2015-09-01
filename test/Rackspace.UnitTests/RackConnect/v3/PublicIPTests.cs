@@ -148,7 +148,8 @@ namespace Rackspace.RackConnect.v3
             using (var httpTest = new HttpTest())
             {
                 Identifier id = Guid.NewGuid();
-                httpTest.RespondWithJson(new PublicIP {Id = id, ShouldRetain = true});
+                httpTest.RespondWithJson(new PublicIP {Id = id, Server = new PublicIPServerAssociation()});
+                httpTest.RespondWithJson(new PublicIP {Id = id });
 
                 var ip = _rackConnectService.GetPublicIP(id);
                 ip.Unassign();
@@ -164,7 +165,7 @@ namespace Rackspace.RackConnect.v3
             using (var httpTest = new HttpTest())
             {
                 Identifier id = Guid.NewGuid();
-                httpTest.RespondWithJson(new PublicIP {Id = id, Status = PublicIPStatus.Adding});
+                httpTest.RespondWithJson(new PublicIP {Id = id, Status = PublicIPStatus.Creating});
                 httpTest.RespondWithJson(new PublicIP {Id = id, Status = PublicIPStatus.Active, PublicIPv4Address = "10.0.0.1"});
 
                 var ip = _rackConnectService.GetPublicIP(id);
@@ -182,8 +183,8 @@ namespace Rackspace.RackConnect.v3
             using (var httpTest = new HttpTest())
             {
                 Identifier id = Guid.NewGuid();
-                httpTest.RespondWithJson(new PublicIP { Id = id, Status = PublicIPStatus.Adding });
-                httpTest.RespondWithJson(new PublicIP { Id = id, Status = PublicIPStatus.AddFailed, StatusDetails = "No IP for you!"});
+                httpTest.RespondWithJson(new PublicIP { Id = id, Status = PublicIPStatus.Creating });
+                httpTest.RespondWithJson(new PublicIP { Id = id, Status = PublicIPStatus.CreateFailed, StatusDetails = "No IP for you!"});
 
                 var ip = _rackConnectService.GetPublicIP(id);
                 Assert.Throws<ServiceOperationFailedException>(() => ip.WaitUntilActive());
@@ -199,37 +200,37 @@ namespace Rackspace.RackConnect.v3
         }
         
         [Fact]
-        public void RemovePublicIP()
+        public void DeletePublicIP()
         {
             using (var httpTest = new HttpTest())
             {
                 Identifier id = Guid.NewGuid();
                 httpTest.RespondWithJson(new PublicIP { Id = id });
 
-                _rackConnectService.RemovePublicIP(id);
+                _rackConnectService.DeletePublicIP(id);
 
                 httpTest.ShouldHaveCalled($"*/public_ips/{id}");
             }
         }
 
         [Fact]
-        public void WaitUntilRemoved()
+        public void WaitUntilDeleted()
         {
             using (var httpTest = new HttpTest())
             {
                 Identifier id = Guid.NewGuid();
                 httpTest.RespondWithJson(new PublicIP { Id = id, Status = PublicIPStatus.Active });
                 httpTest.RespondWith((int) HttpStatusCode.NoContent, "All gone!");
-                httpTest.RespondWithJson(new PublicIP { Id = id, Status = PublicIPStatus.Removed });
+                httpTest.RespondWithJson(new PublicIP { Id = id, Status = PublicIPStatus.Deleted });
 
                 var ip = _rackConnectService.GetPublicIP(id);
-                ip.Remove();
-                ip.WaitUntilRemoved();
+                ip.Delete();
+                ip.WaitUntilDeleted();
             }
         }
 
         [Fact]
-        public void WaitUntilRemoved_ThrowsException_WhenRemoveFails()
+        public void WaitUntilDeleted_ThrowsException_WhenDeleteFails()
         {
             using (var httpTest = new HttpTest())
             {
@@ -239,13 +240,13 @@ namespace Rackspace.RackConnect.v3
                 httpTest.RespondWith(JObject.Parse(@"{'status':'REMOVE_FAILED'}").ToString());
 
                 var ip = _rackConnectService.GetPublicIP(id);
-                ip.Remove();
-                Assert.Throws<ServiceOperationFailedException>(() =>ip.WaitUntilRemoved());
+                ip.Delete();
+                Assert.Throws<ServiceOperationFailedException>(() =>ip.WaitUntilDeleted());
             }
         }
 
         [Fact]
-        public void WaitUntilRemoved_AcceptsNotFoundExceptionAsSuccess()
+        public void WaitUntilDeleted_AcceptsNotFoundExceptionAsSuccess()
         {
             using (var httpTest = new HttpTest())
             {
@@ -255,17 +256,17 @@ namespace Rackspace.RackConnect.v3
                 httpTest.RespondWith((int) HttpStatusCode.NotFound, "Not here, boss!");
 
                 var ip = _rackConnectService.GetPublicIP(id);
-                ip.Remove();
-                ip.WaitUntilRemoved();
+                ip.Delete();
+                ip.WaitUntilDeleted();
             }
         }
 
         [Fact]
-        public void WaitUntilRemoved_ThrowsException_WhenCalledOnManuallyCreatedInstance()
+        public void WaitUntilDeleted_ThrowsException_WhenCalledOnManuallyCreatedInstance()
         {
             var ip = new PublicIP();
 
-            Assert.Throws<InvalidOperationException>(() => ip.WaitUntilRemoved());
+            Assert.Throws<InvalidOperationException>(() => ip.WaitUntilDeleted());
         }
     }
 }

@@ -40,7 +40,7 @@ namespace Rackspace.CloudServers.v2
             var errors = new List<Exception>();
             try
             {
-                RemovePublicIPs(_testData.OfType<PublicIP>());
+                DeletePublicIPs(_testData.OfType<PublicIP>());
             }
             catch (AggregateException ex) { errors.AddRange(ex.InnerExceptions); }
 
@@ -57,20 +57,20 @@ namespace Rackspace.CloudServers.v2
                 throw new AggregateException("Unable to remove all test data!", errors);
         }
 
-        public async Task<PublicIP> ProvisionPublicIP(PublicIPDefinition definition)
+        public async Task<PublicIP> CreatePublicIP(PublicIPCreateDefinition definition)
         {
-            var ip = await _rackConnectService.ProvisionPublicIPAsync(definition);
+            var ip = await _rackConnectService.CreatePublicIPAsync(definition);
             Register(ip);
             return ip;
         }
 
-        private void RemovePublicIPs(IEnumerable<PublicIP> ips)
+        private void DeletePublicIPs(IEnumerable<PublicIP> ips)
         {
             var deletes = ips.Select(x =>
                 Task.Run(() =>
                     {
-                        _rackConnectService.RemovePublicIP(x.Id);
-                        _rackConnectService.WaitUntilPublicIPIsRemoved(x.Id);
+                        _rackConnectService.DeletePublicIP(x.Id);
+                        _rackConnectService.WaitUntilPublicIPIsDeleted(x.Id);
                     })
                 ).ToArray();
             Task.WaitAll(deletes);

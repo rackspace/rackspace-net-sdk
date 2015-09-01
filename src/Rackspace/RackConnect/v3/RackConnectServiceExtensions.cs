@@ -40,10 +40,10 @@ namespace Rackspace.Synchronous
             return rackConnectService.GetPublicIPAsync(publicIPId).ForceSynchronous();
         }
 
-        /// <inheritdoc cref="RackConnectService.ProvisionPublicIPAsync"/>
-        public static PublicIP ProvisionPublicIP(this RackConnectService rackConnectService, PublicIPDefinition definition)
+        /// <inheritdoc cref="RackConnectService.CreatePublicIPAsync"/>
+        public static PublicIP CreatePublicIP(this RackConnectService rackConnectService, PublicIPCreateDefinition definition)
         {
-            return rackConnectService.ProvisionPublicIPAsync(definition).ForceSynchronous();
+            return rackConnectService.CreatePublicIPAsync(definition).ForceSynchronous();
         }
 
         /// <inheritdoc cref="RackConnectService.WaitUntilPublicIPIsActiveAsync"/>
@@ -58,16 +58,16 @@ namespace Rackspace.Synchronous
             publicIP.WaitUntilActiveAsync(refreshDelay, timeout, progress).ForceSynchronous();
         }
 
-        /// <inheritdoc cref="RackConnectService.WaitUntilPublicIPIsRemovedAsync"/>
-        public static void WaitUntilPublicIPIsRemoved(this RackConnectService rackConnectService, Identifier publicIPId, TimeSpan? refreshDelay = null, TimeSpan? timeout = null, IProgress<bool> progress = null)
+        /// <inheritdoc cref="RackConnectService.WaitUntilPublicIPIsDeletedAsync"/>
+        public static void WaitUntilPublicIPIsDeleted(this RackConnectService rackConnectService, Identifier publicIPId, TimeSpan? refreshDelay = null, TimeSpan? timeout = null, IProgress<bool> progress = null)
         {
-            rackConnectService.WaitUntilPublicIPIsRemovedAsync(publicIPId, refreshDelay, timeout, progress).ForceSynchronous();
+            rackConnectService.WaitUntilPublicIPIsDeletedAsync(publicIPId, refreshDelay, timeout, progress).ForceSynchronous();
         }
 
-        /// <inheritdoc cref="PublicIP.WaitUntilRemovedAsync"/>
-        public static void WaitUntilRemoved(this PublicIP publicIP, TimeSpan? refreshDelay = null, TimeSpan? timeout = null, IProgress<bool> progress = null)
+        /// <inheritdoc cref="PublicIP.WaitUntilDeletedAsync"/>
+        public static void WaitUntilDeleted(this PublicIP publicIP, TimeSpan? refreshDelay = null, TimeSpan? timeout = null, IProgress<bool> progress = null)
         {
-            publicIP.WaitUntilRemovedAsync(refreshDelay, timeout, progress).ForceSynchronous();
+            publicIP.WaitUntilDeletedAsync(refreshDelay, timeout, progress).ForceSynchronous();
         }
 
         /// <inheritdoc cref="RackConnectService.UpdatePublicIPAsync"/>
@@ -77,15 +77,15 @@ namespace Rackspace.Synchronous
         }
 
         /// <inheritdoc cref="RackConnectService.DeletePublicIPAsync"/>
-        public static void RemovePublicIP(this RackConnectService rackConnectService, Identifier publicIPId)
+        public static void DeletePublicIP(this RackConnectService rackConnectService, Identifier publicIPId)
         {
-            rackConnectService.RemovePublicIPAsync(publicIPId).ForceSynchronous();
+            rackConnectService.DeletePublicIPAsync(publicIPId).ForceSynchronous();
         }
 
-        /// <inheritdoc cref="PublicIP.RemoveAsync"/>
-        public static void Remove(this PublicIP publicIP)
+        /// <inheritdoc cref="PublicIP.DeleteAsync"/>
+        public static void Delete(this PublicIP publicIP)
         {
-            publicIP.RemoveAsync().ForceSynchronous();
+            publicIP.DeleteAsync().ForceSynchronous();
         }
 
         /// <inheritdoc cref="PublicIP.AssignAsync"/>

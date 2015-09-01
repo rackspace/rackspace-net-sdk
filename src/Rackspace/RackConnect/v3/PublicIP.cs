@@ -70,20 +70,20 @@ namespace Rackspace.RackConnect.v3
             result.CopyProperties(this);
         }
 
-        /// <inheritdoc cref="RackConnectService.WaitUntilPublicIPIsRemovedAsync" />
+        /// <inheritdoc cref="RackConnectService.WaitUntilPublicIPIsDeletedAsync" />
         /// <exception cref="InvalidOperationException">When the <see cref="PublicIP"/> instance was not constructed by the <see cref="RackConnectService"/>, as it is missing the appropriate internal state to execute service calls.</exception>
-        public async Task WaitUntilRemovedAsync(TimeSpan? refreshDelay = null, TimeSpan? timeout = null, IProgress<bool> progress = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task WaitUntilDeletedAsync(TimeSpan? refreshDelay = null, TimeSpan? timeout = null, IProgress<bool> progress = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             var owner = GetOwner();
-            await owner.WaitUntilPublicIPIsRemovedAsync(Id, refreshDelay, timeout, progress, cancellationToken).ConfigureAwait(false);
+            await owner.WaitUntilPublicIPIsDeletedAsync(Id, refreshDelay, timeout, progress, cancellationToken).ConfigureAwait(false);
         }
 
-        /// <inheritdoc cref="RackConnectService.RemovePublicIPAsync" />
+        /// <inheritdoc cref="RackConnectService.DeletePublicIPAsync" />
         /// <exception cref="InvalidOperationException">When the <see cref="PublicIP"/> instance was not constructed by the <see cref="RackConnectService"/>, as it is missing the appropriate internal state to execute service calls.</exception>
-        public async Task RemoveAsync(CancellationToken cancellationToken = default(CancellationToken))
+        public async Task DeleteAsync(CancellationToken cancellationToken = default(CancellationToken))
         {
             var owner = GetOwner();
-            await owner.RemovePublicIPAsync(Id, cancellationToken).ConfigureAwait(false);
+            await owner.DeletePublicIPAsync(Id, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -93,9 +93,8 @@ namespace Rackspace.RackConnect.v3
         public async Task AssignAsync(string serverId, CancellationToken cancellationToken = default(CancellationToken))
         {
             var owner = GetOwner();
-            var patch = new JsonPatchDocument<PublicIPDefinition>();
-            patch.Replace(x => x.ServerId, serverId);
-            var result = await owner.UpdatePublicIPAsync(Id, patch, cancellationToken).ConfigureAwait(false);
+            var definition = new PublicIPUpdateDefinition { ServerId = serverId};
+            var result = await owner.UpdatePublicIPAsync(Id, definition, cancellationToken).ConfigureAwait(false);
             result.CopyProperties(this);
         }
 
@@ -106,9 +105,8 @@ namespace Rackspace.RackConnect.v3
         public async Task UnassignAsync(CancellationToken cancellationToken = default(CancellationToken))
         {
             var owner = GetOwner();
-            var patch = new JsonPatchDocument<PublicIPDefinition>();
-            patch.Replace(x => x.ServerId, null);
-            var result = await owner.UpdatePublicIPAsync(Id, patch, cancellationToken).ConfigureAwait(false);
+            var definition = new PublicIPUpdateDefinition {ServerId = null};
+            var result = await owner.UpdatePublicIPAsync(Id, definition, cancellationToken).ConfigureAwait(false);
             result.CopyProperties(this);
         }
 

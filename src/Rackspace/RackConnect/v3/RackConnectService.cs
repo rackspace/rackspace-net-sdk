@@ -88,7 +88,7 @@ namespace Rackspace.RackConnect.v3
         /// <param name="definition">The public IP definition.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>The identifer of the public IP address while it is being provisioned. Use <see cref="WaitUntilPublicIPIsActiveAsync"/> to wait for the IP address to be fully active.</returns>
-        public async Task<PublicIP> ProvisionPublicIPAsync(PublicIPDefinition definition, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<PublicIP> CreatePublicIPAsync(PublicIPCreateDefinition definition, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (definition == null)
                 throw new ArgumentNullException("definition");
@@ -114,7 +114,7 @@ namespace Rackspace.RackConnect.v3
             {
                 return await executeRequest();
             }
-            catch (FlurlHttpException ex) when (ProvisionFailedDueToServerCreationRaceCondition(ex))
+            catch (FlurlHttpException ex) when (CreateFailedDueToServerCreationRaceCondition(ex))
             {
                 await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
                 return await executeRequest();
@@ -126,7 +126,7 @@ namespace Rackspace.RackConnect.v3
         /// between when we created the server and when we requested the IP
         /// i.e. The RackConnect API asked for the server details from the server API and got back a 404
         /// </summary>
-        private static bool ProvisionFailedDueToServerCreationRaceCondition(FlurlHttpException ex)
+        private static bool CreateFailedDueToServerCreationRaceCondition(FlurlHttpException ex)
         {
             if (ex.Call.HttpStatus != HttpStatusCode.Conflict)
                 return false;
@@ -205,7 +205,7 @@ namespace Rackspace.RackConnect.v3
         }
 
         /// <summary>
-        /// Waits for the public IP address to be removed from a server.
+        /// Waits for the public IP address to be removed from the current account.
         /// </summary>
         /// <param name="publicIPId">The public IP address identifier.</param>
         /// <param name="refreshDelay">The amount of time to wait between requests.</param>
@@ -214,7 +214,7 @@ namespace Rackspace.RackConnect.v3
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="TimeoutException">If the <paramref name="timeout"/> value is reached.</exception>
         /// <exception cref="FlurlHttpException">If the API call returns a bad <see cref="HttpStatusCode"/>.</exception>
-        public async Task WaitUntilPublicIPIsRemovedAsync(Identifier publicIPId, TimeSpan? refreshDelay = null, TimeSpan? timeout = null, IProgress<bool> progress = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task WaitUntilPublicIPIsDeletedAsync(Identifier publicIPId, TimeSpan? refreshDelay = null, TimeSpan? timeout = null, IProgress<bool> progress = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (string.IsNullOrEmpty(publicIPId))
                 throw new ArgumentNullException("publicIPId");
@@ -231,10 +231,10 @@ namespace Rackspace.RackConnect.v3
                     try
                     {
                         PublicIP ip = await GetPublicIPAsync(publicIPId, cancellationToken).ConfigureAwait(false);
-                        if(ip.Status == PublicIPStatus.RemoveFailed)
+                        if(ip.Status == PublicIPStatus.DeleteFailed)
                             throw new ServiceOperationFailedException(ip.StatusDetails);
 
-                        complete = ip.Status == PublicIPStatus.Removed;
+                        complete = ip.Status == PublicIPStatus.Deleted;
                     }
                     catch (FlurlHttpException httpError)
                     {
@@ -269,7 +269,7 @@ namespace Rackspace.RackConnect.v3
         /// </summary>
         /// <param name="publicIPId">The public IP address identifier.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async Task RemovePublicIPAsync(Identifier publicIPId, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task DeletePublicIPAsync(Identifier publicIPId, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (publicIPId == null)
                 throw new ArgumentNullException("publicIPId");

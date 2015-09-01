@@ -26,7 +26,7 @@ namespace Rackspace.RackConnect.v3
         /// The public IP address is being added.
         /// </summary>
         [EnumMember(Value = "ADDING")]
-        Adding,
+        Creating,
 
         /// <summary>
         /// The public IP address is being updated.
@@ -44,7 +44,7 @@ namespace Rackspace.RackConnect.v3
         /// The public IP address add operation failed.
         /// </summary>
         [EnumMember(Value = "ADD_FAILED")]
-        AddFailed,
+        CreateFailed,
 
         /// <summary>
         /// The public IP address update operation failed.
@@ -56,12 +56,12 @@ namespace Rackspace.RackConnect.v3
         /// The public IP address remove operation failed.
         /// </summary>
         [EnumMember(Value = "REMOVE_FAILED")]
-        RemoveFailed,
+        DeleteFailed,
 
         /// <summary>
         /// The public IP address has been removed.
         /// </summary>
         [EnumMember(Value = "REMOVED")]
-        Removed
+        Deleted
     }
 }
