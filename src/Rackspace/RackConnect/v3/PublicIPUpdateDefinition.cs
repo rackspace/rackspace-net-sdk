@@ -3,7 +3,11 @@
 namespace Rackspace.RackConnect.v3
 {
     /// <summary>
-    /// Represents a request to the <see cref="RackConnectService"/> to provision a public IP address.
+    /// Represents a request to the <see cref="RackConnectService"/> to update a public IP address.
+    /// <para/>
+    /// <para>
+    /// All properties are optional, anything that is set will be updated and null properties will remain unchanged.
+    /// </para>
     /// </summary>
     /// <threadsafety static="true" instance="false"/>
     public class PublicIPUpdateDefinition

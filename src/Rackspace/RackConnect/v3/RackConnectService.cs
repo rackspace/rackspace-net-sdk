@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using Flurl;
 using Flurl.Extensions;
 using Flurl.Http;
-using Marvin.JsonPatch;
 using OpenStack.Authentication;
 
 namespace Rackspace.RackConnect.v3
