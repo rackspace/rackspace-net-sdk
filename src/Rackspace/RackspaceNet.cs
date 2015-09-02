@@ -38,14 +38,12 @@ namespace Rackspace
             {
                 if (_isConfigured)
                     return;
+                
+                OpenStackNet.Configure(configureFlurl, configureJson);
 
                 configure?.Invoke(Configuration);
+                Configuration.Apply(OpenStackNet.Configuration);
 
-                Action<OpenStackNetConfigurationOptions> configureOpenStackNet = options =>
-                {
-                    Configuration.Apply(options);
-                };
-                OpenStackNet.Configure(configureFlurl, configureJson, configureOpenStackNet);
                 _isConfigured = true;
             }
         }

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Net.Http.Headers;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using Flurl.Http;
+using OpenStack;
 using Rackspace.Testing;
 using Xunit;
 
@@ -20,6 +22,46 @@ namespace Rackspace
         }
 
         [Fact]
+        public async Task UseBothOpenStackAndRackspace_OpenStackConfiguredFirst()
+        {
+            using (var httpTest = new HttpTest())
+            {
+                OpenStackNet.Configure();
+                RackspaceNet.Configure();
+
+                await "http://api.com".GetAsync();
+
+                var userAgent = httpTest.CallLog[0].Request.Headers.UserAgent.ToString();
+
+                var rackspaceMatches = new Regex("rackspace").Matches(userAgent);
+                Assert.Equal(1, rackspaceMatches.Count);
+
+                var openstackMatches = new Regex("openstack").Matches(userAgent);
+                Assert.Equal(1, openstackMatches.Count);
+            }
+        }
+
+        [Fact]
+        public async Task UseBothOpenStackAndRackspace_RackspaceConfiguredFirst()
+        {
+            using (var httpTest = new HttpTest())
+            {
+                RackspaceNet.Configure();
+                OpenStackNet.Configure();
+
+                await "http://api.com".GetAsync();
+
+                var userAgent = httpTest.CallLog[0].Request.Headers.UserAgent.ToString();
+
+                var rackspaceMatches = new Regex("rackspace").Matches(userAgent);
+                Assert.Equal(1, rackspaceMatches.Count);
+
+                var openstackMatches = new Regex("openstack").Matches(userAgent);
+                Assert.Equal(1, openstackMatches.Count);
+            }
+        }
+
+        [Fact]
         public void ResetDefaults_ResetsFlurlConfiguration()
         {
             RackspaceNet.Configure();
@@ -29,7 +71,7 @@ namespace Rackspace
         }
 
         [Fact]
-        public async void UserAgentTest()
+        public async Task UserAgentTest()
         {
             using (var httpTest = new HttpTest())
             {
@@ -44,7 +86,7 @@ namespace Rackspace
         }
 
         [Fact]
-        public async void UserAgentOnlyListedOnceTest()
+        public async Task UserAgentOnlyListedOnceTest()
         {
             using (var httpTest = new HttpTest())
             {
@@ -54,13 +96,17 @@ namespace Rackspace
                 await "http://api.com".GetAsync();
 
                 var userAgent = httpTest.CallLog[0].Request.Headers.UserAgent.ToString();
-                var matches = new Regex("rackspace").Matches(userAgent);
-                Assert.Equal(1, matches.Count);
+
+                var rackspaceMatches = new Regex("rackspace").Matches(userAgent);
+                Assert.Equal(1, rackspaceMatches.Count);
+
+                var openstackMatches = new Regex("openstack").Matches(userAgent);
+                Assert.Equal(1, openstackMatches.Count);
             }
         }
 
         [Fact]
-        public async void UserAgentWithApplicationSuffixTest()
+        public async Task UserAgentWithApplicationSuffixTest()
         {
             using (var httpTest = new HttpTest())
             {
