@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Extensions;
-using System.Linq;
 using System.Net.Http.Headers;
 using Flurl.Http;
 using Flurl.Http.Configuration;
-using net.openstack.Core;
 using Newtonsoft.Json;
 using OpenStack;
 
@@ -23,6 +21,7 @@ namespace Rackspace
         /// </summary>
         public static readonly RackspaceNetConfigurationOptions Configuration = new RackspaceNetConfigurationOptions();
         private static readonly object ConfigureLock = new object();
+        private static bool _isConfigured;
 
         /// <summary>
         /// Provides thread-safe accesss to Rackspace.NET's global configuration options.
@@ -35,16 +34,39 @@ namespace Rackspace
         /// <param name="configure">Additional configuration of Rackspace.NET's global settings.</param>
         public static void Configure(Action<FlurlHttpConfigurationOptions> configureFlurl = null, Action<JsonSerializerSettings> configureJson = null, Action<RackspaceNetConfigurationOptions> configure = null)
         {
-            if (configure != null)
-                lock (ConfigureLock) { configure(Configuration); }
-
-            Action<OpenStackNetConfigurationOptions> configureOpenStackNet = options =>
+            lock (ConfigureLock)
             {
-                Configuration.Apply(options);
-            };
-            OpenStackNet.Configure(configureFlurl, configureJson, configureOpenStackNet);
+                if (_isConfigured)
+                    return;
+
+                configure?.Invoke(Configuration);
+
+                Action<OpenStackNetConfigurationOptions> configureOpenStackNet = options =>
+                {
+                    Configuration.Apply(options);
+                };
+                OpenStackNet.Configure(configureFlurl, configureJson, configureOpenStackNet);
+                _isConfigured = true;
+            }
         }
-        
+
+        /// <summary>
+        /// Resets all configuration (Rackspace.NET, OpenStack.NET, Flurl and Json.NET) so that <see cref="Configure"/> can be called again.
+        /// </summary>
+        public static void ResetDefaults()
+        {
+            lock (ConfigureLock)
+            {
+                if (!_isConfigured)
+                    return;
+
+                Configuration.ResetDefaults();
+                OpenStackNet.ResetDefaults();
+
+                _isConfigured = false;
+            }
+        }
+
         /// <inheritdoc cref="OpenStack.OpenStackNet.Tracing" />
         public static class Tracing
         {

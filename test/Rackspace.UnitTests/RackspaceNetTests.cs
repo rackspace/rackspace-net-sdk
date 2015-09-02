@@ -8,9 +8,23 @@ namespace Rackspace
 {
     public class RackspaceNetTests : IDisposable
     {
+        public RackspaceNetTests()
+        {
+            RackspaceNet.ResetDefaults();
+        }
+
         public void Dispose()
         {
-            RackspaceNet.Configuration.ResetDefaults();
+            RackspaceNet.ResetDefaults();
+        }
+
+        [Fact]
+        public void ResetDefaults_ResetsFlurlConfiguration()
+        {
+            RackspaceNet.Configure();
+            Assert.NotNull(FlurlHttp.Configuration.BeforeCall);
+            RackspaceNet.ResetDefaults();
+            Assert.Null(FlurlHttp.Configuration.BeforeCall);
         }
 
         [Fact]
