@@ -79,11 +79,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CloudNetworks\v2\CloudNetworkServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CloudNetworks\v2\NetworkTests.cs" />
     <Compile Include="CloudNetworks\v2\PortTests.cs" />
     <Compile Include="CloudNetworks\v2\SubnetTests.cs" />
     <Compile Include="IdentifierTests.cs" />
+    <Compile Include="RackConnect\v3\RackConnectServiceTests.cs" />
     <Compile Include="RackConnect\v3\NetworkTests.cs" />
     <Compile Include="RackConnect\v3\PublicIPTests.cs" />
     <Compile Include="RackspaceNetTests.cs" />
