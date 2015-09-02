@@ -37,6 +37,8 @@ namespace Rackspace.RackConnect.v3
             if (string.IsNullOrEmpty(region))
                 throw new ArgumentException("region cannot be null or empty", "region");
 
+            RackspaceNet.Configure();
+
             _authenticationProvider = authenticationProvider;
             _urlBuilder = new ServiceUrlBuilder(ServiceType.RackConnect, authenticationProvider, region);
         }
