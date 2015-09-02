@@ -25,8 +25,8 @@
     <CallTarget Targets="Package" />
   </Target>
 
-  <Target Name="GitVersion" DependsOnTargets="RestorePackages">
-    <GitVersionTask.GetVersion SolutionDirectory=".." Condition=" '$(Version)' == '' ">
+  <Target Name="GitVersion" DependsOnTargets="RestorePackages" Condition=" '$(Version)' == '' ">
+    <GitVersionTask.GetVersion SolutionDirectory="..">
       <Output TaskParameter="NuGetVersion" PropertyName="Version" />
     </GitVersionTask.GetVersion>
   </Target>
