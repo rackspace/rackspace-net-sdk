@@ -88,7 +88,7 @@ namespace Rackspace.RackConnect.v3
         }
 
         [Fact]
-        public void ProvisionPublicIP()
+        public void CreatePublicIP()
         {
             using (var httpTest = new HttpTest())
             {
@@ -97,6 +97,26 @@ namespace Rackspace.RackConnect.v3
                 httpTest.RespondWithJson(new PublicIP { Id = id });
 
                 var ipRequest = new PublicIPCreateDefinition {ServerId = serverId};
+                var result = _rackConnectService.CreatePublicIP(ipRequest);
+
+                httpTest.ShouldHaveCalled($"*/public_ips");
+                Assert.NotNull(result);
+                Assert.Equal(id, result.Id);
+                Assert.NotNull(((IServiceResource<RackConnectService>)result).Owner);
+            }
+        }
+
+        [Fact]
+        public void CreatePublicIP_RetriesWhenTheServerIsNotFound()
+        {
+            using (var httpTest = new HttpTest())
+            {
+                string serverId = Guid.NewGuid().ToString();
+                Identifier id = Guid.NewGuid();
+                httpTest.RespondWith((int)HttpStatusCode.Conflict, $"Cloud Server {serverId} does not exist");
+                httpTest.RespondWithJson(new PublicIP { Id = id });
+
+                var ipRequest = new PublicIPCreateDefinition { ServerId = serverId };
                 var result = _rackConnectService.CreatePublicIP(ipRequest);
 
                 httpTest.ShouldHaveCalled($"*/public_ips");
@@ -132,6 +152,26 @@ namespace Rackspace.RackConnect.v3
                 Identifier id = Guid.NewGuid();
                 httpTest.RespondWithJson(new PublicIP {Id = id});
                 httpTest.RespondWithJson(new PublicIP {Id = id, Server = new PublicIPServerAssociation {ServerId = serverId}});
+
+                var ip = _rackConnectService.GetPublicIP(id);
+                ip.Assign(serverId);
+
+                httpTest.ShouldHaveCalled($"*/public_ips/{id}");
+                Assert.NotNull(ip.Server);
+                Assert.Equal(serverId, ip.Server.ServerId);
+            }
+        }
+
+        [Fact]
+        public void AssignPublicIP_RetriesWhenTheServerIsNotFound()
+        {
+            using (var httpTest = new HttpTest())
+            {
+                Identifier serverId = Guid.NewGuid();
+                Identifier id = Guid.NewGuid();
+                httpTest.RespondWithJson(new PublicIP { Id = id });
+                httpTest.RespondWith((int)HttpStatusCode.Conflict, $"Cloud Server {serverId} does not exist");
+                httpTest.RespondWithJson(new PublicIP { Id = id, Server = new PublicIPServerAssociation { ServerId = serverId } });
 
                 var ip = _rackConnectService.GetPublicIP(id);
                 ip.Assign(serverId);
