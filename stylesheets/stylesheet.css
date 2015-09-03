@@ -551,6 +551,14 @@ aside a.button.docs {
   font-size: 1.5em;
   background: transparent url(../images/docs-button.png) 0 0 no-repeat;
 }
+aside a.button.samples {
+  display: block;
+  width: 138px;
+  padding-left: 64px;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  background: transparent url(../images/samples-button.png) 0 0 no-repeat;
+}
 
 code, pre {
   margin-bottom: 30px;

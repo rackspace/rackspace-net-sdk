@@ -77,6 +77,7 @@
 #content-wrapper .gist-it-gist .gist-file .gist-data, .gister-gist .gist-file .gist-data {
   background-color: #3f3f3f;
 }
+#content-wrapper .com { color: darkgray }
 #content-wrapper .pln, #content-wrapper .typ, #content-wrapper .pun { color: #dcdccc }
 #content-wrapper .kwd { color: #f0dfaf }
 #content-wrapper .str { color: #7f9f7f }
