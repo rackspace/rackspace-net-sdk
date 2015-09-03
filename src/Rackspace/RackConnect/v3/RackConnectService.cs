@@ -132,7 +132,7 @@ namespace Rackspace.RackConnect.v3
                 return false;
 
             string errorMessage = ex.GetResponseString();
-            return Regex.IsMatch(errorMessage, "Cloud Server .* does not exist");
+            return Regex.IsMatch(errorMessage, "Cloud Server .* (unprocessable|exist).*");
         }
 
         /// <summary>
