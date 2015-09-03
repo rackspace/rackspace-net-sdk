@@ -29,14 +29,17 @@ public class AssignPublicIPSamples : ISample
             throw new Exception($"You do not have a Hybrid Cloud / RackConnect network configured in the {region} which is required to run this sample.");
 
         Console.WriteLine("Creating sample cloud server... ");
-        const string ubuntuImageId = "09de0a66-3156-48b4-90a5-1cf25a905207"; // Ubuntu 14.04 LTS (Trusty Tahr) (PVHVM)
-        const string standardFlavorId = "2"; // 512MB Standard Instance
+        // Ubuntu 14.04 LTS (Trusty Tahr) (PVHVM)
+        const string ubuntuImageId = "09de0a66-3156-48b4-90a5-1cf25a905207";
+        // 512MB Standard Instance
+        const string standardFlavorId = "2";
         var requestedServer = serverService.CreateServer("sample", ubuntuImageId, standardFlavorId,
             networks: new string[] {network.Id});
         serverService.WaitForServerActive(requestedServer.Id);
 
         Console.WriteLine("Allocating a public IP address...");
-        var ip = await rackConnectService.CreatePublicIPAsync(new PublicIPCreateDefinition {ShouldRetain = true});
+        var ip = await rackConnectService.CreatePublicIPAsync(
+            new PublicIPCreateDefinition {ShouldRetain = true});
         await ip.WaitUntilActiveAsync();
         Console.WriteLine($"Acquired {ip.PublicIPv4Address}!");
 
