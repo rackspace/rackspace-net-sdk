@@ -71,6 +71,6 @@ server.AssignPublicIP();
 [v0.4.0]: https://github.com/rackspace/rackspace-net-sdk/milestones/v0.4.0
 [rackspacenet-milestones]: https://github.com/rackspace/rackspace-net-sdk/milestones
 [cloud-networks-overview]: http://www.rackspace.com/cloud/networks
-[cloud-networks-sample]: {{ site.baseurl }}/samples
+[cloud-networks-sample]: {{ site.baseurl }}/samples/cloud-networks.html
 [nuget-pkg]: http://nuget.org/packages/Rackspace
 [rackspacenet-openstacknet]: https://github.com/openstacknetsdk/openstack.net/wiki/Rackspace-and-OpenStack.NET
