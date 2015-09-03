@@ -295,7 +295,7 @@ namespace Rackspace.RackConnect.v3
             if (definition == null)
                 throw new ArgumentNullException("definition");
 
-            Url endpoint = await _urlBuilder.GetEndpoint(cancellationToken).ConfigureAwait(false);
+            string endpoint = await _urlBuilder.GetEndpoint(cancellationToken).ConfigureAwait(false);
 
             Func<Task<PublicIP>> executeRequest = async () =>
             {
