@@ -6,7 +6,7 @@ internal class Program
     private static readonly Dictionary<int, ISample> _samples = new Dictionary<int, ISample>
     {
         {1, new CloudNetworkSamples()},
-        {1, new AssignPublicIPSamples()}
+        {2, new AssignPublicIPSamples()}
     };
 
     private static void Main()
@@ -37,7 +37,10 @@ internal class Program
             ISample sample = _samples[sampleId];
 
             Console.WriteLine();
-            Console.WriteLine("Do you want to proceed? [y/N]: ");
+            sample.PrintTasks();
+            Console.WriteLine();
+
+            Console.Write("Do you want to proceed? [y/N]: ");
             var shouldProceed = Console.ReadLine();
             if (shouldProceed.ToLower() == "y")
                 sample.Run(username, apiKey, region).Wait();
