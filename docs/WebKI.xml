@@ -3,6 +3,7 @@
   <HelpKINode Title="Active enumeration member">
     <HelpKINode Title="NetworkStatus Enumeration" Url="html/T_Rackspace_CloudNetworks_v2_NetworkStatus.htm" />
     <HelpKINode Title="PortStatus Enumeration" Url="html/T_Rackspace_CloudNetworks_v2_PortStatus.htm" />
+    <HelpKINode Title="PublicIPStatus Enumeration" Url="html/T_Rackspace_RackConnect_v3_PublicIPStatus.htm" />
   </HelpKINode>
   <HelpKINode Title="AllocationPool class">
     <HelpKINode Title="AllocationPool Class" Url="html/T_Rackspace_CloudNetworks_v2_AllocationPool.htm" />
@@ -17,7 +18,12 @@
   <HelpKINode Title="AllocationPool.GetHashCode method" Url="html/M_Rackspace_CloudNetworks_v2_AllocationPool_GetHashCode.htm" />
   <HelpKINode Title="AllocationPool.Start property" Url="html/P_Rackspace_CloudNetworks_v2_AllocationPool_Start.htm" />
   <HelpKINode Title="AllocationPools property" Url="html/P_Rackspace_CloudNetworks_v2_SubnetUpdateDefinition_AllocationPools.htm" />
-  <HelpKINode Title="CIDR property" Url="html/P_Rackspace_CloudNetworks_v2_SubnetCreateDefinition_CIDR.htm" />
+  <HelpKINode Title="Assign method" Url="html/M_Rackspace_Synchronous_PublicIPExtensions_Assign.htm" />
+  <HelpKINode Title="AssignAsync method" Url="html/M_Rackspace_RackConnect_v3_PublicIP_AssignAsync.htm" />
+  <HelpKINode Title="CIDR property">
+    <HelpKINode Title="NetworkReference.CIDR Property " Url="html/P_Rackspace_RackConnect_v3_NetworkReference_CIDR.htm" />
+    <HelpKINode Title="SubnetCreateDefinition.CIDR Property " Url="html/P_Rackspace_CloudNetworks_v2_SubnetCreateDefinition_CIDR.htm" />
+  </HelpKINode>
   <HelpKINode Title="CloudNetworkService class">
     <HelpKINode Title="CloudNetworkService Class" Url="html/T_Rackspace_CloudNetworks_v2_CloudNetworkService.htm" />
     <HelpKINode Title="about CloudNetworkService class" Url="html/T_Rackspace_CloudNetworks_v2_CloudNetworkService.htm" />
@@ -62,16 +68,31 @@
   <HelpKINode Title="CloudNetworkServiceExtensions.UpdateSubnet method" Url="html/M_Rackspace_Synchronous_CloudNetworkServiceExtensions_UpdateSubnet.htm" />
   <HelpKINode Title="Configuration field" Url="html/F_Rackspace_RackspaceNet_Configuration.htm" />
   <HelpKINode Title="Configure method" Url="html/M_Rackspace_RackspaceNet_Configure.htm" />
+  <HelpKINode Title="Created property">
+    <HelpKINode Title="NetworkReference.Created Property " Url="html/P_Rackspace_RackConnect_v3_NetworkReference_Created.htm" />
+    <HelpKINode Title="PublicIP.Created Property " Url="html/P_Rackspace_RackConnect_v3_PublicIP_Created.htm" />
+    <HelpKINode Title="PublicIPServerAssociation.Created Property " Url="html/P_Rackspace_RackConnect_v3_PublicIPServerAssociation_Created.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CreateFailed enumeration member" Url="html/T_Rackspace_RackConnect_v3_PublicIPStatus.htm" />
   <HelpKINode Title="CreateNetwork method" Url="html/M_Rackspace_Synchronous_CloudNetworkServiceExtensions_CreateNetwork.htm" />
   <HelpKINode Title="CreateNetworkAsync method" Url="html/M_Rackspace_CloudNetworks_v2_CloudNetworkService_CreateNetworkAsync.htm" />
   <HelpKINode Title="CreatePort method" Url="html/M_Rackspace_Synchronous_CloudNetworkServiceExtensions_CreatePort.htm" />
   <HelpKINode Title="CreatePortAsync method" Url="html/M_Rackspace_CloudNetworks_v2_CloudNetworkService_CreatePortAsync.htm" />
+  <HelpKINode Title="CreatePublicIP method" Url="html/M_Rackspace_Synchronous_RackConnectServiceExtensions_CreatePublicIP.htm" />
+  <HelpKINode Title="CreatePublicIPAsync method" Url="html/M_Rackspace_RackConnect_v3_RackConnectService_CreatePublicIPAsync.htm" />
   <HelpKINode Title="CreateSubnet method" Url="html/M_Rackspace_Synchronous_CloudNetworkServiceExtensions_CreateSubnet.htm" />
   <HelpKINode Title="CreateSubnetAsync method" Url="html/M_Rackspace_CloudNetworks_v2_CloudNetworkService_CreateSubnetAsync.htm" />
+  <HelpKINode Title="Creating enumeration member" Url="html/T_Rackspace_RackConnect_v3_PublicIPStatus.htm" />
+  <HelpKINode Title="Delete method" Url="html/M_Rackspace_Synchronous_PublicIPExtensions_Delete.htm" />
+  <HelpKINode Title="DeleteAsync method" Url="html/M_Rackspace_RackConnect_v3_PublicIP_DeleteAsync.htm" />
+  <HelpKINode Title="Deleted enumeration member" Url="html/T_Rackspace_RackConnect_v3_PublicIPStatus.htm" />
+  <HelpKINode Title="DeleteFailed enumeration member" Url="html/T_Rackspace_RackConnect_v3_PublicIPStatus.htm" />
   <HelpKINode Title="DeleteNetwork method" Url="html/M_Rackspace_Synchronous_CloudNetworkServiceExtensions_DeleteNetwork.htm" />
   <HelpKINode Title="DeleteNetworkAsync method" Url="html/M_Rackspace_CloudNetworks_v2_CloudNetworkService_DeleteNetworkAsync.htm" />
   <HelpKINode Title="DeletePort method" Url="html/M_Rackspace_Synchronous_CloudNetworkServiceExtensions_DeletePort.htm" />
   <HelpKINode Title="DeletePortAsync method" Url="html/M_Rackspace_CloudNetworks_v2_CloudNetworkService_DeletePortAsync.htm" />
+  <HelpKINode Title="DeletePublicIP method" Url="html/M_Rackspace_Synchronous_RackConnectServiceExtensions_DeletePublicIP.htm" />
+  <HelpKINode Title="DeletePublicIPAsync method" Url="html/M_Rackspace_RackConnect_v3_RackConnectService_DeletePublicIPAsync.htm" />
   <HelpKINode Title="DeleteSubnet method" Url="html/M_Rackspace_Synchronous_CloudNetworkServiceExtensions_DeleteSubnet.htm" />
   <HelpKINode Title="DeleteSubnetAsync method" Url="html/M_Rackspace_CloudNetworks_v2_CloudNetworkService_DeleteSubnetAsync.htm" />
   <HelpKINode Title="DestinationCIDR property" Url="html/P_Rackspace_CloudNetworks_v2_HostRoute_DestinationCIDR.htm" />
@@ -97,13 +118,21 @@
     <HelpKINode Title="Identifier.GetHashCode Method " Url="html/M_Rackspace_Identifier_GetHashCode.htm" />
     <HelpKINode Title="IPAddressAssociation.GetHashCode Method " Url="html/M_Rackspace_CloudNetworks_v2_IPAddressAssociation_GetHashCode.htm" />
   </HelpKINode>
-  <HelpKINode Title="GetNetwork method" Url="html/M_Rackspace_Synchronous_CloudNetworkServiceExtensions_GetNetwork.htm" />
-  <HelpKINode Title="GetNetworkAsync method" Url="html/M_Rackspace_CloudNetworks_v2_CloudNetworkService_GetNetworkAsync.htm" />
+  <HelpKINode Title="GetNetwork method">
+    <HelpKINode Title="CloudNetworkServiceExtensions.GetNetwork Method " Url="html/M_Rackspace_Synchronous_CloudNetworkServiceExtensions_GetNetwork.htm" />
+    <HelpKINode Title="RackConnectServiceExtensions.GetNetwork Method " Url="html/M_Rackspace_Synchronous_RackConnectServiceExtensions_GetNetwork.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetNetworkAsync method">
+    <HelpKINode Title="CloudNetworkService.GetNetworkAsync Method " Url="html/M_Rackspace_CloudNetworks_v2_CloudNetworkService_GetNetworkAsync.htm" />
+    <HelpKINode Title="RackConnectService.GetNetworkAsync Method " Url="html/M_Rackspace_RackConnect_v3_RackConnectService_GetNetworkAsync.htm" />
+  </HelpKINode>
   <HelpKINode Title="GetNextPage(Of T) method" Url="html/M_Rackspace_Synchronous_PageExtensions_GetNextPage__1.htm" />
   <HelpKINode Title="GetNextPage&lt;T&gt; method" Url="html/M_Rackspace_Synchronous_PageExtensions_GetNextPage__1.htm" />
   <HelpKINode Title="GetNextPageAsync method" Url="html/M_Rackspace_IPage_1_GetNextPageAsync.htm" />
   <HelpKINode Title="GetPort method" Url="html/M_Rackspace_Synchronous_CloudNetworkServiceExtensions_GetPort.htm" />
   <HelpKINode Title="GetPortAsync method" Url="html/M_Rackspace_CloudNetworks_v2_CloudNetworkService_GetPortAsync.htm" />
+  <HelpKINode Title="GetPublicIP method" Url="html/M_Rackspace_Synchronous_RackConnectServiceExtensions_GetPublicIP.htm" />
+  <HelpKINode Title="GetPublicIPAsync method" Url="html/M_Rackspace_RackConnect_v3_RackConnectService_GetPublicIPAsync.htm" />
   <HelpKINode Title="GetSubnet method" Url="html/M_Rackspace_Synchronous_CloudNetworkServiceExtensions_GetSubnet.htm" />
   <HelpKINode Title="GetSubnetAsync method" Url="html/M_Rackspace_CloudNetworks_v2_CloudNetworkService_GetSubnetAsync.htm" />
   <HelpKINode Title="Guid to Identifier conversion" Url="html/M_Rackspace_Identifier_op_Implicit_1.htm" />
@@ -132,7 +161,9 @@
   <HelpKINode Title="HttpTest.HttpTest constructor" Url="html/M_Rackspace_Testing_HttpTest__ctor.htm" />
   <HelpKINode Title="Id property">
     <HelpKINode Title="Network.Id Property " Url="html/P_Rackspace_CloudNetworks_v2_Network_Id.htm" />
+    <HelpKINode Title="NetworkReference.Id Property " Url="html/P_Rackspace_RackConnect_v3_NetworkReference_Id.htm" />
     <HelpKINode Title="Port.Id Property " Url="html/P_Rackspace_CloudNetworks_v2_Port_Id.htm" />
+    <HelpKINode Title="PublicIP.Id Property " Url="html/P_Rackspace_RackConnect_v3_PublicIP_Id.htm" />
     <HelpKINode Title="Subnet.Id Property " Url="html/P_Rackspace_CloudNetworks_v2_Subnet_Id.htm" />
   </HelpKINode>
   <HelpKINode Title="Identifier class">
@@ -189,20 +220,39 @@
   <HelpKINode Title="IPv6 enumeration member" Url="html/T_Rackspace_CloudNetworks_IPVersion.htm" />
   <HelpKINode Title="IPVersion enumeration" Url="html/T_Rackspace_CloudNetworks_IPVersion.htm" />
   <HelpKINode Title="IPVersion property" Url="html/P_Rackspace_CloudNetworks_v2_SubnetCreateDefinition_IPVersion.htm" />
+  <HelpKINode Title="IsRetained property" Url="html/P_Rackspace_RackConnect_v3_ListPublicIPsFilter_IsRetained.htm" />
   <HelpKINode Title="IsShared property" Url="html/P_Rackspace_CloudNetworks_v2_Network_IsShared.htm" />
   <HelpKINode Title="IsUp property">
     <HelpKINode Title="Network.IsUp Property " Url="html/P_Rackspace_CloudNetworks_v2_Network_IsUp.htm" />
     <HelpKINode Title="Port.IsUp Property " Url="html/P_Rackspace_CloudNetworks_v2_Port_IsUp.htm" />
   </HelpKINode>
-  <HelpKINode Title="ListNetworks method" Url="html/M_Rackspace_Synchronous_CloudNetworkServiceExtensions_ListNetworks.htm" />
-  <HelpKINode Title="ListNetworksAsync method" Url="html/M_Rackspace_CloudNetworks_v2_CloudNetworkService_ListNetworksAsync.htm" />
+  <HelpKINode Title="ListNetworks method">
+    <HelpKINode Title="CloudNetworkServiceExtensions.ListNetworks Method " Url="html/M_Rackspace_Synchronous_CloudNetworkServiceExtensions_ListNetworks.htm" />
+    <HelpKINode Title="RackConnectServiceExtensions.ListNetworks Method " Url="html/M_Rackspace_Synchronous_RackConnectServiceExtensions_ListNetworks.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ListNetworksAsync method">
+    <HelpKINode Title="CloudNetworkService.ListNetworksAsync Method " Url="html/M_Rackspace_CloudNetworks_v2_CloudNetworkService_ListNetworksAsync.htm" />
+    <HelpKINode Title="RackConnectService.ListNetworksAsync Method " Url="html/M_Rackspace_RackConnect_v3_RackConnectService_ListNetworksAsync.htm" />
+  </HelpKINode>
   <HelpKINode Title="ListPorts method" Url="html/M_Rackspace_Synchronous_CloudNetworkServiceExtensions_ListPorts.htm" />
   <HelpKINode Title="ListPortsAsync method" Url="html/M_Rackspace_CloudNetworks_v2_CloudNetworkService_ListPortsAsync.htm" />
+  <HelpKINode Title="ListPublicIPs method" Url="html/M_Rackspace_Synchronous_RackConnectServiceExtensions_ListPublicIPs.htm" />
+  <HelpKINode Title="ListPublicIPsAsync method" Url="html/M_Rackspace_RackConnect_v3_RackConnectService_ListPublicIPsAsync.htm" />
+  <HelpKINode Title="ListPublicIPsFilter class">
+    <HelpKINode Title="ListPublicIPsFilter Class" Url="html/T_Rackspace_RackConnect_v3_ListPublicIPsFilter.htm" />
+    <HelpKINode Title="about ListPublicIPsFilter class" Url="html/T_Rackspace_RackConnect_v3_ListPublicIPsFilter.htm" />
+    <HelpKINode Title="constructor" Url="html/M_Rackspace_RackConnect_v3_ListPublicIPsFilter__ctor.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_Rackspace_RackConnect_v3_ListPublicIPsFilter.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ListPublicIPsFilter.IsRetained property" Url="html/P_Rackspace_RackConnect_v3_ListPublicIPsFilter_IsRetained.htm" />
+  <HelpKINode Title="ListPublicIPsFilter.ListPublicIPsFilter constructor" Url="html/M_Rackspace_RackConnect_v3_ListPublicIPsFilter__ctor.htm" />
+  <HelpKINode Title="ListPublicIPsFilter.ServerId property" Url="html/P_Rackspace_RackConnect_v3_ListPublicIPsFilter_ServerId.htm" />
   <HelpKINode Title="ListSubnets method" Url="html/M_Rackspace_Synchronous_CloudNetworkServiceExtensions_ListSubnets.htm" />
   <HelpKINode Title="ListSubnetsAsync method" Url="html/M_Rackspace_CloudNetworks_v2_CloudNetworkService_ListSubnetsAsync.htm" />
   <HelpKINode Title="MACAddress property" Url="html/P_Rackspace_CloudNetworks_v2_Port_MACAddress.htm" />
   <HelpKINode Title="Name property">
     <HelpKINode Title="NetworkDefinition.Name Property " Url="html/P_Rackspace_CloudNetworks_v2_NetworkDefinition_Name.htm" />
+    <HelpKINode Title="NetworkReference.Name Property " Url="html/P_Rackspace_RackConnect_v3_NetworkReference_Name.htm" />
     <HelpKINode Title="PortUpdateDefinition.Name Property " Url="html/P_Rackspace_CloudNetworks_v2_PortUpdateDefinition_Name.htm" />
     <HelpKINode Title="SubnetUpdateDefinition.Name Property " Url="html/P_Rackspace_CloudNetworks_v2_SubnetUpdateDefinition_Name.htm" />
   </HelpKINode>
@@ -213,6 +263,7 @@
     <HelpKINode Title="constructor" Url="html/M_Rackspace_CloudNetworks_v2_Network__ctor.htm" />
     <HelpKINode Title="properties" Url="html/Properties_T_Rackspace_CloudNetworks_v2_Network.htm" />
   </HelpKINode>
+  <HelpKINode Title="Network property" Url="html/P_Rackspace_RackConnect_v3_PublicIPServerAssociation_Network.htm" />
   <HelpKINode Title="Network.Id property" Url="html/P_Rackspace_CloudNetworks_v2_Network_Id.htm" />
   <HelpKINode Title="Network.IsShared property" Url="html/P_Rackspace_CloudNetworks_v2_Network_IsShared.htm" />
   <HelpKINode Title="Network.IsUp property" Url="html/P_Rackspace_CloudNetworks_v2_Network_IsUp.htm" />
@@ -231,6 +282,18 @@
     <HelpKINode Title="PortCreateDefinition.NetworkId Property " Url="html/P_Rackspace_CloudNetworks_v2_PortCreateDefinition_NetworkId.htm" />
     <HelpKINode Title="SubnetCreateDefinition.NetworkId Property " Url="html/P_Rackspace_CloudNetworks_v2_SubnetCreateDefinition_NetworkId.htm" />
   </HelpKINode>
+  <HelpKINode Title="NetworkReference class">
+    <HelpKINode Title="NetworkReference Class" Url="html/T_Rackspace_RackConnect_v3_NetworkReference.htm" />
+    <HelpKINode Title="about NetworkReference class" Url="html/T_Rackspace_RackConnect_v3_NetworkReference.htm" />
+    <HelpKINode Title="constructor" Url="html/M_Rackspace_RackConnect_v3_NetworkReference__ctor.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_Rackspace_RackConnect_v3_NetworkReference.htm" />
+  </HelpKINode>
+  <HelpKINode Title="NetworkReference.CIDR property" Url="html/P_Rackspace_RackConnect_v3_NetworkReference_CIDR.htm" />
+  <HelpKINode Title="NetworkReference.Created property" Url="html/P_Rackspace_RackConnect_v3_NetworkReference_Created.htm" />
+  <HelpKINode Title="NetworkReference.Id property" Url="html/P_Rackspace_RackConnect_v3_NetworkReference_Id.htm" />
+  <HelpKINode Title="NetworkReference.Name property" Url="html/P_Rackspace_RackConnect_v3_NetworkReference_Name.htm" />
+  <HelpKINode Title="NetworkReference.NetworkReference constructor" Url="html/M_Rackspace_RackConnect_v3_NetworkReference__ctor.htm" />
+  <HelpKINode Title="NetworkReference.Updated property" Url="html/P_Rackspace_RackConnect_v3_NetworkReference_Updated.htm" />
   <HelpKINode Title="NetworkStatus enumeration" Url="html/T_Rackspace_CloudNetworks_v2_NetworkStatus.htm" />
   <HelpKINode Title="NextHop property" Url="html/P_Rackspace_CloudNetworks_v2_HostRoute_NextHop.htm" />
   <HelpKINode Title="PageExtensions class">
@@ -240,6 +303,7 @@
   </HelpKINode>
   <HelpKINode Title="PageExtensions.GetNextPage(Of T) method" Url="html/M_Rackspace_Synchronous_PageExtensions_GetNextPage__1.htm" />
   <HelpKINode Title="PageExtensions.GetNextPage&lt;T&gt; method" Url="html/M_Rackspace_Synchronous_PageExtensions_GetNextPage__1.htm" />
+  <HelpKINode Title="PendingBuild enumeration member" Url="html/T_Rackspace_RackConnect_v3_PublicIPStatus.htm" />
   <HelpKINode Title="Port class">
     <HelpKINode Title="Port Class" Url="html/T_Rackspace_CloudNetworks_v2_Port.htm" />
     <HelpKINode Title="about Port class" Url="html/T_Rackspace_CloudNetworks_v2_Port.htm" />
@@ -272,6 +336,108 @@
   <HelpKINode Title="PortUpdateDefinition.Name property" Url="html/P_Rackspace_CloudNetworks_v2_PortUpdateDefinition_Name.htm" />
   <HelpKINode Title="PortUpdateDefinition.PortUpdateDefinition constructor" Url="html/M_Rackspace_CloudNetworks_v2_PortUpdateDefinition__ctor.htm" />
   <HelpKINode Title="PortUpdateDefinition.SecurityGroups property" Url="html/P_Rackspace_CloudNetworks_v2_PortUpdateDefinition_SecurityGroups.htm" />
+  <HelpKINode Title="PrivateIPv4Address property" Url="html/P_Rackspace_RackConnect_v3_PublicIPNetworkAssociation_PrivateIPv4Address.htm" />
+  <HelpKINode Title="PublicIP class">
+    <HelpKINode Title="PublicIP Class" Url="html/T_Rackspace_RackConnect_v3_PublicIP.htm" />
+    <HelpKINode Title="about PublicIP class" Url="html/T_Rackspace_RackConnect_v3_PublicIP.htm" />
+    <HelpKINode Title="constructor" Url="html/M_Rackspace_RackConnect_v3_PublicIP__ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_Rackspace_RackConnect_v3_PublicIP.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_Rackspace_RackConnect_v3_PublicIP.htm" />
+  </HelpKINode>
+  <HelpKINode Title="PublicIP.AssignAsync method" Url="html/M_Rackspace_RackConnect_v3_PublicIP_AssignAsync.htm" />
+  <HelpKINode Title="PublicIP.Created property" Url="html/P_Rackspace_RackConnect_v3_PublicIP_Created.htm" />
+  <HelpKINode Title="PublicIP.DeleteAsync method" Url="html/M_Rackspace_RackConnect_v3_PublicIP_DeleteAsync.htm" />
+  <HelpKINode Title="PublicIP.Id property" Url="html/P_Rackspace_RackConnect_v3_PublicIP_Id.htm" />
+  <HelpKINode Title="PublicIP.PublicIP constructor" Url="html/M_Rackspace_RackConnect_v3_PublicIP__ctor.htm" />
+  <HelpKINode Title="PublicIP.PublicIPv4Address property" Url="html/P_Rackspace_RackConnect_v3_PublicIP_PublicIPv4Address.htm" />
+  <HelpKINode Title="PublicIP.Server property" Url="html/P_Rackspace_RackConnect_v3_PublicIP_Server.htm" />
+  <HelpKINode Title="PublicIP.ShouldRetain property" Url="html/P_Rackspace_RackConnect_v3_PublicIP_ShouldRetain.htm" />
+  <HelpKINode Title="PublicIP.Status property" Url="html/P_Rackspace_RackConnect_v3_PublicIP_Status.htm" />
+  <HelpKINode Title="PublicIP.StatusDetails property" Url="html/P_Rackspace_RackConnect_v3_PublicIP_StatusDetails.htm" />
+  <HelpKINode Title="PublicIP.UnassignAsync method" Url="html/M_Rackspace_RackConnect_v3_PublicIP_UnassignAsync.htm" />
+  <HelpKINode Title="PublicIP.Updated property" Url="html/P_Rackspace_RackConnect_v3_PublicIP_Updated.htm" />
+  <HelpKINode Title="PublicIP.WaitUntilActiveAsync method" Url="html/M_Rackspace_RackConnect_v3_PublicIP_WaitUntilActiveAsync.htm" />
+  <HelpKINode Title="PublicIP.WaitUntilDeletedAsync method" Url="html/M_Rackspace_RackConnect_v3_PublicIP_WaitUntilDeletedAsync.htm" />
+  <HelpKINode Title="PublicIPCreateDefinition class">
+    <HelpKINode Title="PublicIPCreateDefinition Class" Url="html/T_Rackspace_RackConnect_v3_PublicIPCreateDefinition.htm" />
+    <HelpKINode Title="about PublicIPCreateDefinition class" Url="html/T_Rackspace_RackConnect_v3_PublicIPCreateDefinition.htm" />
+    <HelpKINode Title="constructor" Url="html/M_Rackspace_RackConnect_v3_PublicIPCreateDefinition__ctor.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_Rackspace_RackConnect_v3_PublicIPCreateDefinition.htm" />
+  </HelpKINode>
+  <HelpKINode Title="PublicIPCreateDefinition.PublicIPCreateDefinition constructor" Url="html/M_Rackspace_RackConnect_v3_PublicIPCreateDefinition__ctor.htm" />
+  <HelpKINode Title="PublicIPCreateDefinition.ServerId property" Url="html/P_Rackspace_RackConnect_v3_PublicIPCreateDefinition_ServerId.htm" />
+  <HelpKINode Title="PublicIPCreateDefinition.ShouldRetain property" Url="html/P_Rackspace_RackConnect_v3_PublicIPCreateDefinition_ShouldRetain.htm" />
+  <HelpKINode Title="PublicIPExtensions class">
+    <HelpKINode Title="PublicIPExtensions Class" Url="html/T_Rackspace_Synchronous_PublicIPExtensions.htm" />
+    <HelpKINode Title="about PublicIPExtensions class" Url="html/T_Rackspace_Synchronous_PublicIPExtensions.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_Rackspace_Synchronous_PublicIPExtensions.htm" />
+  </HelpKINode>
+  <HelpKINode Title="PublicIPExtensions.Assign method" Url="html/M_Rackspace_Synchronous_PublicIPExtensions_Assign.htm" />
+  <HelpKINode Title="PublicIPExtensions.Delete method" Url="html/M_Rackspace_Synchronous_PublicIPExtensions_Delete.htm" />
+  <HelpKINode Title="PublicIPExtensions.Unassign method" Url="html/M_Rackspace_Synchronous_PublicIPExtensions_Unassign.htm" />
+  <HelpKINode Title="PublicIPExtensions.WaitUntilActive method" Url="html/M_Rackspace_Synchronous_PublicIPExtensions_WaitUntilActive.htm" />
+  <HelpKINode Title="PublicIPExtensions.WaitUntilDeleted method" Url="html/M_Rackspace_Synchronous_PublicIPExtensions_WaitUntilDeleted.htm" />
+  <HelpKINode Title="PublicIPNetworkAssociation class">
+    <HelpKINode Title="PublicIPNetworkAssociation Class" Url="html/T_Rackspace_RackConnect_v3_PublicIPNetworkAssociation.htm" />
+    <HelpKINode Title="about PublicIPNetworkAssociation class" Url="html/T_Rackspace_RackConnect_v3_PublicIPNetworkAssociation.htm" />
+    <HelpKINode Title="constructor" Url="html/M_Rackspace_RackConnect_v3_PublicIPNetworkAssociation__ctor.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_Rackspace_RackConnect_v3_PublicIPNetworkAssociation.htm" />
+  </HelpKINode>
+  <HelpKINode Title="PublicIPNetworkAssociation.PrivateIPv4Address property" Url="html/P_Rackspace_RackConnect_v3_PublicIPNetworkAssociation_PrivateIPv4Address.htm" />
+  <HelpKINode Title="PublicIPNetworkAssociation.PublicIPNetworkAssociation constructor" Url="html/M_Rackspace_RackConnect_v3_PublicIPNetworkAssociation__ctor.htm" />
+  <HelpKINode Title="PublicIPServerAssociation class">
+    <HelpKINode Title="PublicIPServerAssociation Class" Url="html/T_Rackspace_RackConnect_v3_PublicIPServerAssociation.htm" />
+    <HelpKINode Title="about PublicIPServerAssociation class" Url="html/T_Rackspace_RackConnect_v3_PublicIPServerAssociation.htm" />
+    <HelpKINode Title="constructor" Url="html/M_Rackspace_RackConnect_v3_PublicIPServerAssociation__ctor.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_Rackspace_RackConnect_v3_PublicIPServerAssociation.htm" />
+  </HelpKINode>
+  <HelpKINode Title="PublicIPServerAssociation.Created property" Url="html/P_Rackspace_RackConnect_v3_PublicIPServerAssociation_Created.htm" />
+  <HelpKINode Title="PublicIPServerAssociation.Network property" Url="html/P_Rackspace_RackConnect_v3_PublicIPServerAssociation_Network.htm" />
+  <HelpKINode Title="PublicIPServerAssociation.PublicIPServerAssociation constructor" Url="html/M_Rackspace_RackConnect_v3_PublicIPServerAssociation__ctor.htm" />
+  <HelpKINode Title="PublicIPServerAssociation.ServerId property" Url="html/P_Rackspace_RackConnect_v3_PublicIPServerAssociation_ServerId.htm" />
+  <HelpKINode Title="PublicIPServerAssociation.ServerName property" Url="html/P_Rackspace_RackConnect_v3_PublicIPServerAssociation_ServerName.htm" />
+  <HelpKINode Title="PublicIPServerAssociation.Updated property" Url="html/P_Rackspace_RackConnect_v3_PublicIPServerAssociation_Updated.htm" />
+  <HelpKINode Title="PublicIPStatus enumeration" Url="html/T_Rackspace_RackConnect_v3_PublicIPStatus.htm" />
+  <HelpKINode Title="PublicIPUpdateDefinition class">
+    <HelpKINode Title="PublicIPUpdateDefinition Class" Url="html/T_Rackspace_RackConnect_v3_PublicIPUpdateDefinition.htm" />
+    <HelpKINode Title="about PublicIPUpdateDefinition class" Url="html/T_Rackspace_RackConnect_v3_PublicIPUpdateDefinition.htm" />
+    <HelpKINode Title="constructor" Url="html/M_Rackspace_RackConnect_v3_PublicIPUpdateDefinition__ctor.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_Rackspace_RackConnect_v3_PublicIPUpdateDefinition.htm" />
+  </HelpKINode>
+  <HelpKINode Title="PublicIPUpdateDefinition.PublicIPUpdateDefinition constructor" Url="html/M_Rackspace_RackConnect_v3_PublicIPUpdateDefinition__ctor.htm" />
+  <HelpKINode Title="PublicIPUpdateDefinition.ServerId property" Url="html/P_Rackspace_RackConnect_v3_PublicIPUpdateDefinition_ServerId.htm" />
+  <HelpKINode Title="PublicIPUpdateDefinition.ShouldRetain property" Url="html/P_Rackspace_RackConnect_v3_PublicIPUpdateDefinition_ShouldRetain.htm" />
+  <HelpKINode Title="PublicIPv4Address property" Url="html/P_Rackspace_RackConnect_v3_PublicIP_PublicIPv4Address.htm" />
+  <HelpKINode Title="RackConnectService class">
+    <HelpKINode Title="RackConnectService Class" Url="html/T_Rackspace_RackConnect_v3_RackConnectService.htm" />
+    <HelpKINode Title="about RackConnectService class" Url="html/T_Rackspace_RackConnect_v3_RackConnectService.htm" />
+    <HelpKINode Title="constructor" Url="html/M_Rackspace_RackConnect_v3_RackConnectService__ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_Rackspace_RackConnect_v3_RackConnectService.htm" />
+  </HelpKINode>
+  <HelpKINode Title="RackConnectService.CreatePublicIPAsync method" Url="html/M_Rackspace_RackConnect_v3_RackConnectService_CreatePublicIPAsync.htm" />
+  <HelpKINode Title="RackConnectService.DeletePublicIPAsync method" Url="html/M_Rackspace_RackConnect_v3_RackConnectService_DeletePublicIPAsync.htm" />
+  <HelpKINode Title="RackConnectService.GetNetworkAsync method" Url="html/M_Rackspace_RackConnect_v3_RackConnectService_GetNetworkAsync.htm" />
+  <HelpKINode Title="RackConnectService.GetPublicIPAsync method" Url="html/M_Rackspace_RackConnect_v3_RackConnectService_GetPublicIPAsync.htm" />
+  <HelpKINode Title="RackConnectService.ListNetworksAsync method" Url="html/M_Rackspace_RackConnect_v3_RackConnectService_ListNetworksAsync.htm" />
+  <HelpKINode Title="RackConnectService.ListPublicIPsAsync method" Url="html/M_Rackspace_RackConnect_v3_RackConnectService_ListPublicIPsAsync.htm" />
+  <HelpKINode Title="RackConnectService.RackConnectService constructor" Url="html/M_Rackspace_RackConnect_v3_RackConnectService__ctor.htm" />
+  <HelpKINode Title="RackConnectService.UpdatePublicIPAsync method" Url="html/M_Rackspace_RackConnect_v3_RackConnectService_UpdatePublicIPAsync.htm" />
+  <HelpKINode Title="RackConnectService.WaitUntilPublicIPIsActiveAsync method" Url="html/M_Rackspace_RackConnect_v3_RackConnectService_WaitUntilPublicIPIsActiveAsync.htm" />
+  <HelpKINode Title="RackConnectService.WaitUntilPublicIPIsDeletedAsync method" Url="html/M_Rackspace_RackConnect_v3_RackConnectService_WaitUntilPublicIPIsDeletedAsync.htm" />
+  <HelpKINode Title="RackConnectServiceExtensions class">
+    <HelpKINode Title="RackConnectServiceExtensions Class" Url="html/T_Rackspace_Synchronous_RackConnectServiceExtensions.htm" />
+    <HelpKINode Title="about RackConnectServiceExtensions class" Url="html/T_Rackspace_Synchronous_RackConnectServiceExtensions.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_Rackspace_Synchronous_RackConnectServiceExtensions.htm" />
+  </HelpKINode>
+  <HelpKINode Title="RackConnectServiceExtensions.CreatePublicIP method" Url="html/M_Rackspace_Synchronous_RackConnectServiceExtensions_CreatePublicIP.htm" />
+  <HelpKINode Title="RackConnectServiceExtensions.DeletePublicIP method" Url="html/M_Rackspace_Synchronous_RackConnectServiceExtensions_DeletePublicIP.htm" />
+  <HelpKINode Title="RackConnectServiceExtensions.GetNetwork method" Url="html/M_Rackspace_Synchronous_RackConnectServiceExtensions_GetNetwork.htm" />
+  <HelpKINode Title="RackConnectServiceExtensions.GetPublicIP method" Url="html/M_Rackspace_Synchronous_RackConnectServiceExtensions_GetPublicIP.htm" />
+  <HelpKINode Title="RackConnectServiceExtensions.ListNetworks method" Url="html/M_Rackspace_Synchronous_RackConnectServiceExtensions_ListNetworks.htm" />
+  <HelpKINode Title="RackConnectServiceExtensions.ListPublicIPs method" Url="html/M_Rackspace_Synchronous_RackConnectServiceExtensions_ListPublicIPs.htm" />
+  <HelpKINode Title="RackConnectServiceExtensions.UpdatePublicIP method" Url="html/M_Rackspace_Synchronous_RackConnectServiceExtensions_UpdatePublicIP.htm" />
+  <HelpKINode Title="RackConnectServiceExtensions.WaitUntilPublicIPIsActive method" Url="html/M_Rackspace_Synchronous_RackConnectServiceExtensions_WaitUntilPublicIPIsActive.htm" />
+  <HelpKINode Title="RackConnectServiceExtensions.WaitUntilPublicIPIsDeleted method" Url="html/M_Rackspace_Synchronous_RackConnectServiceExtensions_WaitUntilPublicIPIsDeleted.htm" />
   <HelpKINode Title="Rackspace namespace" Url="html/N_Rackspace.htm" />
   <HelpKINode Title="Rackspace.CloudNetworks namespace" Url="html/N_Rackspace_CloudNetworks.htm" />
   <HelpKINode Title="Rackspace.CloudNetworks.IPVersion enumeration" Url="html/T_Rackspace_CloudNetworks_IPVersion.htm" />
@@ -293,12 +459,25 @@
   <HelpKINode Title="Rackspace.Identifier class" Url="html/T_Rackspace_Identifier.htm" />
   <HelpKINode Title="Rackspace.IPage(Of T) interface" Url="html/T_Rackspace_IPage_1.htm" />
   <HelpKINode Title="Rackspace.IPage&lt;T&gt; interface" Url="html/T_Rackspace_IPage_1.htm" />
+  <HelpKINode Title="Rackspace.RackConnect.v3 namespace" Url="html/N_Rackspace_RackConnect_v3.htm" />
+  <HelpKINode Title="Rackspace.RackConnect.v3.ListPublicIPsFilter class" Url="html/T_Rackspace_RackConnect_v3_ListPublicIPsFilter.htm" />
+  <HelpKINode Title="Rackspace.RackConnect.v3.NetworkReference class" Url="html/T_Rackspace_RackConnect_v3_NetworkReference.htm" />
+  <HelpKINode Title="Rackspace.RackConnect.v3.PublicIP class" Url="html/T_Rackspace_RackConnect_v3_PublicIP.htm" />
+  <HelpKINode Title="Rackspace.RackConnect.v3.PublicIPCreateDefinition class" Url="html/T_Rackspace_RackConnect_v3_PublicIPCreateDefinition.htm" />
+  <HelpKINode Title="Rackspace.RackConnect.v3.PublicIPNetworkAssociation class" Url="html/T_Rackspace_RackConnect_v3_PublicIPNetworkAssociation.htm" />
+  <HelpKINode Title="Rackspace.RackConnect.v3.PublicIPServerAssociation class" Url="html/T_Rackspace_RackConnect_v3_PublicIPServerAssociation.htm" />
+  <HelpKINode Title="Rackspace.RackConnect.v3.PublicIPStatus enumeration" Url="html/T_Rackspace_RackConnect_v3_PublicIPStatus.htm" />
+  <HelpKINode Title="Rackspace.RackConnect.v3.PublicIPUpdateDefinition class" Url="html/T_Rackspace_RackConnect_v3_PublicIPUpdateDefinition.htm" />
+  <HelpKINode Title="Rackspace.RackConnect.v3.RackConnectService class" Url="html/T_Rackspace_RackConnect_v3_RackConnectService.htm" />
   <HelpKINode Title="Rackspace.RackspaceNet class" Url="html/T_Rackspace_RackspaceNet.htm" />
   <HelpKINode Title="Rackspace.RackspaceNet.Tracing class" Url="html/T_Rackspace_RackspaceNet_Tracing.htm" />
   <HelpKINode Title="Rackspace.RackspaceNetConfigurationOptions class" Url="html/T_Rackspace_RackspaceNetConfigurationOptions.htm" />
+  <HelpKINode Title="Rackspace.ServiceOperationFailedException class" Url="html/T_Rackspace_ServiceOperationFailedException.htm" />
   <HelpKINode Title="Rackspace.Synchronous namespace" Url="html/N_Rackspace_Synchronous.htm" />
   <HelpKINode Title="Rackspace.Synchronous.CloudNetworkServiceExtensions class" Url="html/T_Rackspace_Synchronous_CloudNetworkServiceExtensions.htm" />
   <HelpKINode Title="Rackspace.Synchronous.PageExtensions class" Url="html/T_Rackspace_Synchronous_PageExtensions.htm" />
+  <HelpKINode Title="Rackspace.Synchronous.PublicIPExtensions class" Url="html/T_Rackspace_Synchronous_PublicIPExtensions.htm" />
+  <HelpKINode Title="Rackspace.Synchronous.RackConnectServiceExtensions class" Url="html/T_Rackspace_Synchronous_RackConnectServiceExtensions.htm" />
   <HelpKINode Title="Rackspace.Testing namespace" Url="html/N_Rackspace_Testing.htm" />
   <HelpKINode Title="Rackspace.Testing.HttpTest class" Url="html/T_Rackspace_Testing_HttpTest.htm" />
   <HelpKINode Title="RackspaceNet class">
@@ -309,6 +488,7 @@
   </HelpKINode>
   <HelpKINode Title="RackspaceNet.Configuration field" Url="html/F_Rackspace_RackspaceNet_Configuration.htm" />
   <HelpKINode Title="RackspaceNet.Configure method" Url="html/M_Rackspace_RackspaceNet_Configure.htm" />
+  <HelpKINode Title="RackspaceNet.ResetDefaults method" Url="html/M_Rackspace_RackspaceNet_ResetDefaults.htm" />
   <HelpKINode Title="RackspaceNet.Tracing class">
     <HelpKINode Title="RackspaceNet.Tracing Class" Url="html/T_Rackspace_RackspaceNet_Tracing.htm" />
     <HelpKINode Title="about RackspaceNet.Tracing class" Url="html/T_Rackspace_RackspaceNet_Tracing.htm" />
@@ -320,13 +500,37 @@
     <HelpKINode Title="methods" Url="html/Methods_T_Rackspace_RackspaceNetConfigurationOptions.htm" />
   </HelpKINode>
   <HelpKINode Title="RackspaceNetConfigurationOptions.ResetDefaults method" Url="html/M_Rackspace_RackspaceNetConfigurationOptions_ResetDefaults.htm" />
-  <HelpKINode Title="ResetDefaults method" Url="html/M_Rackspace_RackspaceNetConfigurationOptions_ResetDefaults.htm" />
+  <HelpKINode Title="ResetDefaults method">
+    <HelpKINode Title="RackspaceNet.ResetDefaults Method " Url="html/M_Rackspace_RackspaceNet_ResetDefaults.htm" />
+    <HelpKINode Title="RackspaceNetConfigurationOptions.ResetDefaults Method " Url="html/M_Rackspace_RackspaceNetConfigurationOptions_ResetDefaults.htm" />
+  </HelpKINode>
   <HelpKINode Title="SecurityGroups property" Url="html/P_Rackspace_CloudNetworks_v2_PortUpdateDefinition_SecurityGroups.htm" />
+  <HelpKINode Title="Server property" Url="html/P_Rackspace_RackConnect_v3_PublicIP_Server.htm" />
+  <HelpKINode Title="ServerId property">
+    <HelpKINode Title="ListPublicIPsFilter.ServerId Property " Url="html/P_Rackspace_RackConnect_v3_ListPublicIPsFilter_ServerId.htm" />
+    <HelpKINode Title="PublicIPCreateDefinition.ServerId Property " Url="html/P_Rackspace_RackConnect_v3_PublicIPCreateDefinition_ServerId.htm" />
+    <HelpKINode Title="PublicIPServerAssociation.ServerId Property " Url="html/P_Rackspace_RackConnect_v3_PublicIPServerAssociation_ServerId.htm" />
+    <HelpKINode Title="PublicIPUpdateDefinition.ServerId Property " Url="html/P_Rackspace_RackConnect_v3_PublicIPUpdateDefinition_ServerId.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ServerName property" Url="html/P_Rackspace_RackConnect_v3_PublicIPServerAssociation_ServerName.htm" />
+  <HelpKINode Title="ServiceOperationFailedException class">
+    <HelpKINode Title="ServiceOperationFailedException Class" Url="html/T_Rackspace_ServiceOperationFailedException.htm" />
+    <HelpKINode Title="about ServiceOperationFailedException class" Url="html/T_Rackspace_ServiceOperationFailedException.htm" />
+    <HelpKINode Title="constructor" Url="html/Overload_Rackspace_ServiceOperationFailedException__ctor.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ServiceOperationFailedException.ServiceOperationFailedException constructor" Url="html/Overload_Rackspace_ServiceOperationFailedException__ctor.htm" />
+  <HelpKINode Title="ShouldRetain property">
+    <HelpKINode Title="PublicIP.ShouldRetain Property " Url="html/P_Rackspace_RackConnect_v3_PublicIP_ShouldRetain.htm" />
+    <HelpKINode Title="PublicIPCreateDefinition.ShouldRetain Property " Url="html/P_Rackspace_RackConnect_v3_PublicIPCreateDefinition_ShouldRetain.htm" />
+    <HelpKINode Title="PublicIPUpdateDefinition.ShouldRetain Property " Url="html/P_Rackspace_RackConnect_v3_PublicIPUpdateDefinition_ShouldRetain.htm" />
+  </HelpKINode>
   <HelpKINode Title="Start property" Url="html/P_Rackspace_CloudNetworks_v2_AllocationPool_Start.htm" />
   <HelpKINode Title="Status property">
     <HelpKINode Title="Network.Status Property " Url="html/P_Rackspace_CloudNetworks_v2_Network_Status.htm" />
     <HelpKINode Title="Port.Status Property " Url="html/P_Rackspace_CloudNetworks_v2_Port_Status.htm" />
+    <HelpKINode Title="PublicIP.Status Property " Url="html/P_Rackspace_RackConnect_v3_PublicIP_Status.htm" />
   </HelpKINode>
+  <HelpKINode Title="StatusDetails property" Url="html/P_Rackspace_RackConnect_v3_PublicIP_StatusDetails.htm" />
   <HelpKINode Title="String to Identifier conversion" Url="html/M_Rackspace_Identifier_op_Explicit.htm" />
   <HelpKINode Title="Subnet class">
     <HelpKINode Title="Subnet Class" Url="html/T_Rackspace_CloudNetworks_v2_Subnet.htm" />
@@ -364,14 +568,34 @@
   <HelpKINode Title="Tracing class">
     <HelpKINode Title="fields" Url="html/Fields_T_Rackspace_RackspaceNet_Tracing.htm" />
   </HelpKINode>
+  <HelpKINode Title="Unassign method" Url="html/M_Rackspace_Synchronous_PublicIPExtensions_Unassign.htm" />
+  <HelpKINode Title="UnassignAsync method" Url="html/M_Rackspace_RackConnect_v3_PublicIP_UnassignAsync.htm" />
   <HelpKINode Title="Unknown enumeration member">
     <HelpKINode Title="NetworkStatus Enumeration" Url="html/T_Rackspace_CloudNetworks_v2_NetworkStatus.htm" />
     <HelpKINode Title="PortStatus Enumeration" Url="html/T_Rackspace_CloudNetworks_v2_PortStatus.htm" />
+    <HelpKINode Title="PublicIPStatus Enumeration" Url="html/T_Rackspace_RackConnect_v3_PublicIPStatus.htm" />
   </HelpKINode>
+  <HelpKINode Title="Updated property">
+    <HelpKINode Title="NetworkReference.Updated Property " Url="html/P_Rackspace_RackConnect_v3_NetworkReference_Updated.htm" />
+    <HelpKINode Title="PublicIP.Updated Property " Url="html/P_Rackspace_RackConnect_v3_PublicIP_Updated.htm" />
+    <HelpKINode Title="PublicIPServerAssociation.Updated Property " Url="html/P_Rackspace_RackConnect_v3_PublicIPServerAssociation_Updated.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UpdateFailed enumeration member" Url="html/T_Rackspace_RackConnect_v3_PublicIPStatus.htm" />
   <HelpKINode Title="UpdateNetwork method" Url="html/M_Rackspace_Synchronous_CloudNetworkServiceExtensions_UpdateNetwork.htm" />
   <HelpKINode Title="UpdateNetworkAsync method" Url="html/M_Rackspace_CloudNetworks_v2_CloudNetworkService_UpdateNetworkAsync.htm" />
   <HelpKINode Title="UpdatePort method" Url="html/M_Rackspace_Synchronous_CloudNetworkServiceExtensions_UpdatePort.htm" />
   <HelpKINode Title="UpdatePortAsync method" Url="html/M_Rackspace_CloudNetworks_v2_CloudNetworkService_UpdatePortAsync.htm" />
+  <HelpKINode Title="UpdatePublicIP method" Url="html/M_Rackspace_Synchronous_RackConnectServiceExtensions_UpdatePublicIP.htm" />
+  <HelpKINode Title="UpdatePublicIPAsync method" Url="html/M_Rackspace_RackConnect_v3_RackConnectService_UpdatePublicIPAsync.htm" />
   <HelpKINode Title="UpdateSubnet method" Url="html/M_Rackspace_Synchronous_CloudNetworkServiceExtensions_UpdateSubnet.htm" />
   <HelpKINode Title="UpdateSubnetAsync method" Url="html/M_Rackspace_CloudNetworks_v2_CloudNetworkService_UpdateSubnetAsync.htm" />
+  <HelpKINode Title="Updating enumeration member" Url="html/T_Rackspace_RackConnect_v3_PublicIPStatus.htm" />
+  <HelpKINode Title="WaitUntilActive method" Url="html/M_Rackspace_Synchronous_PublicIPExtensions_WaitUntilActive.htm" />
+  <HelpKINode Title="WaitUntilActiveAsync method" Url="html/M_Rackspace_RackConnect_v3_PublicIP_WaitUntilActiveAsync.htm" />
+  <HelpKINode Title="WaitUntilDeleted method" Url="html/M_Rackspace_Synchronous_PublicIPExtensions_WaitUntilDeleted.htm" />
+  <HelpKINode Title="WaitUntilDeletedAsync method" Url="html/M_Rackspace_RackConnect_v3_PublicIP_WaitUntilDeletedAsync.htm" />
+  <HelpKINode Title="WaitUntilPublicIPIsActive method" Url="html/M_Rackspace_Synchronous_RackConnectServiceExtensions_WaitUntilPublicIPIsActive.htm" />
+  <HelpKINode Title="WaitUntilPublicIPIsActiveAsync method" Url="html/M_Rackspace_RackConnect_v3_RackConnectService_WaitUntilPublicIPIsActiveAsync.htm" />
+  <HelpKINode Title="WaitUntilPublicIPIsDeleted method" Url="html/M_Rackspace_Synchronous_RackConnectServiceExtensions_WaitUntilPublicIPIsDeleted.htm" />
+  <HelpKINode Title="WaitUntilPublicIPIsDeletedAsync method" Url="html/M_Rackspace_RackConnect_v3_RackConnectService_WaitUntilPublicIPIsDeletedAsync.htm" />
 </HelpKI>
