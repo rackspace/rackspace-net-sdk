@@ -10,3 +10,7 @@ nuget EWSoftware.SHFB.NETFramework 4.6.0
 nuget xunit !~> 2.0.0
 nuget xunit.runner.console !~> 2.0.0
 nuget xunit.runner.visualstudio !~> 2.0.1
+
+# For the samples
+source https://www.myget.org/F/rackspace/api/v2
+nuget Rackspace prerelease

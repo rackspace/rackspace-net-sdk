@@ -302,7 +302,6 @@ namespace Rackspace.RackConnect.v3
                 var ip = await endpoint
                  .AppendPathSegments("public_ips", publicIPId)
                  .Authenticate(_authenticationProvider)
-                 .AllowHttpStatus(HttpStatusCode.NotFound)
                  .PatchJsonAsync(definition, cancellationToken)
                  .ReceiveJson<PublicIP>()
                  .ConfigureAwait(false);
