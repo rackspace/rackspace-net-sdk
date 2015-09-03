@@ -33,7 +33,7 @@ namespace Rackspace.RackConnect.v3
             _testData.Dispose();
         }
 
-        [Fact(Skip = "Skip while a bug exists in RemovePublicIP functionality.")]
+        [Fact]
         public async Task CreateUnassignedPublicIPTest()
         {
             Trace.Write("Provisioning a public ip address... ");
