@@ -100,7 +100,6 @@ namespace Rackspace.RackConnect.v3
             {
                 var ip = await new Url(endpoint)
                     .AppendPathSegment("public_ips")
-                    .SetQueryParam("retain", definition.ShouldRetain)
                     .Authenticate(_authenticationProvider)
                     .PostJsonAsync(definition, cancellationToken)
                     .ReceiveJson<PublicIP>()
@@ -115,7 +114,7 @@ namespace Rackspace.RackConnect.v3
             {
                 return await executeRequest();
             }
-            catch (FlurlHttpException ex) when (CreateFailedDueToServerCreationRaceCondition(ex))
+            catch (FlurlHttpException ex) when (AssignIPFailedDueToServerCreationRaceCondition(ex))
             {
                 await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
                 return await executeRequest();
@@ -127,13 +126,13 @@ namespace Rackspace.RackConnect.v3
         /// between when we created the server and when we requested the IP
         /// i.e. The RackConnect API asked for the server details from the server API and got back a 404
         /// </summary>
-        private static bool CreateFailedDueToServerCreationRaceCondition(FlurlHttpException ex)
+        private static bool AssignIPFailedDueToServerCreationRaceCondition(FlurlHttpException ex)
         {
             if (ex.Call.HttpStatus != HttpStatusCode.Conflict)
                 return false;
 
             string errorMessage = ex.GetResponseString();
-            return Regex.IsMatch(errorMessage, "Cloud Server .* is unprocessable");
+            return Regex.IsMatch(errorMessage, "Cloud Server .* (unprocessable|exist).*");
         }
 
         /// <summary>
@@ -296,19 +295,30 @@ namespace Rackspace.RackConnect.v3
             if (definition == null)
                 throw new ArgumentNullException("definition");
 
-            Url endpoint = await _urlBuilder.GetEndpoint(cancellationToken).ConfigureAwait(false);
+            string endpoint = await _urlBuilder.GetEndpoint(cancellationToken).ConfigureAwait(false);
 
-            var ip = await endpoint
-                .AppendPathSegments("public_ips", publicIPId)
-                .Authenticate(_authenticationProvider)
-                .AllowHttpStatus(HttpStatusCode.NotFound)
-                .PatchJsonAsync(definition, cancellationToken)
-                .ReceiveJson<PublicIP>()
-                .ConfigureAwait(false);
+            Func<Task<PublicIP>> executeRequest = async () =>
+            {
+                var ip = await endpoint
+                 .AppendPathSegments("public_ips", publicIPId)
+                 .Authenticate(_authenticationProvider)
+                 .PatchJsonAsync(definition, cancellationToken)
+                 .ReceiveJson<PublicIP>()
+                 .ConfigureAwait(false);
 
-            SetOwner(ip);
+                SetOwner(ip);
+                return ip;
+            };
 
-            return ip;
+            try
+            {
+                return await executeRequest();
+            }
+            catch (FlurlHttpException ex) when (AssignIPFailedDueToServerCreationRaceCondition(ex))
+            {
+                await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
+                return await executeRequest();
+            }
         }
         #endregion
 
