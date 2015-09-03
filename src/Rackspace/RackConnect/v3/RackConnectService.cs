@@ -100,7 +100,6 @@ namespace Rackspace.RackConnect.v3
             {
                 var ip = await new Url(endpoint)
                     .AppendPathSegment("public_ips")
-                    .SetQueryParam("retain", definition.ShouldRetain)
                     .Authenticate(_authenticationProvider)
                     .PostJsonAsync(definition, cancellationToken)
                     .ReceiveJson<PublicIP>()
