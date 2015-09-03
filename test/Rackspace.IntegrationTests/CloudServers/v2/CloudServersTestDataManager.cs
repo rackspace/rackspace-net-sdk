@@ -54,7 +54,7 @@ namespace Rackspace.CloudServers.v2
             const string flavor = "2"; // 512 MB Standard Instance
             const string image = "09de0a66-3156-48b4-90a5-1cf25a905207"; // Ubuntu 14.04 LTS (Trusty Tahr) (PVHVM)
             var requestedServer = _serverService.CreateServer(name, image, flavor, networks: new string[] { networkId });
-            var server = _serverService.GetDetails(requestedServer.Id);
+            var server = _serverService.WaitForServerActive(requestedServer.Id);
             Register(server);
             return server;
         }
