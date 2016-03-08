@@ -49,7 +49,7 @@
   </Target>
 
   <Target Name="DownloadPaket" Condition="!Exists('$(Paket)')">
-    <Exec Command="..\.paket\paket.bootstrapper.exe" />
+    <Exec Command="..\.paket\paket.bootstrapper.exe 2.51.7" />
   </Target>
 
   <Target Name="DownloadNuGet" Condition="!Exists('$(NuGet)')">
